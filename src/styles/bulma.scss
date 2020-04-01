@@ -13,14 +13,14 @@ $radius-small: 2px;
 $radius-large: 4px;
 $tag-radius: 2px;
 
-$label-color: $grayDark;
+$label-color: $black;
 $input-border-color: $borderColor;
 $input-shadow: none;
 
 $background: $backgroundColor;
 $navbar-height: grid(10);
 $navbar-padding-vertical: 0;
-$navbar-item-color: $grayDark2;
+$navbar-item-color: $black;
 $navbar-breakpoint: $tablet;
 $section-padding: grid(2);
 $footer-background-color: transparent;
@@ -47,14 +47,12 @@ $fullhd: 1441px;
 @import "bulma/sass/elements/content.sass";
 @import "bulma/sass/elements/icon.sass";
 @import "bulma/sass/elements/notification.sass";
-@import "bulma/sass/elements/progress.sass";
 @import "bulma/sass/elements/title.sass";
 @import "bulma/sass/elements/other.sass";
 
 @import "bulma/sass/form/shared.sass";
 @import "bulma/sass/form/input-textarea.sass";
 @import "bulma/sass/form/select.sass";
-@import "bulma/sass/form/file.sass";
 @import "bulma/sass/form/tools.sass";
 
 @import "bulma/sass/components/card.sass";

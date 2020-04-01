@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { useIntl } from "gatsby-plugin-intl"
-
-import Chevron from "./chevron"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 import { debounce } from "../utils"
 
@@ -26,14 +25,16 @@ const ScrollTopButton = () => {
 
   return (
     <button
-      className={`button scroll-button ${visible ? `is-visible` : ``}`}
+      className={`button scroll-top-button is-primary ${
+        visible ? `is-visible` : ``
+      }`}
       type="button"
       aria-hidden={(!visible).toString()}
       tabindex={visible ? "0" : "-1"}
       aria-label={intl.formatMessage({ id: "scroll-to-top" })}
       onClick={onClick}
     >
-      <Chevron style={{ transform: "rotate(-90deg)" }} />
+      <FontAwesomeIcon icon="chevron-up" />
     </button>
   )
 }

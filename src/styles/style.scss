@@ -27,7 +27,7 @@ a {
   &:active,
   &:hover,
   &:focus {
-    color: $red;
+    color: $indigo;
   }
 }
 
@@ -49,7 +49,7 @@ a {
 }
 
 .navbar-item {
-  color: $grayDark;
+  color: $black;
   padding: grid(1) grid(2);
 
   &.language-selector {
@@ -97,7 +97,30 @@ a.navbar-item,
 }
 
 .footer {
-  background-color: $grayLight3;
+  margin-top: grid(4);
+  background-color: $backgroundGray;
+}
+
+.scroll-top-button {
+  display: block;
+  position: sticky;
+  margin-top: grid(2);
+  top: grid(2);
+  transition: opacity 0.5s ease-in-out;
+  opacity: 0;
+
+  &.is-visible {
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: $tablet) {
+  .scroll-top-button {
+    position: fixed;
+    top: auto;
+    bottom: grid(2);
+    left: grid(2);
+  }
 }
 
 @import "filters.scss";

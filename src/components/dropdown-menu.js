@@ -1,6 +1,8 @@
 import React, { useEffect, useState, useRef } from "react"
+import PropTypes from "prop-types"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
-const DropdownMenu = ({ label, menuId, classNames, children }) => {
+const DropdownMenu = ({ label, menuId, classNames, hasChevron, children }) => {
   const [active, setActive] = useState("false")
   const dropdownEl = useRef(null)
 
@@ -38,6 +40,19 @@ const DropdownMenu = ({ label, menuId, classNames, children }) => {
           onClick={() => setActive((active === "false").toString())}
         >
           {label}
+          {hasChevron ? (
+            <>
+              &nbsp;&nbsp;{" "}
+              <FontAwesomeIcon
+                icon="chevron-up"
+                style={{
+                  transform: active === "false" ? `rotate(180deg)` : null,
+                }}
+              />
+            </>
+          ) : (
+            ``
+          )}
         </button>
       </div>
       <div className="dropdown-menu" id={menuId} role="menu">
@@ -45,6 +60,19 @@ const DropdownMenu = ({ label, menuId, classNames, children }) => {
       </div>
     </div>
   )
+}
+
+DropdownMenu.propTypes = {
+  label: PropTypes.string.isRequired,
+  menuId: PropTypes.string.isRequired,
+  classNames: PropTypes.string,
+  hasChevron: PropTypes.bool,
+  children: PropTypes.node.isRequired,
+}
+
+DropdownMenu.defaultProps = {
+  classNames: ``,
+  hasChevron: false,
 }
 
 export default DropdownMenu

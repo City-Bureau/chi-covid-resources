@@ -4,6 +4,7 @@ import { useIntl } from "gatsby-plugin-intl"
 import remark from "remark"
 import html from "remark-html"
 import recommended from "remark-preset-lint-recommended"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 const processor = remark()
   .use(recommended)
@@ -30,7 +31,6 @@ const ResourceRow = ({
     <div className="resource-row columns is-multiline">
       <div className="column is-8">
         <h4>{name}</h4>
-        <p></p>
         {descriptionText ? (
           <div
             className="content"
@@ -45,14 +45,32 @@ const ResourceRow = ({
       <div className="column is-4">
         {link ? (
           <p>
-            <a href={link} target="_blank" rel="noopener noreferrer">
-              Website
+            <a href={link} target="_blank" rel="noopener">
+              <FontAwesomeIcon icon="external-link-alt" />
+              &nbsp; {intl.formatMessage({ id: "website" })}
             </a>
           </p>
         ) : (
           ``
         )}
-        {phone ? <p>{phone}</p> : ``}
+        {phone ? (
+          <p>
+            <FontAwesomeIcon icon="phone" />
+            &nbsp; {phone}
+          </p>
+        ) : (
+          ``
+        )}
+        {email ? (
+          <p>
+            <a href={`mailto:${email}`}>
+              <FontAwesomeIcon icon="envelope" />
+              &nbsp; {email}
+            </a>
+          </p>
+        ) : (
+          ``
+        )}
       </div>
     </div>
   )

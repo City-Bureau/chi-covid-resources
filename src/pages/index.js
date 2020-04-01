@@ -8,8 +8,11 @@ import SEO from "../components/seo"
 import FilterDescription from "../components/filter-description"
 import ResourceRow from "../components/resource-row"
 import CheckboxGroup from "../components/checkbox-group"
+import ScrollTopButton from "../components/scroll-top-button"
 
 import fromEntries from "object.fromentries"
+
+const PAGE_SIZE = 25
 
 const getUniqueOptions = (results, prop) => [
   ...new Set(
@@ -67,6 +70,7 @@ const IndexPage = ({
     applyFilters(filtersWithValues, allResults)
   )
   const [expanded, setExpanded] = useState(false)
+  const [page, setPage] = useState(1)
   const intl = useIntl()
 
   useEffect(() => {
@@ -100,7 +104,7 @@ const IndexPage = ({
             </h1>
             <button
               type="button"
-              className="is-hidden-tablet button"
+              className="is-hidden-tablet is-primary button"
               aria-label={intl.formatMessage({ id: "toggle-filters" })}
               aria-haspopup="true"
               aria-expanded={expanded.toString()}
@@ -117,12 +121,6 @@ const IndexPage = ({
             name="filter"
             action=""
           >
-            <div className="filter-group">
-              <label className="label" htmlFor="zip-search">
-                {intl.formatMessage({ id: "zip-label" })}
-              </label>
-              <input className="input" id="zip-search" />
-            </div>
             <CheckboxGroup
               name="what"
               label={intl.formatMessage({ id: "what-label" })}
@@ -139,6 +137,12 @@ const IndexPage = ({
               onChange={who => setFilters({ ...filters, who })}
               classNames="filter-group"
             />
+            <div className="filter-group">
+              <label className="label" htmlFor="zip-search">
+                {intl.formatMessage({ id: "zip-label" })}
+              </label>
+              <input className="input" id="zip-search" />
+            </div>
             <CheckboxGroup
               name="languages"
               label={intl.formatMessage({ id: "languages-label" })}
@@ -147,16 +151,19 @@ const IndexPage = ({
               onChange={languages => setFilters({ ...filters, languages })}
               classNames="filter-group"
             />
+            <button
+              className={`button is-info clear-filters ${
+                Object.entries(filtersWithValues).length === 0
+                  ? `is-hidden`
+                  : ``
+              }`}
+              type="button"
+              onClick={() => setFilters(defaultFilters)}
+            >
+              {intl.formatMessage({ id: "clear-filters" })}
+            </button>
           </form>
-          <button
-            className={`button clear ${
-              Object.entries(filtersWithValues).length === 0 ? `is-hidden` : ``
-            }`}
-            type="button"
-            onClick={() => setFilters(defaultFilters)}
-          >
-            {intl.formatMessage({ id: "clear-filters" })}
-          </button>
+          <ScrollTopButton />
         </aside>
         <div className="section filter-results-section">
           <FilterDescription
@@ -164,9 +171,22 @@ const IndexPage = ({
             count={results.length}
           />
           <div className="filter-results">
-            {results.map(result => (
+            {results.slice(0, page * PAGE_SIZE).map(result => (
               <ResourceRow key={result.id} {...result} />
             ))}
+          </div>
+          <div className="filter-results-footer">
+            {results.length > PAGE_SIZE * page ? (
+              <button
+                type="button"
+                className="button"
+                onClick={() => setPage(page + 1)}
+              >
+                {intl.formatMessage({ id: "load-more-results" })}
+              </button>
+            ) : (
+              ``
+            )}
           </div>
         </div>
       </main>

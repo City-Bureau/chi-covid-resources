@@ -6,8 +6,13 @@
     display: none !important;
   }
 
-  body {
+  body,
+  .resource-row:nth-child(odd) {
     background-color: transparent;
+  }
+
+  .resource-row {
+    padding: 0;
   }
 
   html,

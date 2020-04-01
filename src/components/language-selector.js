@@ -18,6 +18,7 @@ const LanguageSelector = ({ location, classNames }) => (
       <DropdownMenu
         key="lang-menu"
         label={languageName[language]}
+        hasChevron
         menuId="lang-menu"
         classNames={`language-selector ${classNames}`}
       >

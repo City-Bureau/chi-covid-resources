@@ -12,15 +12,16 @@
 
 .filter-results-section {
   padding: 0;
+  padding-bottom: grid(2);
 }
 
 .filter-controls {
-  width: grid(60);
-  min-width: grid(60);
-  max-width: grid(60);
+  width: grid(50);
+  min-width: grid(50);
+  max-width: grid(50);
   z-index: 1;
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
-  padding: grid(2) grid(1);
+  padding: grid(3) grid(2);
 }
 
 @media screen and (max-width: $tablet) {
@@ -40,12 +41,15 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: grid(2);
 
   h1 {
     font-weight: bold;
     font-size: 20px;
   }
+}
+
+#filter-form {
+  margin-top: grid(2);
 }
 
 .checkbox-group-values {
@@ -71,18 +75,63 @@ label.checkbox {
   cursor: pointer;
 }
 
+.button.clear-filters {
+  margin-top: grid(2);
+  display: block;
+}
+
 .filter-results-section {
   .columns {
     margin: 0;
   }
 }
 
+.filter-description {
+  margin: grid(2) 0;
+  padding: grid(2);
+  padding-bottom: 0;
+
+  h2 {
+    font-weight: bold;
+    font-size: 18px;
+  }
+}
+
 .resource-row {
+  padding: grid(1);
+
+  &:not(:last-child) {
+    border-bottom: $defaultBorder;
+  }
+
   .column {
     padding: grid(1.25);
   }
 
   h4 {
     font-weight: 600;
+    margin-bottom: grid(1);
   }
+
+  &:nth-child(odd) {
+    background-color: $backgroundGray;
+  }
+}
+
+@media screen and (max-width: $tablet) {
+  .filter-description {
+    padding: grid(1);
+  }
+
+  .resource-row {
+    padding: grid(1) 0;
+  }
+}
+
+.filter-results-footer {
+  padding: grid(2) 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }

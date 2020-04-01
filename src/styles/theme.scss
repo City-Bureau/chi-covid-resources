@@ -15,17 +15,9 @@ $gridSize: 6px;
 $white: #ffffff;
 $black: #2c2e35;
 $gray: #9b9c9f;
-$grayDark: #444444;
-$grayDark2: #8c8c8c;
-$grayDark3: #767676;
-$grayLight1: #bbbbbb;
-$grayLight2: #e3e3e3;
-$grayLight3: #f4f4f4;
-$grayLight4: #d5d5d5;
-$grayLight5: #d8d8d8;
-$grayLight6: #e8e8e8;
+$backgroundGray: #f4f4f4;
 $lightBlue: #00a6de;
-$blue: #0a60c2;
+$blue: #0072bc;
 $darkBlue: #0052af;
 $indigo: #46029f;
 $purple: #472f92;
@@ -34,25 +26,12 @@ $red: #ed1651;
 $green: #058346;
 $teal: #00868a;
 $yellow: #ffcb05;
-$borderColor: $grayLight4;
+$borderColor: $gray;
 $primaryColor: $blue;
 $primaryLight: #edf5ff;
 $accentColor: $yellow;
 $warningColor: $red;
-$bodyTextColor: $grayDark;
-
-$backgroundGray: #f1f1f1;
-$componentBackgroundGray: $grayLight3;
-$darkerBackgroundGray: #e5e5e5;
-$borderGray: $grayLight4;
-
-$iconGray: #9b9b9b;
-$interactiveGray: #444444;
-$activeGreen: #00763d;
-$highlightYellow: #ffec6e;
-$rowHighlightBg: #fffcd6;
-$itemBgColor: #021f40;
-$buttonBgColor: #f2f2f2;
+$bodyTextColor: $black;
 
 // Borders, shadows
 
