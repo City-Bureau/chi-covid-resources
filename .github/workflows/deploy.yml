@@ -1,4 +1,5 @@
 name: Deploy
+# TODO: Add cron trigger
 on:
   push:
     branches:

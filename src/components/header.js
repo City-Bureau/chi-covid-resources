@@ -53,18 +53,22 @@ const Header = ({ location }) => {
         className={`navbar-menu ${expanded === "true" ? `is-active` : ``}`}
       >
         <div className="navbar-end">
-          <Link
+          <a
             className="navbar-item"
-            to={intl.formatMessage({ id: "suggest-resource-url" })}
+            href={intl.formatMessage({ id: "suggest-resource-url" })}
+            target="_blank"
+            rel="noopener noreferrer"
           >
             {intl.formatMessage({ id: "suggest-resource" })}
-          </Link>
-          <Link
+          </a>
+          <a
             className="navbar-item"
-            to={intl.formatMessage({ id: "feedback-url" })}
+            href={intl.formatMessage({ id: "feedback-url" })}
+            target="_blank"
+            rel="noopener noreferrer"
           >
             {intl.formatMessage({ id: "feedback" })}
-          </Link>
+          </a>
           <Link className="navbar-item" to="/about">
             {intl.formatMessage({ id: "about" })}
           </Link>

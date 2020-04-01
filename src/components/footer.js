@@ -19,7 +19,9 @@ const Footer = () => (
         </div>
         <div className="column">
           <p>
-            <Link to="https://citybureau.org/">City Bureau</Link>
+            <a href="https://citybureau.org/" target="_blank">
+              City Bureau
+            </a>
           </p>
           <Link to="/">
             <FormattedMessage id="social-media" />
