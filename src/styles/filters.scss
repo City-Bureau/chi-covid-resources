@@ -17,6 +17,7 @@
 .filter-controls {
   width: grid(60);
   min-width: grid(60);
+  max-width: grid(60);
   z-index: 1;
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
   padding: grid(2) grid(1);
