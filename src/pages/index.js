@@ -2,16 +2,16 @@ import React, { useEffect, useState } from "react"
 import PropTypes from "prop-types"
 import { graphql } from "gatsby"
 import { useIntl } from "gatsby-plugin-intl"
+import fromEntries from "object.fromentries"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import FilterDescription from "../components/filter-description"
 import ResourceRow from "../components/resource-row"
 import CheckboxGroup from "../components/checkbox-group"
+import DebouncedInput from "../components/debounced-input"
 import ScrollTopButton from "../components/scroll-top-button"
-
-import fromEntries from "object.fromentries"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 const PAGE_SIZE = 25
 
@@ -143,7 +143,13 @@ const IndexPage = ({
               <label className="label" htmlFor="zip-search">
                 {intl.formatMessage({ id: "zip-label" })}
               </label>
-              <input className="input" id="zip-search" />
+              <DebouncedInput
+                name="zip"
+                id="zip-search"
+                value={filters.zip}
+                placeholder={intl.formatMessage({ id: "zip-placeholder" })}
+                onChange={zip => setFilters({ ...filters, zip })}
+              />
             </div>
             <CheckboxGroup
               name="languages"
