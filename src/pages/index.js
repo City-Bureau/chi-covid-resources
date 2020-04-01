@@ -9,6 +9,8 @@ import FilterDescription from "../components/filter-description"
 import ResourceRow from "../components/resource-row"
 import CheckboxGroup from "../components/checkbox-group"
 
+import fromEntries from "object.fromentries"
+
 const getUniqueOptions = (results, prop) => [
   ...new Set(
     results.reduce((prev, curr) => {
@@ -19,7 +21,7 @@ const getUniqueOptions = (results, prop) => [
 ]
 
 const getFiltersWithValues = filters =>
-  Object.fromEntries(
+  fromEntries(
     Object.entries(filters).filter(
       ([key, value]) =>
         !(Array.isArray(value) && value.length === 0) && value !== ``
@@ -69,8 +71,8 @@ const IndexPage = ({
 
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search)
-    const params = Object.fromEntries(
-      Object.entries(Object.fromEntries(urlParams))
+    const params = fromEntries(
+      Object.entries(fromEntries(urlParams))
         .filter(([key, value]) => value !== "" && key in filters)
         .map(([key, value]) =>
           Array.isArray(filters[key]) ? [key, value.split(",")] : [key, value]

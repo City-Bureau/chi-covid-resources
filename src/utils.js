@@ -11,6 +11,13 @@ export const getResolvedVersionForLanguage = ({
   return { ...fallback, ...current }
 }
 
+export const fromEntries = iterable => {
+  return [...iterable].reduce((obj, [key, val]) => {
+    obj[key] = val
+    return obj
+  })
+}
+
 /* eslint-disable */
 // Debounce function from underscore
 export const debounce = (func, wait, immediate) => {
