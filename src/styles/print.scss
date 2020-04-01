@@ -2,7 +2,8 @@
   .navbar-burger,
   .navbar-menu,
   .footer,
-  .filter-controls {
+  .filter-controls,
+  .filter-results-footer {
     display: none !important;
   }
 
@@ -11,15 +12,19 @@
     background-color: transparent;
   }
 
+  .filter-description,
   .resource-row {
-    padding: 0;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   html,
   body,
   .section,
   .container,
-  .columns {
+  .columns,
+  .filter-container,
+  .filter-header {
     overflow: visible;
     display: block;
   }

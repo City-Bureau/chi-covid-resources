@@ -30,7 +30,7 @@ const ScrollTopButton = () => {
       }`}
       type="button"
       aria-hidden={(!visible).toString()}
-      tabindex={visible ? "0" : "-1"}
+      tabIndex={visible ? "0" : "-1"}
       aria-label={intl.formatMessage({ id: "scroll-to-top" })}
       onClick={onClick}
     >

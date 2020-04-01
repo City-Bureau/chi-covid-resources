@@ -19,6 +19,8 @@ body {
 
 main.main {
   min-height: calc(100vh - #{$navbar-height});
+  max-width: $maxWidth;
+  margin: auto;
 }
 
 main.container {

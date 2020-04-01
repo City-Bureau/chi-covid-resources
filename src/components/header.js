@@ -28,7 +28,9 @@ const Header = ({ location }) => {
         <Link className="navbar-item" to="/">
           {/* TODO: Alt text */}
           <Img fixed={imageData.file.childImageSharp.fixed} />
-          <h1>{intl.formatMessage({ id: "site-title" })}</h1>
+          <h1 className="is-hidden-mobile">
+            {intl.formatMessage({ id: "site-title" })}
+          </h1>
         </Link>
         <div className="navbar-mobile-group  is-hidden-tablet">
           <LanguageSelector location={location} classNames="navbar-item" />
