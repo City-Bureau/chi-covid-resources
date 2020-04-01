@@ -21,6 +21,16 @@ main.main {
   min-height: calc(100vh - #{$navbar-height});
 }
 
+main.container {
+  padding: grid(2);
+}
+
+@media screen and (max-width: $tablet) {
+  main.container {
+    padding: grid(2) grid(1);
+  }
+}
+
 a {
   color: $blue;
 
@@ -34,7 +44,7 @@ a {
 .navbar {
   background-color: $white;
   box-shadow: 0 3px 2px -2px rgba(0, 0, 0, 0.15);
-  z-index: 1;
+  z-index: 2;
 }
 
 .navbar-brand > a {
@@ -51,11 +61,14 @@ a {
 .navbar-item {
   color: $black;
   padding: grid(1) grid(2);
+}
 
-  &.language-selector {
-    padding: 0;
-    margin: grid(1) grid(2);
-  }
+.navbar-mobile-group {
+  margin-left: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 .navbar-burger {
@@ -63,9 +76,21 @@ a {
   border: none;
 }
 
-a.navbar-item,
-.navbar-link {
+a.navbar-item {
   @extend a;
+
+  &:hover,
+  &:active,
+  &:focus {
+    @extend a:hover;
+  }
+}
+
+.print-button.navbar-item {
+  text-decoration: none;
+  height: auto;
+
+  @extend a.navbar-item;
 }
 
 .navbar-item img {
@@ -73,32 +98,67 @@ a.navbar-item,
 }
 
 .language-selector {
+  margin: 0;
+  margin-left: grid(2);
+  padding: 0;
+  height: 100%;
+
+  .dropdown-trigger {
+    height: 100%;
+  }
+
   .button {
     padding: 0 grid(1);
     background-color: $blue;
     color: $white;
+    height: 100%;
+    border-width: 0;
+    border-radius: 0;
   }
 
   .dropdown-menu {
     padding: 0;
     right: 0;
     min-width: 0;
-    border: $defaultBorder;
+    border-radius: 0;
+    box-shadow: $defaultBoxShadow;
   }
 
   .dropdown-content {
     padding: 0;
+    border-radius: 0;
   }
 
   a.dropdown-item {
-    padding: grid(0.5) 0;
+    padding: grid(1) 0;
     text-align: center;
+
+    &:hover,
+    &:active,
+    &:focus {
+      color: $indigo;
+    }
   }
 }
 
 .footer {
   margin-top: grid(4);
   background-color: $backgroundGray;
+  padding: grid(6) grid(3) grid(12);
+
+  .columns {
+    margin: 0;
+  }
+
+  .column {
+    padding: grid(1);
+  }
+}
+
+@media screen and (max-width: $tablet) {
+  .footer {
+    padding: grid(6) grid(1);
+  }
 }
 
 .scroll-top-button {
@@ -119,7 +179,7 @@ a.navbar-item,
     position: fixed;
     top: auto;
     bottom: grid(2);
-    left: grid(2);
+    left: grid(1);
   }
 }
 

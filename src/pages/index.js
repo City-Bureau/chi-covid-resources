@@ -11,6 +11,7 @@ import CheckboxGroup from "../components/checkbox-group"
 import ScrollTopButton from "../components/scroll-top-button"
 
 import fromEntries from "object.fromentries"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 const PAGE_SIZE = 25
 
@@ -96,7 +97,7 @@ const IndexPage = ({
   return (
     <Layout location={location}>
       <SEO title={intl.formatMessage({ id: "home" })} />
-      <main className="main container filter-container">
+      <main className="main filter-container">
         <aside className="section filter-controls">
           <div className="filter-header">
             <h1 className="header">
@@ -105,13 +106,13 @@ const IndexPage = ({
             <button
               type="button"
               className="is-hidden-tablet is-primary button"
-              aria-label={intl.formatMessage({ id: "toggle-filters" })}
               aria-haspopup="true"
               aria-expanded={expanded.toString()}
               aria-controls="filter-form"
               onClick={() => setExpanded(!expanded)}
             >
-              Toggle
+              <FontAwesomeIcon icon="filter" />
+              &nbsp;{intl.formatMessage({ id: "toggle-filters" })}
             </button>
           </div>
           <form
