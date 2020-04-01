@@ -90,6 +90,7 @@ const IndexPage = ({
   useEffect(() => {
     const filterValues = getFiltersWithValues(filters)
     updateQueryParams(filterValues)
+    setPage(1)
     setResults(applyFilters(filterValues, allResults))
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filters])

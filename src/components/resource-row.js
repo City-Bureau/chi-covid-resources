@@ -42,7 +42,7 @@ const ResourceRow = ({
           ``
         )}
       </div>
-      <div className="column is-4">
+      <div className="column is-4 detail-column">
         {link ? (
           <p>
             <a href={link} target="_blank" rel="noopener">
