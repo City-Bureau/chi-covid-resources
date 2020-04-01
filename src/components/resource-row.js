@@ -15,9 +15,11 @@ const ResourceRow = ({
   phone,
   email,
   link,
+  hours,
   what,
   who,
   description,
+  lastUpdated,
   ...props
 }) => {
   const intl = useIntl()
@@ -71,6 +73,24 @@ const ResourceRow = ({
         ) : (
           ``
         )}
+        {hours ? (
+          <p>
+            <FontAwesomeIcon icon="calendar-alt" />
+            &nbsp; {hours}
+          </p>
+        ) : (
+          ``
+        )}
+      </div>
+      <div className="column is-12">
+        <p class="is-italic">
+          {intl.formatMessage({ id: "last-updated" })}:{" "}
+          {new Date(lastUpdated).toLocaleString(intl.locale, {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          })}
+        </p>
       </div>
     </div>
   )
@@ -81,15 +101,18 @@ ResourceRow.propTypes = {
   phone: PropTypes.string,
   email: PropTypes.string,
   link: PropTypes.string,
+  hours: PropTypes.string,
   what: PropTypes.array,
   who: PropTypes.array,
   description: PropTypes.string,
+  lastUpdated: PropTypes.string.isRequired,
 }
 
 ResourceRow.defaultProps = {
   phone: ``,
   email: ``,
   link: ``,
+  hours: ``,
   what: [],
   who: [],
   description: ``,

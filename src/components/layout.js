@@ -8,6 +8,7 @@ import { faPhone } from "@fortawesome/free-solid-svg-icons/faPhone"
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons/faEnvelope"
 import { faPrint } from "@fortawesome/free-solid-svg-icons/faPrint"
 import { faFilter } from "@fortawesome/free-solid-svg-icons/faFilter"
+import { faCalendarAlt } from "@fortawesome/free-solid-svg-icons/faCalendarAlt"
 
 import Header from "./header"
 import Footer from "./footer"
@@ -20,7 +21,8 @@ library.add(
   faPhone,
   faEnvelope,
   faPrint,
-  faFilter
+  faFilter,
+  faCalendarAlt
 )
 
 const Layout = ({ location, children }) => (

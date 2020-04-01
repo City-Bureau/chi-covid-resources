@@ -1,5 +1,6 @@
 {
   "site-title": "Chicago COVID Resources",
+  "logo-alt": "Site logo",
   "not-found-title": "NOT FOUND",
   "not-found-text": "Page not found",
   "home": "Home",
@@ -28,6 +29,7 @@
   "name-label": "Nombre",
   "link-label": "Link",
   "phone-label": "Phone",
+  "last-updated": "Last updated",
   "English": "English",
   "Spanish": "Spanish"
 }

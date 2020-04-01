@@ -26,8 +26,10 @@ const Header = ({ location }) => {
     <nav className="navbar" role="navigation" aria-label="main navigation">
       <div className="navbar-brand">
         <Link className="navbar-item" to="/">
-          {/* TODO: Alt text */}
-          <Img fixed={imageData.file.childImageSharp.fixed} />
+          <Img
+            fixed={imageData.file.childImageSharp.fixed}
+            alt={intl.formatMessage({ id: "logo-alt" })}
+          />
           <h1 className="is-hidden-mobile">
             {intl.formatMessage({ id: "site-title" })}
           </h1>

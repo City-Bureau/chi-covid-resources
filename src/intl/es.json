@@ -1,5 +1,6 @@
 {
   "site-title": "Recursos de Chicago COVID",
+  "logo-alt": "Site logo",
   "not-found-title": "NOT FOUND (es)",
   "not-found-text": "Page not found (es)",
   "home": "Inicio",
@@ -28,6 +29,7 @@
   "name-label": "Nombre",
   "link-label": "Link",
   "phone-label": "Phone",
+  "last-updated": "Last updated",
   "English": "Ingles",
   "Spanish": "Español"
 }
