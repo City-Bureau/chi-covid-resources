@@ -1,0 +1,87 @@
+.filter-container {
+  max-width: $maxWidth;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: row;
+}
+
+.filter-controls,
+.filter-results-section {
+  flex-grow: 1;
+}
+
+.filter-results-section {
+  padding: 0;
+}
+
+.filter-controls {
+  width: grid(60);
+  min-width: grid(60);
+  z-index: 1;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
+  padding: grid(2) grid(1);
+}
+
+@media screen and (max-width: $tablet) {
+  .filter-container {
+    flex-direction: column;
+  }
+
+  .filter-controls {
+    width: 100%;
+    max-width: 100%;
+    flex-grow: 0;
+  }
+}
+
+.filter-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: grid(2);
+
+  h1 {
+    font-weight: bold;
+    font-size: 20px;
+  }
+}
+
+.checkbox-group-values {
+  label.checkbox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+
+    input[type="checkbox"] {
+      margin-right: grid(1);
+    }
+  }
+}
+
+.filter-group {
+  &:not(:last-child) {
+    margin-bottom: grid(2);
+  }
+}
+
+label.checkbox {
+  cursor: pointer;
+}
+
+.filter-results-section {
+  .columns {
+    margin: 0;
+  }
+}
+
+.resource-row {
+  .column {
+    padding: grid(1.25);
+  }
+
+  h4 {
+    font-weight: 600;
+  }
+}

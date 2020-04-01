@@ -1,0 +1,21 @@
+@media print {
+  .navbar-burger,
+  .navbar-menu,
+  .footer,
+  .filter-controls {
+    display: none !important;
+  }
+
+  body {
+    background-color: transparent;
+  }
+
+  html,
+  body,
+  .section,
+  .container,
+  .columns {
+    overflow: visible;
+    display: block;
+  }
+}

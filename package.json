@@ -1,0 +1,72 @@
+{
+  "name": "chi-covid-resources",
+  "private": true,
+  "description": "",
+  "version": "0.1.0",
+  "author": "City Bureau",
+  "dependencies": {
+    "bulma": "^0.8.1",
+    "dotenv": "^8.2.0",
+    "gatsby": "^2.19.45",
+    "gatsby-image": "^2.2.44",
+    "gatsby-plugin-google-gtag": "^1.2.1",
+    "gatsby-plugin-intl": "^0.3.3",
+    "gatsby-plugin-manifest": "^2.2.48",
+    "gatsby-plugin-offline": "^3.0.41",
+    "gatsby-plugin-react-helmet": "^3.1.24",
+    "gatsby-plugin-sass": "^2.2.1",
+    "gatsby-plugin-sharp": "^2.4.13",
+    "gatsby-source-airtable": "^2.1.0",
+    "gatsby-source-filesystem": "^2.1.56",
+    "gatsby-transformer-sharp": "^2.3.19",
+    "gray-matter": "^4.0.2",
+    "node-sass": "^4.13.1",
+    "prop-types": "^15.7.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-helmet": "^5.2.1",
+    "remark": "^11.0.2",
+    "remark-html": "^11.0.1",
+    "remark-preset-lint-recommended": "^3.0.4",
+    "smoothscroll-polyfill": "^0.4.4"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "eslint": "^6.8.0",
+    "eslint-config-react-app": "^5.2.1",
+    "husky": "^4.2.3",
+    "prettier": "^1.19.1"
+  },
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "not ie 10"
+  ],
+  "eslintConfig": {
+    "extends": "react-app",
+    "ignorePatterns": [
+      "node_modules/"
+    ]
+  },
+  "prettier": {
+    "endOfLine": "lf",
+    "semi": false,
+    "singleQuote": false,
+    "tabWidth": 2,
+    "trailingComma": "es5"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS -x @commitlint/config-conventional"
+    }
+  }
+}

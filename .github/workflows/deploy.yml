@@ -1,0 +1,39 @@
+name: Deploy
+on:
+  push:
+    branches:
+      - master
+
+env:
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  AWS_DEFAULT_REGION: us-east-2
+  S3_BUCKET: city-bureau-covid-staging
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+
+      - uses: actions/setup-python@v1
+        with:
+          python-version: 3.7
+
+      - name: Install AWS CLI
+        run: |
+          python -m pip install --upgrade pip
+          pip install awscli
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "11.x"
+
+      - run: npm install -g gatsby-cli
+
+      - run: make install
+
+      - run: make build
+
+      - run: make deploy

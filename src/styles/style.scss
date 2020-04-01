@@ -1,0 +1,104 @@
+@import "theme.scss";
+@import "bulma.scss";
+
+html,
+body {
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  background-color: $backgroundColor;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+}
+
+main.main {
+  min-height: calc(100vh - #{$navbar-height});
+}
+
+a {
+  color: $blue;
+
+  &:active,
+  &:hover,
+  &:focus {
+    color: $red;
+  }
+}
+
+.navbar {
+  background-color: $white;
+  box-shadow: 0 3px 2px -2px rgba(0, 0, 0, 0.15);
+  z-index: 1;
+}
+
+.navbar-brand > a {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+
+  .gatsby-image-wrapper {
+    margin-right: grid(1);
+  }
+}
+
+.navbar-item {
+  color: $grayDark;
+  padding: grid(1) grid(2);
+
+  &.language-selector {
+    padding: 0;
+    margin: grid(1) grid(2);
+  }
+}
+
+.navbar-burger {
+  appearance: none;
+  border: none;
+}
+
+a.navbar-item,
+.navbar-link {
+  @extend a;
+}
+
+.navbar-item img {
+  max-height: 100%;
+}
+
+.language-selector {
+  .button {
+    padding: 0 grid(1);
+    background-color: $blue;
+    color: $white;
+  }
+
+  .dropdown-menu {
+    padding: 0;
+    right: 0;
+    min-width: 0;
+    border: $defaultBorder;
+  }
+
+  .dropdown-content {
+    padding: 0;
+  }
+
+  a.dropdown-item {
+    padding: grid(0.5) 0;
+    text-align: center;
+  }
+}
+
+.footer {
+  background-color: $grayLight3;
+}
+
+@import "filters.scss";
+@import "print.scss";
