@@ -13,6 +13,8 @@ import CheckboxGroup from "../components/checkbox-group"
 import DebouncedInput from "../components/debounced-input"
 import ScrollTopButton from "../components/scroll-top-button"
 
+import { DEFAULT_DEBOUNCE } from "../constants"
+
 const PAGE_SIZE = 25
 
 const getUniqueOptions = (results, prop) => [
@@ -90,7 +92,12 @@ const IndexPage = ({
     const filterValues = getFiltersWithValues(filters)
     updateQueryParams(filterValues)
     setPage(1)
-    setResults(applyFilters(filterValues, allResults))
+
+    const handler = window.setTimeout(
+      () => setResults(applyFilters(filterValues, allResults)),
+      DEFAULT_DEBOUNCE / 2
+    )
+    return () => window.clearTimeout(handler)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filters])
 

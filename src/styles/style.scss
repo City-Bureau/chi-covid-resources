@@ -43,6 +43,46 @@ a {
   }
 }
 
+input[type="checkbox"] {
+  appearance: none;
+  width: grid(3);
+  min-width: grid(3);
+  height: grid(3);
+  background-color: $backgroundGray;
+  border: $defaultBorder;
+  border-radius: grid(0.25);
+  box-shadow: none;
+  position: relative;
+
+  &:checked::after {
+    content: "\2714\fe0e";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    font-size: grid(2.5);
+    color: $blue;
+    border-width: 0;
+    text-align: center;
+  }
+
+  &:active,
+  &:focus,
+  &:hover {
+    z-index: 1;
+    border-color: $blue;
+    outline: none;
+    cursor: pointer;
+
+    & + * {
+      z-index: 2;
+    }
+  }
+}
+
 .navbar {
   background-color: $white;
   box-shadow: 0 3px 2px -2px rgba(0, 0, 0, 0.15);

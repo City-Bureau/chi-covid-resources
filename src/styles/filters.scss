@@ -59,6 +59,10 @@
     align-items: center;
     justify-content: flex-start;
 
+    &:not(:last-child) {
+      margin-bottom: grid(0.5);
+    }
+
     input[type="checkbox"] {
       margin-right: grid(1);
     }

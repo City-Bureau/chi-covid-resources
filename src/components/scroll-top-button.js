@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 import { useIntl } from "gatsby-plugin-intl"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
+import { DEFAULT_DEBOUNCE } from "../constants"
 import { debounce } from "../utils"
 
 const ScrollTopButton = () => {
@@ -11,7 +12,7 @@ const ScrollTopButton = () => {
   useEffect(() => {
     const onScroll = debounce(
       () => setVisible(window.innerHeight < 2 < window.pageYOffset),
-      500
+      DEFAULT_DEBOUNCE
     )
     document.addEventListener("scroll", onScroll, { passive: true })
     return () => {

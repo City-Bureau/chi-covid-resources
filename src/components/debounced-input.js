@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react"
 import PropTypes from "prop-types"
 
+import { DEFAULT_DEBOUNCE } from "../constants"
+
 const DebouncedInput = ({
   name,
   id,
@@ -47,7 +49,7 @@ DebouncedInput.propTypes = {
 DebouncedInput.defaultProps = {
   value: ``,
   placeholder: ``,
-  debounceTime: 500,
+  debounceTime: DEFAULT_DEBOUNCE,
 }
 
 export default DebouncedInput
