@@ -33,5 +33,15 @@
   "phone-label": "Phone",
   "last-updated": "Last updated",
   "English": "English",
-  "Spanish": "Spanish"
+  "Spanish": "Spanish",
+  "Money": "Money",
+  "Food": "Food",
+  "Hygiene Products": "Hygiene Products",
+  "Employment": "Employment",
+  "Unemployment": "Unemployment",
+  "Artists": "Artists",
+  "LGBTQI": "LGBTQI",
+  "Hospitality Workers": "Hospitality Workers",
+  "Government": "Government",
+  "Nonprofit": "Nonprofit"
 }
