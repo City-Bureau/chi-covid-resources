@@ -15,6 +15,7 @@ const ResourceRow = ({
   phone,
   email,
   link,
+  address,
   hours,
   what,
   who,
@@ -91,6 +92,14 @@ const ResourceRow = ({
         ) : (
           ``
         )}
+        {address ? (
+          <p>
+            <FontAwesomeIcon icon="map-marker-alt" />
+            &nbsp; {address}
+          </p>
+        ) : (
+          ``
+        )}
         {hours ? (
           <p>
             <FontAwesomeIcon icon="calendar-alt" />
@@ -129,6 +138,7 @@ ResourceRow.propTypes = {
   phone: PropTypes.string,
   email: PropTypes.string,
   link: PropTypes.string,
+  address: PropTypes.string,
   hours: PropTypes.string,
   what: PropTypes.array,
   who: PropTypes.array,
@@ -142,6 +152,7 @@ ResourceRow.defaultProps = {
   phone: ``,
   email: ``,
   link: ``,
+  address: ``,
   hours: ``,
   what: [],
   who: [],

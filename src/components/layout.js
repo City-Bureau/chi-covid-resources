@@ -10,6 +10,7 @@ import { faPrint } from "@fortawesome/free-solid-svg-icons/faPrint"
 import { faFilter } from "@fortawesome/free-solid-svg-icons/faFilter"
 import { faCalendarAlt } from "@fortawesome/free-solid-svg-icons/faCalendarAlt"
 import { faLanguage } from "@fortawesome/free-solid-svg-icons/faLanguage"
+import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons/faMapMarkerAlt"
 
 import Header from "./header"
 import Footer from "./footer"
@@ -29,7 +30,8 @@ library.add(
   faPrint,
   faFilter,
   faCalendarAlt,
-  faLanguage
+  faLanguage,
+  faMapMarkerAlt
 )
 
 const Layout = ({ location, children }) => (
