@@ -1,9 +1,11 @@
 name: Deploy
-# TODO: Add cron trigger
+
 on:
   push:
     branches:
       - master
+  schedule:
+    - cron: "6 */6 * * *" # Every 6 hours at the 6th minute
 
 env:
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -35,7 +37,13 @@ jobs:
         with:
           node-version: "11.x"
 
-      - run: npm install -g gatsby-cli
+      - name: Cache JS dependencies
+        uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: npm-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            npm-
 
       - run: make install
 
