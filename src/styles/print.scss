@@ -7,13 +7,19 @@
     display: none !important;
   }
 
-  body,
-  .resource-row:nth-child(odd) {
-    background-color: transparent;
+  .navbar {
+    box-shadow: none;
   }
 
-  .filter-description,
-  .resource-row {
+  body,
+  .navbar,
+  .resource-row:nth-child(odd),
+  .tag {
+    background-color: transparent !important;
+  }
+
+  .resource-row,
+  .tag {
     padding-left: 0;
     padding-right: 0;
   }
@@ -27,5 +33,16 @@
   .filter-header {
     overflow: visible;
     display: block;
+    color: #000 !important;
+  }
+
+  .filter-description,
+  .resource-row .column {
+    padding: 0 grid(1);
+  }
+
+  // Show commas between tag items for legibility
+  .tag:not(:last-child)::after {
+    content: ", ";
   }
 }
