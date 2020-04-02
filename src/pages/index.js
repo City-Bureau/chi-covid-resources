@@ -97,7 +97,7 @@ const IndexPage = ({
 
   return (
     <Layout location={location}>
-      <SEO title={intl.formatMessage({ id: "home" })} />
+      <SEO title={intl.formatMessage({ id: "site-title" })} overrideTitle />
       <main className="main filter-container">
         <aside className="section filter-controls">
           <div className="filter-header">

@@ -4,7 +4,7 @@ import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 import { rtlLanguages } from "../constants"
 
-function SEO({ description, lang, meta, title }) {
+function SEO({ description, lang, meta, title, overrideTitle }) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -28,7 +28,7 @@ function SEO({ description, lang, meta, title }) {
         dir: rtlLanguages.includes(lang) ? `rtl` : `ltr`,
       }}
       title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
+      titleTemplate={overrideTitle ? `%s` : `%s | ${site.siteMetadata.title}`}
       meta={[
         {
           name: `description`,
@@ -73,6 +73,7 @@ SEO.defaultProps = {
   lang: `en`,
   meta: [],
   description: ``,
+  overrideTitle: false,
 }
 
 SEO.propTypes = {
@@ -80,6 +81,7 @@ SEO.propTypes = {
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string.isRequired,
+  overrideTitle: PropTypes.bool,
 }
 
 export default SEO
