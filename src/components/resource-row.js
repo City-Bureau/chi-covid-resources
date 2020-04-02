@@ -18,6 +18,8 @@ const ResourceRow = ({
   hours,
   what,
   who,
+  languages,
+  type,
   description,
   lastUpdated,
   ...props
@@ -40,6 +42,22 @@ const ResourceRow = ({
               __html: processor.processSync(descriptionText),
             }}
           />
+        ) : (
+          ``
+        )}
+        <div className="tag-row">
+          {what.map(t => (
+            <span className="tag">{intl.formatMessage({ id: t })}</span>
+          ))}
+        </div>
+        {who && who.length > 0 ? (
+          <div className="tag-row">
+            {who.map(t => (
+              <span className="tag is-teal">
+                {intl.formatMessage({ id: t })}
+              </span>
+            ))}
+          </div>
         ) : (
           ``
         )}
@@ -81,6 +99,16 @@ const ResourceRow = ({
         ) : (
           ``
         )}
+        {languages && languages.length > 0 ? (
+          <p>
+            <FontAwesomeIcon icon="language" />
+            &nbsp;{" "}
+            {languages.map(l => intl.formatMessage({ id: l })).join(", ")}
+          </p>
+        ) : (
+          ``
+        )}
+        {type ? <p>{intl.formatMessage({ id: type })}</p> : ``}
       </div>
       <div className="column is-12">
         <p class="is-italic">
@@ -104,6 +132,8 @@ ResourceRow.propTypes = {
   hours: PropTypes.string,
   what: PropTypes.array,
   who: PropTypes.array,
+  languages: PropTypes.array,
+  type: PropTypes.string,
   description: PropTypes.string,
   lastUpdated: PropTypes.string.isRequired,
 }
@@ -115,6 +145,8 @@ ResourceRow.defaultProps = {
   hours: ``,
   what: [],
   who: [],
+  languages: [],
+  type: ``,
   description: ``,
 }
 
