@@ -9,24 +9,25 @@ const getFilterValues = filters =>
 
 const FilterDescription = ({ filters, count }) => {
   const intl = useIntl()
-  let description = ``
   const filterText = getFilterValues(filters)
     .map(filter => intl.formatMessage({ id: filter }))
     .join(", ")
-  if (count === 0) {
-    description = intl.formatMessage(
-      { id: "filter-description-no-results" },
-      { filters: filterText }
-    )
-  } else {
-    description = intl.formatMessage(
-      { id: "filter-description" },
-      { count: count.toLocaleString(intl.locale), filters: filterText }
-    )
+  const params = {
+    filters: filterText,
+    count: count.toLocaleString(intl.locale),
+  }
+
+  let messageId = `filter-description-filters`
+  if (filterText === ``) {
+    messageId = `filter-description`
+  } else if (count === 0) {
+    messageId = `filter-description-no-results`
+  } else if (count === 1) {
+    messageId = `filter-description-one-result`
   }
   return (
     <div className="filter-description">
-      <h2>{description}</h2>
+      <h2>{intl.formatMessage({ id: messageId }, params)}</h2>
     </div>
   )
 }

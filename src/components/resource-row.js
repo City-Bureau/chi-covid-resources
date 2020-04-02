@@ -112,7 +112,7 @@ const ResourceRow = ({
       </div>
       <div className="column is-12">
         <p class="is-italic">
-          {intl.formatMessage({ id: "last-updated" })}:{" "}
+          {intl.formatMessage({ id: "last-updated" })}{" "}
           {new Date(lastUpdated).toLocaleString(intl.locale, {
             year: "numeric",
             month: "long",

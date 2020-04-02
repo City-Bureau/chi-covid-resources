@@ -47,6 +47,15 @@ const applyFilters = (filters, data) =>
     })
   )
 
+const loadQueryParamFilters = (location, filters) =>
+  fromEntries(
+    Object.entries(fromEntries(new URLSearchParams(location.search)))
+      .filter(([key, value]) => value !== "" && key in filters)
+      .map(([key, value]) =>
+        Array.isArray(filters[key]) ? [key, value.split(",")] : [key, value]
+      )
+  )
+
 const updateQueryParams = filters => {
   const params = new URLSearchParams(filters)
   const suffix = params.toString() === `` ? `` : `?${params}`
@@ -63,9 +72,12 @@ const IndexPage = ({
     allAirtable: { edges },
   },
 }) => {
-  const defaultFilters = { zip: ``, who: [], what: [] }
+  const defaultFilters = { zip: ``, who: [], what: [], languages: [] }
+  const urlFilters = loadQueryParamFilters(location, defaultFilters)
   const allResults = edges.map(({ node: { id, data } }) => ({ id, ...data }))
-  const [filters, setFilters] = useState(defaultFilters)
+
+  // Set initial filters from URL params
+  const [filters, setFilters] = useState({ ...defaultFilters, ...urlFilters })
   const filtersWithValues = getFiltersWithValues(filters)
   const [results, setResults] = useState(
     applyFilters(filtersWithValues, allResults)
@@ -73,19 +85,6 @@ const IndexPage = ({
   const [expanded, setExpanded] = useState(false)
   const [page, setPage] = useState(1)
   const intl = useIntl()
-
-  useEffect(() => {
-    const urlParams = new URLSearchParams(window.location.search)
-    const params = fromEntries(
-      Object.entries(fromEntries(urlParams))
-        .filter(([key, value]) => value !== "" && key in filters)
-        .map(([key, value]) =>
-          Array.isArray(filters[key]) ? [key, value.split(",")] : [key, value]
-        )
-    )
-    setFilters(params)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
 
   useEffect(() => {
     const filterValues = getFiltersWithValues(filters)
