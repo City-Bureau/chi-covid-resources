@@ -13,6 +13,7 @@ import CheckboxGroup from "../components/checkbox-group"
 import DebouncedInput from "../components/debounced-input"
 import ScrollTopButton from "../components/scroll-top-button"
 
+import { ZIP_MAP } from "../zips"
 import { DEFAULT_DEBOUNCE } from "../constants"
 
 const PAGE_SIZE = 25
@@ -37,7 +38,10 @@ const getFiltersWithValues = filters =>
 const applyFilters = (filters, data) =>
   data.filter(d =>
     Object.entries(filters).every(([key, value]) => {
-      if (Array.isArray(value)) {
+      if (key === `zip` && value.replace(/\D/g, ``) in ZIP_MAP) {
+        const zipVal = value.replace(/\D/g, ``)
+        return !!d[key] && ZIP_MAP[zipVal].some(z => d[key].includes(z))
+      } else if (Array.isArray(value)) {
         // If data value is array, check for overlap
         return Array.isArray(d[key])
           ? d[key].some(v => value.includes(v))
@@ -232,7 +236,6 @@ export const query = graphql`
             descriptiones: Description_ES
             who: Who
             what: Category
-            restrictions: Restrictions
             languages: Languages
             level: Level
             type: Type
