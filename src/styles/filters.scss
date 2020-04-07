@@ -82,10 +82,25 @@ html[dir="rtl"] .checkbox-group-values {
   &:not(:last-child) {
     margin-bottom: grid(2);
   }
+
+  &.search {
+    position: relative;
+  }
 }
 
 label.checkbox {
   cursor: pointer;
+}
+
+input.search {
+  padding-left: grid(4);
+
+  & ~ .fa-search {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: grid(1);
+  }
 }
 
 .button.clear-filters {

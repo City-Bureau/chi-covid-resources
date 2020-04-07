@@ -12,6 +12,7 @@ import { faCalendarAlt } from "@fortawesome/free-solid-svg-icons/faCalendarAlt"
 import { faLanguage } from "@fortawesome/free-solid-svg-icons/faLanguage"
 import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons/faMapMarkerAlt"
 import { faExclamationCircle } from "@fortawesome/free-solid-svg-icons/faExclamationCircle"
+import { faSearch } from "@fortawesome/free-solid-svg-icons/faSearch"
 
 import Header from "./header"
 import Footer from "./footer"
@@ -33,7 +34,8 @@ library.add(
   faCalendarAlt,
   faLanguage,
   faMapMarkerAlt,
-  faExclamationCircle
+  faExclamationCircle,
+  faSearch
 )
 
 const Layout = ({ location, children }) => (

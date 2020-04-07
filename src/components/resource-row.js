@@ -49,13 +49,15 @@ const ResourceRow = ({
         )}
         <div className="tag-row">
           {what.map(t => (
-            <span className="tag">{intl.formatMessage({ id: t })}</span>
+            <span key={t} className="tag">
+              {intl.formatMessage({ id: t })}
+            </span>
           ))}
         </div>
         {who && who.length > 0 ? (
           <div className="tag-row">
             {who.map(t => (
-              <span className="tag is-teal">
+              <span key={t} className="tag is-teal">
                 {intl.formatMessage({ id: t })}
               </span>
             ))}
@@ -112,7 +114,7 @@ const ResourceRow = ({
         {languages && languages.length > 0 ? (
           <p>
             <FontAwesomeIcon icon="language" />
-            &nbsp;{" "}
+            &nbsp;
             {languages.map(l => intl.formatMessage({ id: l })).join(", ")}
           </p>
         ) : (
@@ -124,7 +126,7 @@ const ResourceRow = ({
         </button>
       </div>
       <div className="column is-12">
-        <p class="is-italic">
+        <p className="is-italic">
           {intl.formatMessage({ id: "last-updated" })}{" "}
           {new Date(lastUpdated).toLocaleString(intl.locale, {
             year: "numeric",

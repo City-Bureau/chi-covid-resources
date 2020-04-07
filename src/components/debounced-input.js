@@ -12,15 +12,24 @@ const DebouncedInput = ({
   onChange,
   debounceTime,
 }) => {
+  const [didMount, setDidMount] = useState(false)
   const [localValue, setLocalValue] = useState(value)
+
+  useEffect(() => setDidMount(true), [])
 
   useEffect(() => {
     setLocalValue(value)
   }, [value])
 
   useEffect(() => {
-    const handler = window.setTimeout(() => onChange(localValue), debounceTime)
-    return () => window.clearTimeout(handler)
+    if (!didMount) return
+    if (localValue !== value) {
+      const handler = window.setTimeout(
+        () => onChange(localValue),
+        debounceTime
+      )
+      return () => window.clearTimeout(handler)
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [localValue])
 

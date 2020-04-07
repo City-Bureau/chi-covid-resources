@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react"
+import React, { useMemo, useEffect, useState } from "react"
 import PropTypes from "prop-types"
 import { graphql } from "gatsby"
 import { useIntl } from "gatsby-plugin-intl"
 import fromEntries from "object.fromentries"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import Fuse from "fuse.js"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -14,6 +15,7 @@ import DebouncedInput from "../components/debounced-input"
 import ScrollTopButton from "../components/scroll-top-button"
 import ToastMessage from "../components/toast-message"
 
+import { useDebounce } from "../hooks"
 import { ZIP_MAP } from "../zips"
 import { DEFAULT_DEBOUNCE } from "../constants"
 
@@ -36,9 +38,13 @@ const getFiltersWithValues = filters =>
     )
   )
 
-const applyFilters = (filters, data) =>
-  data.filter(d =>
+const applyFilters = (filters, data) => {
+  const filtered = data.filter(d =>
     Object.entries(filters).every(([key, value]) => {
+      // Ignore search, apply afterwards to save time
+      if (key === `search`) {
+        return true
+      }
       if (key === `zip` && value.replace(/\D/g, ``) in ZIP_MAP) {
         const zipVal = value.replace(/\D/g, ``)
         return (
@@ -58,6 +64,26 @@ const applyFilters = (filters, data) =>
       return true
     })
   )
+  if (filters.search?.trim()) {
+    return new Fuse(filtered, {
+      minMatchCharLength: 3,
+      shouldSort: false,
+      threshold: 0.3,
+      keys: [
+        `name`,
+        `description`,
+        `descriptiones`,
+        `who`,
+        `what`,
+        `languages`,
+      ],
+    })
+      .search(filters.search.trim())
+      .map(({ item }) => item)
+  } else {
+    return filtered
+  }
+}
 
 const loadQueryParamFilters = (location, filters) =>
   fromEntries(
@@ -87,7 +113,13 @@ const IndexPage = ({
     allAirtable: { edges },
   },
 }) => {
-  const defaultFilters = { zip: ``, who: [], what: [], languages: [] }
+  const defaultFilters = {
+    search: ``,
+    zip: ``,
+    who: [],
+    what: [],
+    languages: [],
+  }
   const urlFilters = loadQueryParamFilters(location, defaultFilters)
   const allResults = edges.map(({ node: { recordId, data } }) => ({
     id: recordId,
@@ -95,15 +127,45 @@ const IndexPage = ({
   }))
 
   // Set initial filters from URL params
-  const [filters, setFilters] = useState({ ...defaultFilters, ...urlFilters })
+  const [filters, setFilters] = useState({
+    ...defaultFilters,
+    ...urlFilters,
+  })
+  const debounceFilters = useDebounce(filters, DEFAULT_DEBOUNCE / 2)
   const filtersWithValues = getFiltersWithValues(filters)
-  const [results, setResults] = useState(
-    applyFilters(filtersWithValues, allResults)
-  )
   const [expanded, setExpanded] = useState(false)
   const [page, setPage] = useState(1)
   const [toast, setToast] = useState(``)
+  const results = useMemo(
+    () => applyFilters(getFiltersWithValues(debounceFilters), allResults),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [
+      debounceFilters.search,
+      debounceFilters.zip,
+      debounceFilters.what,
+      debounceFilters.who,
+      debounceFilters.languages,
+    ]
+  )
+  const whatOptions = useMemo(
+    () => getUniqueOptions(allResults, `what`),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    []
+  )
+  const whoOptions = useMemo(
+    () => getUniqueOptions(allResults, `who`),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    []
+  )
+  const langOptions = useMemo(
+    () => getUniqueOptions(allResults, `languages`),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    []
+  )
   const intl = useIntl()
+
+  const translateOptions = options =>
+    options.map(value => ({ value, label: intl.formatMessage({ id: value }) }))
 
   // Function for creating a new flagged resource record in Airtable
   const flagResource = ({ id }) =>
@@ -113,17 +175,16 @@ const IndexPage = ({
       .catch(err => console.error(err))
 
   useEffect(() => {
-    const filterValues = getFiltersWithValues(filters)
-    updateQueryParams(filterValues)
-    setPage(1)
-
-    const handler = window.setTimeout(
-      () => setResults(applyFilters(filterValues, allResults)),
-      DEFAULT_DEBOUNCE / 2
-    )
-    return () => window.clearTimeout(handler)
+    updateQueryParams(getFiltersWithValues(debounceFilters))
+    if (page !== 1) setPage(1)
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [filters])
+  }, [
+    debounceFilters.search,
+    debounceFilters.zip,
+    debounceFilters.what,
+    debounceFilters.who,
+    debounceFilters.languages,
+  ])
 
   return (
     <Layout location={location}>
@@ -161,10 +222,22 @@ const IndexPage = ({
             name="filter"
             action=""
           >
+            <div className="filter-group search">
+              <DebouncedInput
+                name="search"
+                id="search"
+                classNames="search"
+                value={filters.search}
+                aria-label={intl.formatMessage({ id: "search-label" })}
+                placeholder={intl.formatMessage({ id: "search-label" })}
+                onChange={search => setFilters({ ...filters, search })}
+              />
+              <FontAwesomeIcon icon="search" />
+            </div>
             <CheckboxGroup
               name="what"
               label={intl.formatMessage({ id: "what-label" })}
-              options={getUniqueOptions(allResults, `what`)}
+              options={translateOptions(whatOptions)}
               value={filters.what}
               onChange={what => setFilters({ ...filters, what })}
               classNames="filter-group"
@@ -172,7 +245,7 @@ const IndexPage = ({
             <CheckboxGroup
               name="who"
               label={intl.formatMessage({ id: "who-label" })}
-              options={getUniqueOptions(allResults, `who`)}
+              options={translateOptions(whoOptions)}
               value={filters.who}
               onChange={who => setFilters({ ...filters, who })}
               classNames="filter-group"
@@ -185,14 +258,16 @@ const IndexPage = ({
                 name="zip"
                 id="zip-search"
                 value={filters.zip}
-                placeholder={intl.formatMessage({ id: "zip-placeholder" })}
+                placeholder={intl.formatMessage({
+                  id: "zip-placeholder",
+                })}
                 onChange={zip => setFilters({ ...filters, zip })}
               />
             </div>
             <CheckboxGroup
               name="languages"
               label={intl.formatMessage({ id: "languages-label" })}
-              options={getUniqueOptions(allResults, `languages`)}
+              options={translateOptions(langOptions)}
               value={filters.languages}
               onChange={languages => setFilters({ ...filters, languages })}
               classNames="filter-group"
@@ -213,7 +288,7 @@ const IndexPage = ({
         </aside>
         <div className="section filter-results-section">
           <FilterDescription
-            filters={filtersWithValues}
+            filters={getFiltersWithValues(debounceFilters)}
             count={results.length}
           />
           <div className="filter-results">

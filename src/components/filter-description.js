@@ -2,16 +2,21 @@ import React from "react"
 import PropTypes from "prop-types"
 import { useIntl } from "gatsby-plugin-intl"
 
-const getFilterValues = filters =>
-  Object.values(filters)
-    .map(value => (Array.isArray(value) ? value : [value]))
-    .flat()
-
 const FilterDescription = ({ filters, count }) => {
   const intl = useIntl()
-  const filterText = getFilterValues(filters)
-    .map(filter => intl.formatMessage({ id: filter }))
+  const filterText = Object.entries(filters)
+    .map(([key, value]) => {
+      if (key === `search`) {
+        return `"${value}"`
+      } else {
+        return (Array.isArray(value) ? value : [value]).map(filter =>
+          intl.formatMessage({ id: filter })
+        )
+      }
+    })
+    .flat()
     .join(", ")
+
   const params = {
     filters: filterText,
     count: count.toLocaleString(intl.locale),

@@ -21,6 +21,7 @@
   "filter-description-no-results": "No results for {filters}",
   "flag-resource-label": "Flag resource",
   "flag-resource-success": "Thanks for letting us know!",
+  "search-label": "Buscar",
   "zip-label": "Código postal",
   "zip-placeholder": "Ingrese su codigo postal",
   "what-label": "Qué",

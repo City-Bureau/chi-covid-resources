@@ -1,6 +1,5 @@
 import PropTypes from "prop-types"
 import React from "react"
-import { FormattedMessage } from "gatsby-plugin-intl"
 
 const setupOptions = options =>
   options.map(option =>
@@ -35,9 +34,7 @@ const CheckboxGroup = ({
               )
             }
           />
-          <span>
-            <FormattedMessage id={lbl} />
-          </span>
+          <span>{lbl}</span>
         </label>
       ))}
     </div>
