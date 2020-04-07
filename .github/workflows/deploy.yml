@@ -12,10 +12,12 @@ env:
   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
   AWS_DEFAULT_REGION: us-east-2
   S3_BUCKET: city-bureau-covid-staging
+  CLOUDFRONT_ID: ${{ secrets.CLOUDFRONT_ID }}
   AIRTABLE_BASE: ${{ secrets.AIRTABLE_BASE }}
   AIRTABLE_KEY: ${{ secrets.AIRTABLE_KEY }}
   AIRTABLE_TABLE: ${{ secrets.AIRTABLE_TABLE }}
   AIRTABLE_VIEW: ${{ secrets.AIRTABLE_VIEW }}
+  FLAG_RESOURCE_PATH: ${{ secrets.FLAG_RESOURCE_PATH }}
 
 jobs:
   deploy:
