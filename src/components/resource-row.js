@@ -119,7 +119,11 @@ const ResourceRow = ({
         ) : (
           ``
         )}
-        <button type="button" className="button is-text" onClick={onFlag}>
+        <button
+          type="button"
+          className="button is-text flag-resource"
+          onClick={onFlag}
+        >
           <FontAwesomeIcon icon="exclamation-circle" />
           &nbsp; {intl.formatMessage({ id: "flag-resource-label" })}
         </button>
