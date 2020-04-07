@@ -151,6 +151,10 @@ a.navbar-item {
   height: auto;
 
   @extend a.navbar-item;
+
+  &.is-text {
+    padding: 0 grid(2);
+  }
 }
 
 .navbar-item img {
