@@ -40,7 +40,12 @@ const applyFilters = (filters, data) =>
     Object.entries(filters).every(([key, value]) => {
       if (key === `zip` && value.replace(/\D/g, ``) in ZIP_MAP) {
         const zipVal = value.replace(/\D/g, ``)
-        return !!d[key] && ZIP_MAP[zipVal].some(z => d[key].includes(z))
+        return (
+          !!d[key] &&
+          d.level &&
+          d.level === "Neighborhood" &&
+          ZIP_MAP[zipVal].some(z => d[key].includes(z))
+        )
       } else if (Array.isArray(value)) {
         // If data value is array, check for overlap
         return Array.isArray(d[key])
