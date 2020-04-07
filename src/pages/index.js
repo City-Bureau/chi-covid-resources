@@ -350,8 +350,6 @@ export const query = graphql`
             what: Category
             languages: Languages
             level: Level
-            type: Type
-            created: Created
             lastUpdated: Last_Updated
           }
         }

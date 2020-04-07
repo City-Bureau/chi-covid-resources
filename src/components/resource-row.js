@@ -20,7 +20,6 @@ const ResourceRow = ({
   what,
   who,
   languages,
-  type,
   description,
   lastUpdated,
   onFlag,
@@ -149,7 +148,6 @@ ResourceRow.propTypes = {
   what: PropTypes.array,
   who: PropTypes.array,
   languages: PropTypes.array,
-  type: PropTypes.string,
   description: PropTypes.string,
   lastUpdated: PropTypes.string.isRequired,
   onFlag: PropTypes.func,
@@ -164,7 +162,6 @@ ResourceRow.defaultProps = {
   what: [],
   who: [],
   languages: [],
-  type: ``,
   description: ``,
   onFlag: () => {},
 }
