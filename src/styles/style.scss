@@ -100,6 +100,11 @@ input[type="checkbox"] {
   }
 }
 
+html[dir="rtl"] .navbar-brand > a .gatsby-image-wrapper {
+  margin-right: 0;
+  margin-left: grid(1);
+}
+
 .navbar-item {
   color: $black;
   padding: grid(1) grid(2);
@@ -111,6 +116,18 @@ input[type="checkbox"] {
   flex-direction: row;
   align-items: center;
   justify-content: flex-end;
+}
+
+html[dir="rtl"] {
+  .navbar-mobile-group {
+    margin-right: auto;
+    margin-left: 0;
+  }
+
+  .navbar-end {
+    margin-right: auto;
+    margin-left: 0;
+  }
 }
 
 .navbar-burger {

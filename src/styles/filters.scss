@@ -69,6 +69,15 @@
   }
 }
 
+html[dir="rtl"] .checkbox-group-values {
+  label.checkbox {
+    input[type="checkbox"] {
+      margin-right: 0;
+      margin-left: grid(1);
+    }
+  }
+}
+
 .filter-group {
   &:not(:last-child) {
     margin-bottom: grid(2);
@@ -168,4 +177,9 @@ label.checkbox {
     background-color: $teal;
     color: #000;
   }
+}
+
+html[dir="rtl"] .tag {
+  margin-right: 0;
+  margin-left: grid(0.5);
 }
