@@ -160,7 +160,7 @@ label.checkbox {
 }
 
 .tag-row {
-  margin-bottom: grid(1);
+  margin-bottom: grid(0.5);
 
   &:last-child {
     margin-bottom: 0;
@@ -168,9 +168,12 @@ label.checkbox {
 }
 
 .tag {
+  display: inline-block;
   padding: grid(0.25) grid(1.25);
   border-radius: grid(2);
   background-color: $yellow;
+  margin: 0;
+  margin-bottom: grid(0.5);
   margin-right: grid(0.5);
 
   &.is-teal {

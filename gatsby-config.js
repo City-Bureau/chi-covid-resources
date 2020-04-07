@@ -6,6 +6,7 @@ module.exports = {
     description: ``,
     author: `@city_bureau`,
     defaultLanguage: `en`,
+    flagResourcePath: process.env.FLAG_RESOURCE_PATH,
   },
   plugins: [
     `gatsby-plugin-sass`,

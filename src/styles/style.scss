@@ -220,6 +220,19 @@ a.navbar-item {
   }
 }
 
+.button.is-text {
+  padding: 0;
+  height: auto;
+  text-decoration: none;
+
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: transparent;
+    color: $red;
+  }
+}
+
 .scroll-top-button {
   display: block;
   position: sticky;
@@ -239,6 +252,24 @@ a.navbar-item {
     top: auto;
     bottom: grid(2);
     left: grid(1);
+  }
+}
+
+.toast-message {
+  z-index: 3;
+  position: fixed;
+  bottom: grid(1);
+  right: grid(1);
+  max-width: grid(30);
+  padding: grid(1);
+  background-color: $green;
+  color: $white;
+  border-radius: grid(0.5);
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+
+  &.is-active {
+    opacity: 1;
   }
 }
 

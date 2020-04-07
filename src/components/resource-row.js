@@ -23,6 +23,7 @@ const ResourceRow = ({
   type,
   description,
   lastUpdated,
+  onFlag,
   ...props
 }) => {
   const intl = useIntl()
@@ -117,7 +118,10 @@ const ResourceRow = ({
         ) : (
           ``
         )}
-        {type ? <p>{intl.formatMessage({ id: type })}</p> : ``}
+        <button type="button" className="button is-text" onClick={onFlag}>
+          <FontAwesomeIcon icon="exclamation-circle" />
+          &nbsp; {intl.formatMessage({ id: "flag-resource-label" })}
+        </button>
       </div>
       <div className="column is-12">
         <p class="is-italic">
@@ -146,6 +150,7 @@ ResourceRow.propTypes = {
   type: PropTypes.string,
   description: PropTypes.string,
   lastUpdated: PropTypes.string.isRequired,
+  onFlag: PropTypes.func,
 }
 
 ResourceRow.defaultProps = {
@@ -159,6 +164,7 @@ ResourceRow.defaultProps = {
   languages: [],
   type: ``,
   description: ``,
+  onFlag: () => {},
 }
 
 export default ResourceRow

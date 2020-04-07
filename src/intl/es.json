@@ -18,6 +18,8 @@
   "filter-description-filters": "{count} resources available for {filters}",
   "filter-description-one-result": "1 resource available for {filters}",
   "filter-description-no-results": "No results for {filters}",
+  "flag-resource-label": "Flag resource",
+  "flag-resource-success": "Thanks for letting us know!",
   "zip-label": "Código postal",
   "zip-placeholder": "Ingrese su codigo postal",
   "what-label": "Qué",

@@ -11,6 +11,7 @@ import { faFilter } from "@fortawesome/free-solid-svg-icons/faFilter"
 import { faCalendarAlt } from "@fortawesome/free-solid-svg-icons/faCalendarAlt"
 import { faLanguage } from "@fortawesome/free-solid-svg-icons/faLanguage"
 import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons/faMapMarkerAlt"
+import { faExclamationCircle } from "@fortawesome/free-solid-svg-icons/faExclamationCircle"
 
 import Header from "./header"
 import Footer from "./footer"
@@ -31,7 +32,8 @@ library.add(
   faFilter,
   faCalendarAlt,
   faLanguage,
-  faMapMarkerAlt
+  faMapMarkerAlt,
+  faExclamationCircle
 )
 
 const Layout = ({ location, children }) => (

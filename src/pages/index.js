@@ -12,11 +12,12 @@ import ResourceRow from "../components/resource-row"
 import CheckboxGroup from "../components/checkbox-group"
 import DebouncedInput from "../components/debounced-input"
 import ScrollTopButton from "../components/scroll-top-button"
+import ToastMessage from "../components/toast-message"
 
 import { ZIP_MAP } from "../zips"
 import { DEFAULT_DEBOUNCE } from "../constants"
 
-const PAGE_SIZE = 25
+const PAGE_SIZE = 10
 
 const getUniqueOptions = (results, prop) => [
   ...new Set(
@@ -80,12 +81,18 @@ const updateQueryParams = filters => {
 const IndexPage = ({
   location,
   data: {
+    site: {
+      siteMetadata: { flagResourcePath },
+    },
     allAirtable: { edges },
   },
 }) => {
   const defaultFilters = { zip: ``, who: [], what: [], languages: [] }
   const urlFilters = loadQueryParamFilters(location, defaultFilters)
-  const allResults = edges.map(({ node: { id, data } }) => ({ id, ...data }))
+  const allResults = edges.map(({ node: { recordId, data } }) => ({
+    id: recordId,
+    ...data,
+  }))
 
   // Set initial filters from URL params
   const [filters, setFilters] = useState({ ...defaultFilters, ...urlFilters })
@@ -95,7 +102,15 @@ const IndexPage = ({
   )
   const [expanded, setExpanded] = useState(false)
   const [page, setPage] = useState(1)
+  const [toast, setToast] = useState(``)
   const intl = useIntl()
+
+  // Function for creating a new flagged resource record in Airtable
+  const flagResource = ({ id }) =>
+    fetch(`${flagResourcePath}?Resource=[${id}]`)
+      .then(res => res.json())
+      .then(() => setToast(intl.formatMessage({ id: "flag-resource-success" })))
+      .catch(err => console.error(err))
 
   useEffect(() => {
     const filterValues = getFiltersWithValues(filters)
@@ -117,6 +132,9 @@ const IndexPage = ({
         overrideTitle
         lang={intl.locale}
       />
+      <ToastMessage show={toast !== ``} onHide={() => setToast(``)}>
+        {toast}
+      </ToastMessage>
       <main className="main filter-container">
         <aside className="section filter-controls">
           <div className="filter-header">
@@ -199,7 +217,11 @@ const IndexPage = ({
           />
           <div className="filter-results">
             {results.slice(0, page * PAGE_SIZE).map(result => (
-              <ResourceRow key={result.id} {...result} />
+              <ResourceRow
+                key={result.id}
+                onFlag={() => flagResource(result)}
+                {...result}
+              />
             ))}
           </div>
           <div className="filter-results-footer">
@@ -228,10 +250,15 @@ IndexPage.propTypes = {
 
 export const query = graphql`
   query {
+    site {
+      siteMetadata {
+        flagResourcePath
+      }
+    }
     allAirtable {
       edges {
         node {
-          id
+          recordId
           data {
             name: Name
             link: Link
