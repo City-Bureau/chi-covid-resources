@@ -128,6 +128,7 @@ const IndexPage = ({
   return (
     <Layout location={location}>
       <SEO
+        location={location}
         title={intl.formatMessage({ id: "site-title" })}
         overrideTitle
         lang={intl.locale}

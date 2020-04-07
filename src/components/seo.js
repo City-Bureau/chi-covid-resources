@@ -2,24 +2,30 @@ import React from "react"
 import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
+import { useIntl } from "gatsby-plugin-intl"
 import { rtlLanguages } from "../constants"
 
-function SEO({ description, lang, meta, title, overrideTitle }) {
-  const { site } = useStaticQuery(
+function SEO({ location, description, lang, meta, title, overrideTitle }) {
+  const {
+    site: { siteMetadata },
+  } = useStaticQuery(
     graphql`
       query {
         site {
           siteMetadata {
             title
-            description
             author
+            twitterAuthor
+            baseUrl
           }
         }
       }
     `
   )
 
-  const metaDescription = description || site.siteMetadata.description
+  const intl = useIntl()
+  const metaDescription =
+    description || intl.formatMessage({ id: "site-description" })
 
   return (
     <Helmet
@@ -28,15 +34,27 @@ function SEO({ description, lang, meta, title, overrideTitle }) {
         dir: rtlLanguages.includes(lang) ? `rtl` : `ltr`,
       }}
       title={title}
-      titleTemplate={overrideTitle ? `%s` : `%s | ${site.siteMetadata.title}`}
+      titleTemplate={overrideTitle ? `%s` : `%s | ${siteMetadata.title}`}
       meta={[
         {
           name: `description`,
           content: metaDescription,
         },
         {
+          name: `author`,
+          content: siteMetadata.author,
+        },
+        {
           property: `og:title`,
           content: title,
+        },
+        {
+          property: `og:url`,
+          content: `${siteMetadata.baseUrl}${location.pathname}`,
+        },
+        {
+          property: `og:site_name`,
+          content: siteMetadata.title,
         },
         {
           property: `og:description`,
@@ -52,7 +70,7 @@ function SEO({ description, lang, meta, title, overrideTitle }) {
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata.author,
+          content: siteMetadata.twitterAuthor,
         },
         {
           name: `twitter:title`,
@@ -77,6 +95,7 @@ SEO.defaultProps = {
 }
 
 SEO.propTypes = {
+  location: PropTypes.object.isRequired,
   description: PropTypes.string,
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),

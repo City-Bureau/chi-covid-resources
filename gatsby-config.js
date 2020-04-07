@@ -3,8 +3,9 @@ require(`dotenv`).config()
 module.exports = {
   siteMetadata: {
     title: `Chicago COVID Resources`,
-    description: ``,
-    author: `@city_bureau`,
+    baseUrl: `https://covid-stage.citybureau.org`,
+    author: `City Bureau`,
+    twitterAuthor: `@city_bureau`,
     defaultLanguage: `en`,
     flagResourcePath: process.env.FLAG_RESOURCE_PATH,
   },

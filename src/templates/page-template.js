@@ -44,7 +44,7 @@ const PageTemplate = ({ location, data }) => (
 
         return (
           <>
-            <SEO title={title} lang={currentLanguage} />
+            <SEO location={location} title={title} lang={currentLanguage} />
             <Page markdown={markdown} />
           </>
         )
