@@ -13,7 +13,6 @@ function SEO({ location, description, lang, meta, title, overrideTitle }) {
       query {
         site {
           siteMetadata {
-            title
             author
             twitterAuthor
             siteUrl
@@ -24,6 +23,7 @@ function SEO({ location, description, lang, meta, title, overrideTitle }) {
   )
 
   const intl = useIntl()
+  const siteTitle = intl.formatMessage({ id: "site-title" })
   const metaDescription =
     description || intl.formatMessage({ id: "site-description" })
 
@@ -34,7 +34,7 @@ function SEO({ location, description, lang, meta, title, overrideTitle }) {
         dir: rtlLanguages.includes(lang) ? `rtl` : `ltr`,
       }}
       title={title}
-      titleTemplate={overrideTitle ? `%s` : `%s | ${siteMetadata.title}`}
+      titleTemplate={overrideTitle ? `%s` : `%s | ${siteTitle}`}
       meta={[
         {
           name: `description`,
@@ -54,7 +54,7 @@ function SEO({ location, description, lang, meta, title, overrideTitle }) {
         },
         {
           property: `og:site_name`,
-          content: siteMetadata.title,
+          content: siteTitle,
         },
         {
           property: `og:description`,

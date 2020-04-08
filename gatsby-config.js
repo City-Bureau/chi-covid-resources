@@ -91,7 +91,6 @@ module.exports = {
         },
       },
     },
-    // `gatsby-plugin-offline`
-    // TODO: Enable offline?
+    // `gatsby-plugin-offline`,
   ],
 }
