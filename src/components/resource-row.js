@@ -119,16 +119,8 @@ const ResourceRow = ({
         ) : (
           ``
         )}
-        <button
-          type="button"
-          className="button is-text flag-resource"
-          onClick={onFlag}
-        >
-          <FontAwesomeIcon icon="exclamation-circle" />
-          &nbsp; {intl.formatMessage({ id: "flag-resource-label" })}
-        </button>
       </div>
-      <div className="column is-12">
+      <div className="column is-8">
         <p className="is-italic">
           {intl.formatMessage({ id: "last-updated" })}{" "}
           {new Date(lastUpdated).toLocaleString(intl.locale, {
@@ -137,6 +129,17 @@ const ResourceRow = ({
             day: "numeric",
           })}
         </p>
+      </div>
+      <div className="column is-4">
+        <button
+          type="button"
+          className="button is-text flag-resource"
+          onClick={onFlag}
+        >
+          <FontAwesomeIcon icon="exclamation-circle" />
+          &nbsp;{" "}
+          <span>{intl.formatMessage({ id: "flag-resource-label" })}</span>
+        </button>
       </div>
     </div>
   )

@@ -163,6 +163,11 @@ input.search {
 
   .resource-row {
     padding: grid(1) 0;
+
+    .column:last-child,
+    .column:nth-last-child(2) {
+      padding-top: 0;
+    }
   }
 }
 
@@ -200,4 +205,10 @@ input.search {
 html[dir="rtl"] .tag {
   margin-right: 0;
   margin-left: grid(0.5);
+}
+
+.button.flag-resource {
+  display: inline;
+  white-space: normal;
+  text-align: left;
 }

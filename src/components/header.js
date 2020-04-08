@@ -75,6 +75,14 @@ const Header = ({ location }) => {
           >
             {intl.formatMessage({ id: "suggest-resource" })}
           </a>
+          <a
+            className="navbar-item"
+            href={intl.formatMessage({ id: "feedback-url" })}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {intl.formatMessage({ id: "feedback" })}
+          </a>
           <LanguageSelector
             location={location}
             classNames="navbar-item is-hidden-mobile"

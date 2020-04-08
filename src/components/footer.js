@@ -14,6 +14,17 @@ const Footer = () => {
             <p>
               <Link to="/about/">{intl.formatMessage({ id: "about" })}</Link>
             </p>
+          </div>
+          <div className="column">
+            <p>
+              <a
+                href={intl.formatMessage({ id: "suggest-resource-url" })}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {intl.formatMessage({ id: "suggest-resource" })}
+              </a>
+            </p>
             <p>
               <a
                 href={intl.formatMessage({ id: "feedback-url" })}
@@ -23,14 +34,11 @@ const Footer = () => {
                 {intl.formatMessage({ id: "feedback" })}
               </a>
             </p>
-          </div>
-          <div className="column">
             <p>
               <a href="https://citybureau.org/" target="_blank">
                 City Bureau
               </a>
             </p>
-            <Link to="/">{intl.formatMessage({ id: "social-media" })}</Link>
           </div>
         </div>
       </div>
