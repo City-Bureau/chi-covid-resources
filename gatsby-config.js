@@ -1,9 +1,11 @@
 require(`dotenv`).config()
 
+const siteUrl = `https://covid-stage.citybureau.org`
+
 module.exports = {
   siteMetadata: {
     title: `Chicago COVID Resources`,
-    baseUrl: `https://covid-stage.citybureau.org`,
+    siteUrl,
     author: `City Bureau`,
     twitterAuthor: `@city_bureau`,
     defaultLanguage: `en`,
@@ -70,6 +72,23 @@ module.exports = {
         theme_color: `#ffffff`,
         display: `minimal-ui`,
         icon: `src/images/icon.png`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-robots-txt`,
+      options: {
+        resolveEnv: () =>
+          siteUrl.includes(`stage`) ? `development` : `production`,
+        env: {
+          development: {
+            policy: [{ userAgent: "*", disallow: ["/"] }],
+            sitemap: null,
+            host: null,
+          },
+          production: {
+            policy: [{ userAgent: "*", allow: "/" }],
+          },
+        },
       },
     },
     // `gatsby-plugin-offline`

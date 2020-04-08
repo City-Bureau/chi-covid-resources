@@ -235,7 +235,10 @@ const IndexPage = ({
               onClick={() => setExpanded(!expanded)}
             >
               <FontAwesomeIcon icon="filter" />
-              &nbsp;{intl.formatMessage({ id: "toggle-filters" })}
+              &nbsp;
+              {intl.formatMessage({
+                id: expanded ? "hide-filters" : "show-filters",
+              })}
             </button>
           </div>
           <form

@@ -16,7 +16,7 @@ function SEO({ location, description, lang, meta, title, overrideTitle }) {
             title
             author
             twitterAuthor
-            baseUrl
+            siteUrl
           }
         }
       }
@@ -50,7 +50,7 @@ function SEO({ location, description, lang, meta, title, overrideTitle }) {
         },
         {
           property: `og:url`,
-          content: `${siteMetadata.baseUrl}${location.pathname}`,
+          content: `${siteMetadata.siteUrl}${location.pathname}`,
         },
         {
           property: `og:site_name`,
