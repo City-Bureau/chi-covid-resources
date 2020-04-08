@@ -133,23 +133,3 @@ exports.createPages = async ({ graphql, actions, getNode }) => {
   `)
   _createMarkdownPages({ pages: staticPages, getNode, createPage })
 }
-
-// https://gist.github.com/arnars/2bb1d81fc0955d57fe88a8348695f594#include-babelpolyfill-in-your-webpackconfig
-exports.onCreateWebpackConfig = ({
-  stage,
-  getConfig,
-  actions: { replaceWebpackConfig },
-}) => {
-  // eslint-disable-next-line default-case
-  switch (stage) {
-    case "build-javascript":
-      const config = getConfig()
-      const app =
-        typeof config.entry.app === "string"
-          ? [config.entry.app]
-          : config.entry.app
-
-      config.entry.app = ["@babel/polyfill", ...app]
-      replaceWebpackConfig(config)
-  }
-}

@@ -1,4 +1,4 @@
-import "core-js/es6/symbol"
+import "@babel/polyfill"
 import "url-search-params-polyfill"
 import smoothscroll from "smoothscroll-polyfill"
 
