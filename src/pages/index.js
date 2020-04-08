@@ -67,8 +67,9 @@ const applyFilters = (filters, data) => {
   if (filters.search?.trim()) {
     return new Fuse(filtered, {
       minMatchCharLength: 3,
-      shouldSort: false,
+      shouldSort: true,
       threshold: 0.3,
+      distance: 500,
       keys: [
         `name`,
         `description`,
@@ -102,6 +103,22 @@ const updateQueryParams = filters => {
     window.document.title,
     `${window.location.protocol}//${window.location.host}${window.location.pathname}${suffix}`
   )
+}
+
+const sendGaQueryParams = () => {
+  if (
+    typeof window !== "undefined" &&
+    window.gtag &&
+    !window.location.host.includes("stage") &&
+    window.location.search
+  ) {
+    window.gtag("event", "filter", {
+      event_category: window.location.pathname,
+      event_label: window.location.search,
+    })
+  } else {
+    console.log(window.location.search)
+  }
 }
 
 const IndexPage = ({
@@ -175,6 +192,7 @@ const IndexPage = ({
 
   useEffect(() => {
     updateQueryParams(getFiltersWithValues(debounceFilters))
+    sendGaQueryParams()
     if (page !== 1) setPage(1)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
