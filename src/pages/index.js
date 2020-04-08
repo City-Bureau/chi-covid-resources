@@ -132,10 +132,6 @@ const IndexPage = ({
     ...urlFilters,
   })
   const debounceFilters = useDebounce(filters, DEFAULT_DEBOUNCE / 2)
-  const filtersWithValues = getFiltersWithValues(filters)
-  const [expanded, setExpanded] = useState(false)
-  const [page, setPage] = useState(1)
-  const [toast, setToast] = useState(``)
   const results = useMemo(
     () => applyFilters(getFiltersWithValues(debounceFilters), allResults),
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -162,6 +158,9 @@ const IndexPage = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
     []
   )
+  const [expanded, setExpanded] = useState(false)
+  const [page, setPage] = useState(1)
+  const [toast, setToast] = useState(``)
   const intl = useIntl()
 
   const translateOptions = options =>
@@ -274,7 +273,8 @@ const IndexPage = ({
             />
             <button
               className={`button is-info clear-filters ${
-                Object.entries(filtersWithValues).length === 0
+                Object.entries(getFiltersWithValues(debounceFilters)).length ===
+                0
                   ? `is-hidden`
                   : ``
               }`}
