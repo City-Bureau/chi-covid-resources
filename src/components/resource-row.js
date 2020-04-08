@@ -47,7 +47,7 @@ const ResourceRow = ({
           ``
         )}
         <div className="tag-row">
-          {what.map(t => (
+          {(what || []).map(t => (
             <span key={t} className="tag">
               {intl.formatMessage({ id: t })}
             </span>

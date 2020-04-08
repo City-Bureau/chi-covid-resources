@@ -21,6 +21,22 @@ import { DEFAULT_DEBOUNCE } from "../constants"
 
 const PAGE_SIZE = 10
 
+const WHAT_OPTIONS = [
+  "Money",
+  "Food",
+  "Housing",
+  "Health",
+  "Utilities",
+  "Legal Help",
+]
+const WHO_OPTIONS = [
+  "Families",
+  "Immigrants",
+  "LGBTQI",
+  "Business Owners",
+  "Students",
+]
+
 const getUniqueOptions = (results, prop) => [
   ...new Set(
     results.reduce((prev, curr) => {
@@ -160,16 +176,6 @@ const IndexPage = ({
       debounceFilters.languages,
     ]
   )
-  const whatOptions = useMemo(
-    () => getUniqueOptions(allResults, `what`),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    []
-  )
-  const whoOptions = useMemo(
-    () => getUniqueOptions(allResults, `who`),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    []
-  )
   const langOptions = useMemo(
     () => getUniqueOptions(allResults, `languages`),
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -256,7 +262,7 @@ const IndexPage = ({
             <CheckboxGroup
               name="what"
               label={intl.formatMessage({ id: "what-label" })}
-              options={translateOptions(whatOptions)}
+              options={translateOptions(WHAT_OPTIONS)}
               value={filters.what}
               onChange={what => setFilters({ ...filters, what })}
               classNames="filter-group"
@@ -264,7 +270,7 @@ const IndexPage = ({
             <CheckboxGroup
               name="who"
               label={intl.formatMessage({ id: "who-label" })}
-              options={translateOptions(whoOptions)}
+              options={translateOptions(WHO_OPTIONS)}
               value={filters.who}
               onChange={who => setFilters({ ...filters, who })}
               classNames="filter-group"
