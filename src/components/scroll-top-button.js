@@ -12,7 +12,7 @@ const ScrollTopButton = () => {
   useEffect(() => {
     const onScroll = debounce(
       () => setVisible(window.innerHeight < 2 < window.pageYOffset),
-      DEFAULT_DEBOUNCE
+      DEFAULT_DEBOUNCE * 2
     )
     document.addEventListener("scroll", onScroll, { passive: true })
     return () => {

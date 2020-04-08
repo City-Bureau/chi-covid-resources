@@ -8,6 +8,7 @@ const DebouncedInput = ({
   id,
   value,
   placeholder,
+  inputType,
   classNames,
   onChange,
   debounceTime,
@@ -38,6 +39,7 @@ const DebouncedInput = ({
       name={name}
       id={id}
       className={`input ${classNames}`}
+      type={inputType}
       value={localValue}
       placeholder={placeholder}
       onChange={e => setLocalValue(e.target.value)}
@@ -50,6 +52,7 @@ DebouncedInput.propTypes = {
   id: PropTypes.string.isRequired,
   value: PropTypes.string,
   placeholder: PropTypes.string,
+  inputType: PropTypes.string,
   classNames: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   debounceTime: PropTypes.number,
@@ -58,6 +61,7 @@ DebouncedInput.propTypes = {
 DebouncedInput.defaultProps = {
   value: ``,
   placeholder: ``,
+  inputType: `text`,
   debounceTime: DEFAULT_DEBOUNCE,
 }
 

@@ -148,7 +148,7 @@ const IndexPage = ({
     ...defaultFilters,
     ...urlFilters,
   })
-  const debounceFilters = useDebounce(filters, DEFAULT_DEBOUNCE / 2)
+  const debounceFilters = useDebounce(filters, DEFAULT_DEBOUNCE)
   const results = useMemo(
     () => applyFilters(getFiltersWithValues(debounceFilters), allResults),
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -237,6 +237,7 @@ const IndexPage = ({
             className={expanded ? `` : `is-hidden-mobile`}
             method="GET"
             name="filter"
+            role="search"
             action=""
           >
             <div className="filter-group search">
@@ -244,6 +245,7 @@ const IndexPage = ({
                 name="search"
                 id="search"
                 classNames="search"
+                inputType="search"
                 value={filters.search}
                 aria-label={intl.formatMessage({ id: "search-label" })}
                 placeholder={intl.formatMessage({ id: "search-label" })}
