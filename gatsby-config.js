@@ -43,12 +43,6 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
-      resolve: `gatsby-plugin-polyfill-io`,
-      options: {
-        features: [`default`, `Symbol`, `Array.prototype.flat`],
-      },
-    },
-    {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
         trackingIds: [`UA-68381272-7`],

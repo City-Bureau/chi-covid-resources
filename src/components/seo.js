@@ -83,6 +83,7 @@ function SEO({ location, description, lang, meta, title, overrideTitle }) {
       ].concat(meta)}
     >
       <link rel="stylesheet" href="https://use.typekit.net/zck0ikq.css"></link>
+      <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=default,Symbol,Array.prototype.flat" />
     </Helmet>
   )
 }
