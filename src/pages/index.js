@@ -121,19 +121,28 @@ const updateQueryParams = filters => {
   )
 }
 
-const sendGaQueryParams = () => {
+const sendGaQueryParams = ({ search, what, who, languages, zip }) => {
+  const filters = [what, who, languages, zip].flat().filter(v => !!v)
   if (
     typeof window !== "undefined" &&
     window.gtag &&
     !window.location.host.includes("stage") &&
     window.location.search
   ) {
-    window.gtag("event", "filter", {
-      event_category: window.location.pathname,
-      event_label: window.location.search,
-    })
+    if (search && search.trim()) {
+      window.gtag("event", "search", {
+        event_category: window.location.pathname,
+        event_label: search.trim(),
+      })
+    }
+    if (filters.length > 0) {
+      window.gtag("event", "filter", {
+        event_category: window.location.pathname,
+        event_label: filters.join(", "),
+      })
+    }
   } else {
-    console.log(window.location.search)
+    console.log(search, filters)
   }
 }
 
@@ -198,7 +207,7 @@ const IndexPage = ({
 
   useEffect(() => {
     updateQueryParams(getFiltersWithValues(debounceFilters))
-    sendGaQueryParams()
+    sendGaQueryParams(debounceFilters)
     if (page !== 1) setPage(1)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
