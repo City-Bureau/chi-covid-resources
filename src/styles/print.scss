@@ -19,10 +19,23 @@
     background-color: transparent !important;
   }
 
+  .navbar-brand > a.navbar-item {
+    padding-left: 0;
+  }
+
   .resource-row,
+  .resource-row .column,
+  .filter-description,
   .tag {
     padding-left: 0;
     padding-right: 0;
+  }
+
+  // Eliminated most padding but add to description column for legibility
+  .resource-row .column {
+    &:first-child {
+      padding-right: grid(2);
+    }
   }
 
   html,
@@ -35,11 +48,6 @@
     overflow: visible;
     display: block;
     color: #000 !important;
-  }
-
-  .filter-description,
-  .resource-row .column {
-    padding: 0 grid(1);
   }
 
   // Show commas between tag items for legibility
