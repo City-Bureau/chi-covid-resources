@@ -335,7 +335,7 @@ const IndexPage = ({
             {results.length > PAGE_SIZE * page ? (
               <button
                 type="button"
-                className="button"
+                className="button is-primary"
                 onClick={() => setPage(page + 1)}
               >
                 {intl.formatMessage({ id: "load-more-results" })}
