@@ -33,6 +33,11 @@ main.container {
   }
 }
 
+.main.container > article {
+  margin: auto;
+  max-width: grid(80);
+}
+
 a {
   color: $blue;
 
@@ -89,14 +94,23 @@ input[type="checkbox"] {
   z-index: 2;
 }
 
-.navbar-brand > a {
+.navbar-brand > a.navbar-item {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
+  flex-shrink: 1;
 
   .gatsby-image-wrapper {
     margin-right: grid(1);
+  }
+}
+
+@media screen and (max-width: $tablet) {
+  .navbar-brand > a.navbar-item {
+    h1 {
+      line-height: 1.25;
+    }
   }
 }
 
@@ -146,14 +160,22 @@ a.navbar-item {
   }
 }
 
-.print-button.navbar-item {
+.print-button.navbar-item.is-text {
+  @extend a.navbar-item;
   text-decoration: none;
   height: auto;
+  padding: 0 grid(2);
+}
 
-  @extend a.navbar-item;
+@media screen and (max-width: $tablet) {
+  .navbar-menu {
+    padding: 0;
+  }
 
-  &.is-text {
-    padding: 0 grid(2);
+  .print-button.navbar-item.is-text {
+    width: 100%;
+    padding: grid(1) grid(2);
+    text-align: left;
   }
 }
 

@@ -28,7 +28,7 @@ const Footer = () => {
             </p>
             <p>
               <a href="https://citybureau.org/" target="_blank">
-                City Bureau
+                {intl.formatMessage({ id: "city-bureau" })}
               </a>
             </p>
           </div>

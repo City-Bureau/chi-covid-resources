@@ -375,7 +375,6 @@ export const query = graphql`
             address: Address
             zip: ZIP
             description: Description
-            descriptionen: Description_EN
             descriptiones: Description_ES
             who: Who
             what: Category
