@@ -1,5 +1,7 @@
 # Chicago COVID Resource Directory
 
+[![Build status](https://github.com/City-Bureau/chi-covid-resources/workflows/Deploy/badge.svg)](https://github.com/City-Bureau/chi-covid-resources/actions)
+
 Directory of Chicagoland resources related to COVID-19 maintained by [City Bureau](https://www.citybureau.org/).
 
 ## Setup
