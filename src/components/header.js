@@ -67,22 +67,12 @@ const Header = ({ location }) => {
             <FontAwesomeIcon icon="print" />
             &nbsp; {intl.formatMessage({ id: "print" })}
           </button>
-          <a
-            className="navbar-item"
-            href={intl.formatMessage({ id: "suggest-resource-url" })}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <Link className="navbar-item" to="/suggest-resource/">
             {intl.formatMessage({ id: "suggest-resource" })}
-          </a>
-          <a
-            className="navbar-item"
-            href={intl.formatMessage({ id: "feedback-url" })}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          </Link>
+          <Link className="navbar-item" to="/feedback/">
             {intl.formatMessage({ id: "feedback" })}
-          </a>
+          </Link>
           <LanguageSelector
             location={location}
             classNames="navbar-item is-hidden-mobile"

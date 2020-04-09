@@ -1,4 +1,4 @@
-HTML_PATHS = / /index.html /404.html /about/ /about/index.html /404/ /404/index.html
+HTML_PATHS = / /index.html /404.html /about/ /about/index.html /feedback/ /feedback/index.html /suggest-resource/ /suggest-resource/index.html /404/ /404/index.html
 LANGUAGES = en es
 .PHONY: clean install build deploy
 

@@ -1,4 +1,5 @@
 {
+  "city-bureau": "City Bureau",
   "site-title": "Chicago COVID Resources",
   "site-description": "Chicago COVID resource guide",
   "logo-alt": "Site logo",
@@ -9,9 +10,9 @@
   "print": "Print",
   "social-media": "Social",
   "suggest-resource": "Suggest a resource",
-  "suggest-resource-url": "https://airtable.com/shr1CGrWlZldjacdE",
+  "suggest-resource-form-id": "shr1CGrWlZldjacdE",
   "feedback": "Feedback",
-  "feedback-url": "https://airtable.com/shrY2H2Xv3IQUecP1",
+  "feedback-form-id": "shrY2H2Xv3IQUecP1",
   "in-en": "In English",
   "in-es": "En Español",
   "filter-title": "Filter resources",

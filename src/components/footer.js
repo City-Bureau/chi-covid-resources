@@ -17,22 +17,14 @@ const Footer = () => {
           </div>
           <div className="column">
             <p>
-              <a
-                href={intl.formatMessage({ id: "suggest-resource-url" })}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <Link to="/suggest-resource/">
                 {intl.formatMessage({ id: "suggest-resource" })}
-              </a>
+              </Link>
             </p>
             <p>
-              <a
-                href={intl.formatMessage({ id: "feedback-url" })}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <Link to="/feedback/">
                 {intl.formatMessage({ id: "feedback" })}
-              </a>
+              </Link>
             </p>
             <p>
               <a href="https://citybureau.org/" target="_blank">
