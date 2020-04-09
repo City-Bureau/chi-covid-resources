@@ -208,7 +208,17 @@ html[dir="rtl"] .tag {
 }
 
 .button.flag-resource {
-  display: inline;
-  white-space: normal;
-  text-align: left;
+  border-radius: grid(2);
+  border: solid 1px $yellow;
+  background-color: transparent;
+  color: #000;
+  font-size: 14px;
+  padding: grid(0.75) grid(1.25);
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: #000;
+    background-color: $yellow;
+  }
 }
