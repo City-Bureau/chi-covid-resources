@@ -142,11 +142,18 @@ input.search {
 
   h4 {
     font-weight: 600;
+    font-size: 18px;
     margin-bottom: grid(1);
   }
 
   &:nth-child(odd) {
     background-color: $backgroundGray;
+  }
+
+  .last-updated {
+    display: flex;
+    align-items: flex-end;
+    font-size: 14px;
   }
 
   .detail-column {
@@ -181,10 +188,6 @@ input.search {
 
 .tag-row {
   margin-bottom: grid(0.5);
-
-  &:last-child {
-    margin-bottom: 0;
-  }
 }
 
 .tag {
@@ -192,13 +195,13 @@ input.search {
   padding: grid(0.25) grid(1.25);
   border-radius: grid(2);
   background-color: $yellow;
+  color: #000;
   margin: 0;
   margin-bottom: grid(0.5);
   margin-right: grid(0.5);
 
   &.is-teal {
     background-color: $teal;
-    color: #000;
   }
 }
 

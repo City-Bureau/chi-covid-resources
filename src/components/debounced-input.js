@@ -7,6 +7,7 @@ const DebouncedInput = ({
   name,
   id,
   value,
+  label,
   placeholder,
   inputType,
   classNames,
@@ -38,6 +39,7 @@ const DebouncedInput = ({
     <input
       name={name}
       id={id}
+      aria-label={label || null}
       className={`input ${classNames}`}
       type={inputType}
       value={localValue}
@@ -51,6 +53,7 @@ DebouncedInput.propTypes = {
   name: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   value: PropTypes.string,
+  label: PropTypes.string,
   placeholder: PropTypes.string,
   inputType: PropTypes.string,
   classNames: PropTypes.string,

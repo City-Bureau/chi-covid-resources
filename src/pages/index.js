@@ -267,7 +267,7 @@ const IndexPage = ({
                 classNames="search"
                 inputType="search"
                 value={filters.search}
-                aria-label={intl.formatMessage({ id: "search-label" })}
+                label={intl.formatMessage({ id: "search-label" })}
                 placeholder={intl.formatMessage({ id: "search-label" })}
                 onChange={search => setFilters({ ...filters, search })}
               />

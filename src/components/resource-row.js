@@ -36,22 +36,14 @@ const ResourceRow = ({
     <div className="resource-row columns is-multiline">
       <div className="column is-8">
         <h4>{name}</h4>
-        {descriptionText ? (
-          <div
-            className="content"
-            dangerouslySetInnerHTML={{
-              __html: processor.processSync(descriptionText),
-            }}
-          />
-        ) : (
-          ``
-        )}
         <div className="tag-row">
-          {(what || []).map(t => (
-            <span key={t} className="tag">
-              {intl.formatMessage({ id: t })}
-            </span>
-          ))}
+          {what && what.length > 0
+            ? what.map(t => (
+                <span key={t} className="tag">
+                  {intl.formatMessage({ id: t })}
+                </span>
+              ))
+            : ``}
         </div>
         {who && who.length > 0 ? (
           <div className="tag-row">
@@ -61,6 +53,16 @@ const ResourceRow = ({
               </span>
             ))}
           </div>
+        ) : (
+          ``
+        )}
+        {descriptionText ? (
+          <div
+            className="content"
+            dangerouslySetInnerHTML={{
+              __html: processor.processSync(descriptionText),
+            }}
+          />
         ) : (
           ``
         )}
@@ -120,7 +122,7 @@ const ResourceRow = ({
           ``
         )}
       </div>
-      <div className="column is-8">
+      <div className="column is-8 last-updated">
         <p className="is-italic">
           {intl.formatMessage({ id: "last-updated" })}{" "}
           {new Date(lastUpdated).toLocaleString(intl.locale, {
