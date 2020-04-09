@@ -15,6 +15,7 @@ import DebouncedInput from "../components/debounced-input"
 import ScrollTopButton from "../components/scroll-top-button"
 import ToastMessage from "../components/toast-message"
 
+import { objectFromSearchParams } from "../utils"
 import { useDebounce } from "../hooks"
 import { ZIP_MAP } from "../zips"
 import { DEFAULT_DEBOUNCE } from "../constants"
@@ -104,7 +105,7 @@ const applyFilters = (filters, data) => {
 
 const loadQueryParamFilters = (location, filters) =>
   fromEntries(
-    Object.entries(fromEntries(new URLSearchParams(location.search)))
+    Object.entries(objectFromSearchParams(new URLSearchParams(location.search)))
       .filter(([key, value]) => value !== "" && key in filters)
       .map(([key, value]) =>
         Array.isArray(filters[key]) ? [key, value.split(",")] : [key, value]
@@ -122,7 +123,9 @@ const updateQueryParams = filters => {
 }
 
 const sendGaQueryParams = ({ search, what, who, languages, zip }) => {
-  const filters = [what, who, languages, zip].flat().filter(v => !!v)
+  const filters = [what, who, languages, zip]
+    .reduce((acc, val) => acc.concat(val), [])
+    .filter(v => !!v)
   if (
     typeof window !== "undefined" &&
     window.gtag &&

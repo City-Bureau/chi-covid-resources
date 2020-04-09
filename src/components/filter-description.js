@@ -14,7 +14,7 @@ const FilterDescription = ({ filters, count }) => {
         )
       }
     })
-    .flat()
+    .reduce((acc, val) => acc.concat(val), [])
     .join(", ")
 
   const params = {

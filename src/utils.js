@@ -11,6 +11,14 @@ export const getResolvedVersionForLanguage = ({
   return { ...fallback, ...current }
 }
 
+export const objectFromSearchParams = params => {
+  const obj = {}
+  params.forEach((val, key) => {
+    obj[key] = val
+  })
+  return obj
+}
+
 export const fromEntries = iterable => {
   return [...iterable].reduce((obj, [key, val]) => {
     obj[key] = val
