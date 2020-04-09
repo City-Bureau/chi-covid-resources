@@ -11,6 +11,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
     "@fortawesome/react-fontawesome": "^0.1.9",
     "bulma": "^0.8.1",
+    "core-js": "^2.5.7",
     "dotenv": "^8.2.0",
     "fuse.js": "^5.1.0",
     "gatsby": "^2.20.15",

@@ -1,5 +1,9 @@
-import "@babel/polyfill"
-import "url-search-params-polyfill"
-import smoothscroll from "smoothscroll-polyfill"
+require(`core-js/es7/symbol`)
+require(`core-js/es7/array`)
+require(`@babel/polyfill`)
+require(`url-search-params-polyfill`)
+const smoothscroll = require(`smoothscroll-polyfill`)
 
-smoothscroll.polyfill()
+exports.onClientEntry = () => {
+  smoothscroll.polyfill()
+}
