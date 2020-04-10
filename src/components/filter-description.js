@@ -19,7 +19,7 @@ const FilterDescription = ({ filters, count }) => {
 
   const params = {
     filters: filterText,
-    count: count.toLocaleString(intl.locale),
+    count: intl.formatNumber(count),
   }
 
   let messageId = `filter-description-filters`
