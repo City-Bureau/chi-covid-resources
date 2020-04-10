@@ -5,7 +5,7 @@ on:
     branches:
       - master
   schedule:
-    - cron: "6 */6 * * *" # Every 6 hours at the 6th minute
+    - cron: "6 */2 * * *" # Every 2 hours at the 6th minute
 
 env:
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
