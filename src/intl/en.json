@@ -1,7 +1,8 @@
 {
   "city-bureau": "City Bureau",
-  "site-title": "Chicago COVID Resources",
-  "site-description": "Chicago COVID resource guide",
+  "meta-title": "COVID Resource Finder",
+  "site-title": "Chicago COVID Resource Finder",
+  "site-description": "Chicago Coronavirus resource guide",
   "logo-alt": "Site logo",
   "not-found-title": "NOT FOUND",
   "not-found-text": "Page not found",

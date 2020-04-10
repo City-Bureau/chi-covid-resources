@@ -23,7 +23,7 @@ function SEO({ location, description, lang, meta, title, overrideTitle }) {
   )
 
   const intl = useIntl()
-  const siteTitle = intl.formatMessage({ id: "site-title" })
+  const siteTitle = intl.formatMessage({ id: "meta-title" })
   const metaDescription =
     description || intl.formatMessage({ id: "site-description" })
 

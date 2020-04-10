@@ -226,7 +226,7 @@ const IndexPage = ({
       <SEO
         location={location}
         title={`${intl.formatMessage({
-          id: "site-title",
+          id: "meta-title",
         })} | ${intl.formatMessage({ id: "city-bureau" })}`}
         overrideTitle
         lang={intl.locale}
