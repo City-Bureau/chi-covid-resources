@@ -75,6 +75,17 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-sentry`,
+      options: {
+        dsn: process.env.SENTRY_DSN,
+        environment: process.env.NODE_ENV,
+        enabled:
+          process.env.NODE_ENV === `production` && !siteUrl.includes(`stage`),
+        ignoreErrors: [`ChunkLoadError`],
+        blacklistUrls: [/extensions\//i, /^chrome:\/\//i],
+      },
+    },
+    {
       resolve: `gatsby-plugin-robots-txt`,
       options: {
         resolveEnv: () =>
