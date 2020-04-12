@@ -48,6 +48,13 @@ const LANGUAGE_OPTIONS = [
   "Hindi",
   "Urdu",
 ]
+const LEVEL_ENUM = {
+  National: 0,
+  State: 1,
+  County: 2,
+  City: 3,
+  Neighborhood: 4,
+}
 
 const getFiltersWithValues = filters =>
   fromEntries(
@@ -168,10 +175,19 @@ const IndexPage = ({
     languages: [],
   }
   const urlFilters = loadQueryParamFilters(location, defaultFilters)
-  const allResults = edges.map(({ node: { recordId, data } }) => ({
-    id: recordId,
-    ...data,
-  }))
+  const allResults = useMemo(
+    () =>
+      edges
+        .map(({ node: { recordId, data } }) => ({
+          id: recordId,
+          ...data,
+        }))
+        .sort(
+          (a, b) => (LEVEL_ENUM[a.level] || 10) - (LEVEL_ENUM[b.level] || 10)
+        ),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    []
+  )
 
   // Set initial filters from URL params
   const [filters, setFilters] = useState({
