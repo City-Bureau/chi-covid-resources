@@ -35,6 +35,7 @@
     "react-helmet": "^5.2.1",
     "react-load-script": "^0.0.6",
     "remark": "^11.0.2",
+    "remark-breaks": "^1.0.5",
     "remark-html": "^11.0.1",
     "remark-preset-lint-recommended": "^3.0.4",
     "smoothscroll-polyfill": "^0.4.4",

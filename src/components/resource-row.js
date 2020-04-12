@@ -4,11 +4,13 @@ import { useIntl } from "gatsby-plugin-intl"
 import remark from "remark"
 import html from "remark-html"
 import recommended from "remark-preset-lint-recommended"
+import breaks from "remark-breaks"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 const processor = remark()
   .use(recommended)
   .use(html)
+  .use(breaks)
 
 const ResourceRow = ({
   name,
@@ -60,7 +62,7 @@ const ResourceRow = ({
           <div
             className="content"
             dangerouslySetInnerHTML={{
-              __html: processor.processSync(descriptionText),
+              __html: processor.processSync(descriptionText.trim()),
             }}
           />
         ) : (
