@@ -19,6 +19,11 @@
     background-color: transparent !important;
   }
 
+  body,
+  main.main {
+    min-height: 0;
+  }
+
   .navbar-brand > a.navbar-item {
     padding-left: 0;
   }
@@ -26,9 +31,14 @@
   .resource-row,
   .resource-row .column,
   .filter-description,
-  .tag {
+  .tag,
+  .main.container {
     padding-left: 0;
     padding-right: 0;
+  }
+
+  .main.container article {
+    max-width: 100%;
   }
 
   // Eliminated most padding but add to description column for legibility
