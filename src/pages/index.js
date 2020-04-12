@@ -37,14 +37,16 @@ const WHO_OPTIONS = [
   "Business Owners",
   "Students",
 ]
-
-const getUniqueOptions = (results, prop) => [
-  ...new Set(
-    results.reduce((prev, curr) => {
-      const val = curr[prop] || []
-      return [...prev, ...(Array.isArray(val) ? val : [val])]
-    }, [])
-  ),
+const LANGUAGE_OPTIONS = [
+  "English",
+  "Spanish",
+  "Chinese",
+  "Arabic",
+  "Tagalog",
+  "Polish",
+  "French",
+  "Hindi",
+  "Urdu",
 ]
 
 const getFiltersWithValues = filters =>
@@ -188,11 +190,6 @@ const IndexPage = ({
       debounceFilters.languages,
     ]
   )
-  const langOptions = useMemo(
-    () => getUniqueOptions(allResults, `languages`),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    []
-  )
   const [expanded, setExpanded] = useState(false)
   const [page, setPage] = useState(1)
   const [toast, setToast] = useState(``)
@@ -309,7 +306,7 @@ const IndexPage = ({
             <CheckboxGroup
               name="languages"
               label={intl.formatMessage({ id: "languages-label" })}
-              options={translateOptions(langOptions)}
+              options={translateOptions(LANGUAGE_OPTIONS)}
               value={filters.languages}
               onChange={languages => setFilters({ ...filters, languages })}
               classNames="filter-group"

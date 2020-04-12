@@ -108,6 +108,8 @@ input[type="checkbox"] {
 
 @media screen and (max-width: $tablet) {
   .navbar-brand > a.navbar-item {
+    padding-left: grid(1);
+
     h1 {
       line-height: 1.25;
     }
