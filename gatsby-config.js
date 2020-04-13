@@ -66,7 +66,7 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `COVID Resource Finder`,
-        short_name: `chi-covid-resources`,
+        short_name: `COVID Resources`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#ffffff`,
