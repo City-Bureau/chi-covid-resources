@@ -49,11 +49,11 @@ const LANGUAGE_OPTIONS = [
   "Urdu",
 ]
 const LEVEL_ENUM = {
-  National: 0,
-  State: 1,
-  County: 2,
-  City: 3,
-  Neighborhood: 4,
+  National: 1,
+  State: 2,
+  County: 3,
+  City: 4,
+  Neighborhood: 5,
 }
 
 const getFiltersWithValues = filters =>
