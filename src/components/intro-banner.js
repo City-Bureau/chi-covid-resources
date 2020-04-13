@@ -3,11 +3,11 @@ import { useIntl } from "gatsby-plugin-intl"
 
 const IntroBanner = () => {
   const intl = useIntl()
-  const [show, setShow] = useState(true)
+  const [show, setShow] = useState(false)
 
   useEffect(() => {
-    if (window.localStorage.getItem("covid.citybureau.org/intro")) {
-      setShow(false)
+    if (!window.localStorage.getItem("covid.citybureau.org/intro")) {
+      setShow(true)
     }
   }, [])
 
