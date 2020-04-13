@@ -159,6 +159,22 @@ const sendGaQueryParams = ({ search, what, who, languages, zip }) => {
   }
 }
 
+const sendGaNextPage = page => {
+  if (
+    page > 1 &&
+    typeof window !== "undefined" &&
+    window.gtag &&
+    !window.location.host.includes("stage")
+  ) {
+    window.gtag("event", "page", {
+      event_category: window.location.pathname,
+      event_label: page,
+    })
+  } else if (page > 1) {
+    console.log(page)
+  }
+}
+
 const IndexPage = ({
   location,
   data: {
@@ -238,6 +254,10 @@ const IndexPage = ({
     debounceFilters.who,
     debounceFilters.languages,
   ])
+
+  useEffect(() => {
+    sendGaNextPage(page)
+  }, [page])
 
   return (
     <Layout location={location}>
