@@ -30,7 +30,7 @@ const IntroBanner = () => {
           {
             cityBureauLink: (
               <a
-                href="https://wwww.citybureau.org/"
+                href="https://www.citybureau.org/"
                 target="_blank"
                 rel="noopener"
               >
