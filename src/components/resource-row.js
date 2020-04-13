@@ -37,7 +37,7 @@ const ResourceRow = ({
   return (
     <div className="resource-row columns is-multiline">
       <div className="column is-8">
-        <h4>{name}</h4>
+        <h3>{name}</h3>
         <div className="tag-row">
           {what && what.length > 0
             ? what.map(t => (
