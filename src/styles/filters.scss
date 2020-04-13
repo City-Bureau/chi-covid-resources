@@ -34,7 +34,7 @@
     width: 100%;
     max-width: 100%;
     flex-grow: 0;
-    padding: grid(3) grid(1);
+    padding: grid(2) grid(1);
   }
 }
 
@@ -116,10 +116,35 @@ input.search {
   }
 }
 
+.intro-banner {
+  padding: grid(2) grid(1);
+  padding-right: grid(3);
+  background-color: $yellow;
+  position: relative;
+
+  a {
+    color: $darkBlue;
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: $indigo;
+    }
+  }
+
+  .delete {
+    position: absolute;
+    top: grid(1);
+    right: grid(1);
+  }
+
+  &.is-hidden + .filter-description {
+    margin-top: grid(1);
+  }
+}
+
 .filter-description {
-  margin: grid(2) 0;
-  padding: grid(2);
-  padding-bottom: 0;
+  padding: grid(2) grid(1);
 
   h2 {
     font-weight: bold;

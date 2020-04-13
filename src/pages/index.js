@@ -8,6 +8,7 @@ import Fuse from "fuse.js"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import IntroBanner from "../components/intro-banner"
 import FilterDescription from "../components/filter-description"
 import ResourceRow from "../components/resource-row"
 import CheckboxGroup from "../components/checkbox-group"
@@ -182,9 +183,13 @@ const IndexPage = ({
           id: recordId,
           ...data,
         }))
-        .sort(
-          (a, b) => (LEVEL_ENUM[a.level] || 10) - (LEVEL_ENUM[b.level] || 10)
-        ),
+        .sort((a, b) => {
+          const levelSort =
+            (LEVEL_ENUM[a.level] || 10) - (LEVEL_ENUM[b.level] || 10)
+          return levelSort === 0
+            ? (a.who || []).length - (b.who || []).length
+            : levelSort
+        }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     []
   )
@@ -343,6 +348,7 @@ const IndexPage = ({
           <ScrollTopButton />
         </aside>
         <div className="section filter-results-section">
+          <IntroBanner />
           <FilterDescription
             filters={getFiltersWithValues(debounceFilters)}
             count={results.length}

@@ -4,7 +4,8 @@
   .footer,
   .filter-controls,
   .filter-results-footer,
-  .flag-resource {
+  .flag-resource,
+  .delete {
     display: none !important;
   }
 
@@ -30,9 +31,10 @@
 
   .resource-row,
   .resource-row .column,
+  .intro-banner,
   .filter-description,
   .tag,
-  .main.container {
+  .main.containe {
     padding-left: 0;
     padding-right: 0;
   }

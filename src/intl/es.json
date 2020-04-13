@@ -17,6 +17,8 @@
   "in-en": "In English",
   "in-es": "En Español",
   "filter-title": "Filtrar recursos",
+  "intro-description": "Resource guide from {cityBureauLink}",
+  "close": "Close",
   "filter-description": "{count} resources available, use the filters to shorten the list",
   "filter-description-filters": "{count} resources available for {filters}",
   "filter-description-one-result": "1 resource available for {filters}",

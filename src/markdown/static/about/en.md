@@ -5,7 +5,7 @@ date: 2020-03-24
 
 # About
 
-Chicago COVID Resources was created to help people access updated, verified information for Chicago and surrounding areas during the coronavirus epidemic.
+Chicago COVID Resource Finder was created to help people access updated, verified information for Chicago and surrounding areas during the coronavirus epidemic.
 
 This website is created and maintained by [City Bureau](https://www.citybureau.org/), a nonprofit, nonpartisan journalism lab based on the South Side of Chicago. Our mission is to bring communities together to produce more equitable, impactful media.
 
