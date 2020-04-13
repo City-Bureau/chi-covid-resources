@@ -65,7 +65,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Chicago COVID Resources`,
+        name: `COVID Resource Finder`,
         short_name: `chi-covid-resources`,
         start_url: `/`,
         background_color: `#ffffff`,
@@ -102,6 +102,6 @@ module.exports = {
         },
       },
     },
-    // `gatsby-plugin-offline`,
+    `gatsby-plugin-offline`,
   ],
 }
