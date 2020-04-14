@@ -54,6 +54,21 @@
   margin-top: grid(2);
 }
 
+fieldset legend.label,
+fieldset legend.label:not(:last-child) {
+  margin-bottom: grid(0.5);
+
+  & + .checkbox-group-values {
+    margin-top: grid(0.5);
+  }
+}
+
+p.help {
+  font-size: 12px;
+  margin-top: 0;
+  margin-bottom: grid(0.5);
+}
+
 .checkbox-group-values {
   label.checkbox {
     display: flex;
@@ -181,16 +196,21 @@ input.search {
     background-color: $backgroundGray;
   }
 
-  .last-updated {
-    display: flex;
-    align-items: flex-end;
-    font-size: 14px;
-  }
-
   .detail-column {
     p {
       margin-bottom: grid(0.75);
     }
+  }
+
+  .bottom-column {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+  }
+
+  .last-updated {
+    margin-top: grid(1);
+    font-size: 14px;
   }
 }
 

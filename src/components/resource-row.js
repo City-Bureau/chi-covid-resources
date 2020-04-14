@@ -22,6 +22,7 @@ const ResourceRow = ({
   what,
   who,
   languages,
+  qualifications,
   description,
   lastUpdated,
   onFlag,
@@ -114,36 +115,49 @@ const ResourceRow = ({
         ) : (
           ``
         )}
-        {languages && languages.length > 0 ? (
-          <p>
-            <FontAwesomeIcon icon="language" />
-            &nbsp;
-            {languages.map(l => intl.formatMessage({ id: l })).join(", ")}
+      </div>
+      <div className="column is-8 bottom-column">
+        <div>
+          {languages && languages.length > 0 ? (
+            <p>
+              <FontAwesomeIcon icon="language" />
+              &nbsp;
+              {languages.map(l => intl.formatMessage({ id: l })).join(", ")}
+            </p>
+          ) : (
+            ``
+          )}
+          {qualifications && qualifications.includes("Regardless of status") ? (
+            <p>
+              <FontAwesomeIcon icon="door-open" />
+              &nbsp;
+              {intl.formatMessage({ id: "regardless-of-status" })}
+            </p>
+          ) : (
+            ``
+          )}
+          <p className="last-updated is-italic">
+            {intl.formatMessage({ id: "last-updated" })}{" "}
+            {intl.formatDate(new Date(lastUpdated), {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })}
           </p>
-        ) : (
-          ``
-        )}
+        </div>
       </div>
-      <div className="column is-8 last-updated">
-        <p className="is-italic">
-          {intl.formatMessage({ id: "last-updated" })}{" "}
-          {intl.formatDate(new Date(lastUpdated), {
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-          })}
-        </p>
-      </div>
-      <div className="column is-4">
-        <button
-          type="button"
-          className="button is-text flag-resource"
-          onClick={onFlag}
-        >
-          <FontAwesomeIcon icon="exclamation-circle" />
-          &nbsp;{" "}
-          <span>{intl.formatMessage({ id: "flag-resource-label" })}</span>
-        </button>
+      <div className="column is-4 bottom-column">
+        <div>
+          <button
+            type="button"
+            className="button is-text flag-resource"
+            onClick={onFlag}
+          >
+            <FontAwesomeIcon icon="exclamation-circle" />
+            &nbsp;{" "}
+            <span>{intl.formatMessage({ id: "flag-resource-label" })}</span>
+          </button>
+        </div>
       </div>
     </div>
   )
@@ -159,6 +173,7 @@ ResourceRow.propTypes = {
   what: PropTypes.array,
   who: PropTypes.array,
   languages: PropTypes.array,
+  qualifications: PropTypes.array,
   description: PropTypes.string,
   lastUpdated: PropTypes.string.isRequired,
   onFlag: PropTypes.func,
@@ -172,6 +187,7 @@ ResourceRow.defaultProps = {
   hours: ``,
   what: [],
   who: [],
+  qualifications: [],
   languages: [],
   description: ``,
   onFlag: () => {},

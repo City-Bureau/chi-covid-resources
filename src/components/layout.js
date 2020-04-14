@@ -13,6 +13,7 @@ import { faLanguage } from "@fortawesome/free-solid-svg-icons/faLanguage"
 import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons/faMapMarkerAlt"
 import { faExclamationCircle } from "@fortawesome/free-solid-svg-icons/faExclamationCircle"
 import { faSearch } from "@fortawesome/free-solid-svg-icons/faSearch"
+import { faDoorOpen } from "@fortawesome/free-solid-svg-icons/faDoorOpen"
 
 import Header from "./header"
 import Footer from "./footer"
@@ -35,7 +36,8 @@ library.add(
   faLanguage,
   faMapMarkerAlt,
   faExclamationCircle,
-  faSearch
+  faSearch,
+  faDoorOpen
 )
 
 const Layout = ({ location, children }) => (

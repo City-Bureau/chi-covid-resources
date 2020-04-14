@@ -28,6 +28,7 @@ const WHAT_OPTIONS = [
   "Food",
   "Housing",
   "Health",
+  "Mental Health",
   "Utilities",
   "Legal Help",
 ]
@@ -325,6 +326,7 @@ const IndexPage = ({
             <CheckboxGroup
               name="who"
               label={intl.formatMessage({ id: "who-label" })}
+              help={intl.formatMessage({ id: "who-help" })}
               options={translateOptions(WHO_OPTIONS)}
               value={filters.who}
               onChange={who => setFilters({ ...filters, who })}
@@ -430,6 +432,7 @@ export const query = graphql`
             who: Who
             what: Category
             languages: Languages
+            qualifications: Qualifications
             level: Level
             lastUpdated: Last_Updated
           }

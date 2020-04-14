@@ -11,6 +11,7 @@ const setupOptions = options =>
 const CheckboxGroup = ({
   name,
   label,
+  help,
   options,
   value,
   onChange,
@@ -18,6 +19,7 @@ const CheckboxGroup = ({
 }) => (
   <fieldset className={`checkbox-group ${classNames}`}>
     <legend className="label">{label}</legend>
+    {help ? <p className="help">{help}</p> : ``}
     <div className="checkbox-group-values">
       {setupOptions(options).map(({ label: lbl, value: val }, idx) => (
         <label className="checkbox" key={val}>
@@ -44,6 +46,7 @@ const CheckboxGroup = ({
 CheckboxGroup.propTypes = {
   name: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
+  help: PropTypes.string,
   options: PropTypes.array.isRequired,
   value: PropTypes.array,
   onChange: PropTypes.func.isRequired,
@@ -51,6 +54,7 @@ CheckboxGroup.propTypes = {
 }
 
 CheckboxGroup.defaultProps = {
+  help: ``,
   value: [],
   classNames: ``,
 }
