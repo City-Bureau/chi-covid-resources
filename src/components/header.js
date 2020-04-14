@@ -22,6 +22,17 @@ const Header = ({ location }) => {
   `)
   const intl = useIntl()
 
+  const onPrint = () => {
+    if (typeof window === "undefined") return
+    if (window.gtag && !window.location.host.includes("stage")) {
+      window.gtag("event", "print", {
+        event_category: window.location.pathname,
+        event_label: "Print",
+      })
+    }
+    window.print()
+  }
+
   return (
     <nav className="navbar" role="navigation" aria-label="main navigation">
       <div className="navbar-brand">
@@ -61,7 +72,7 @@ const Header = ({ location }) => {
           </Link>
           <button
             className="navbar-item button print-button is-text"
-            onClick={() => window.print()}
+            onClick={onPrint}
           >
             <FontAwesomeIcon icon="print" />
             &nbsp; {intl.formatMessage({ id: "print" })}
