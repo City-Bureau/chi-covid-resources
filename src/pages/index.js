@@ -46,9 +46,7 @@ const LANGUAGE_OPTIONS = [
   "Arabic",
   "Tagalog",
   "Polish",
-  "French",
-  "Hindi",
-  "Urdu",
+  "Gujarati",
 ]
 const LEVEL_ENUM = {
   National: 1,
