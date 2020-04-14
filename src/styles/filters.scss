@@ -132,7 +132,7 @@ input.search {
 }
 
 .intro-banner {
-  padding: grid(2) grid(1);
+  padding: grid(2);
   background-color: $yellow;
 
   .banner-container {
@@ -163,7 +163,7 @@ input.search {
 }
 
 .filter-description {
-  padding: grid(2) grid(1);
+  padding: grid(2);
 
   h2 {
     font-weight: bold;
@@ -179,7 +179,7 @@ input.search {
   }
 
   .column {
-    padding: grid(1.25);
+    padding: grid(1);
   }
 
   .content {
@@ -215,8 +215,9 @@ input.search {
 }
 
 @media screen and (max-width: $tablet) {
-  .filter-description {
-    padding: grid(1);
+  .filter-description,
+  .intro-banner {
+    padding: grid(2) grid(1);
   }
 
   .resource-row {
