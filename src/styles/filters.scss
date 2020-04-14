@@ -118,9 +118,13 @@ input.search {
 
 .intro-banner {
   padding: grid(2) grid(1);
-  padding-right: grid(3);
   background-color: $yellow;
-  position: relative;
+
+  .banner-container {
+    max-width: grid(80);
+    padding-right: grid(3);
+    position: relative;
+  }
 
   a {
     color: $darkBlue;
@@ -134,8 +138,8 @@ input.search {
 
   .delete {
     position: absolute;
-    top: grid(1);
-    right: grid(1);
+    top: 0;
+    right: 0;
   }
 
   &.is-hidden + .filter-description {

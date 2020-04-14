@@ -18,28 +18,30 @@ const IntroBanner = () => {
 
   return (
     <div className={`intro-banner ${show ? `` : `is-hidden`}`}>
-      <button
-        type="button"
-        className="delete"
-        aria-label={intl.formatMessage({ id: "close" })}
-        onClick={onClose}
-      />
-      <p>
-        {intl.formatMessage(
-          { id: "intro-description" },
-          {
-            cityBureauLink: (
-              <a
-                href="https://www.citybureau.org/"
-                target="_blank"
-                rel="noopener"
-              >
-                {intl.formatMessage({ id: "city-bureau" })}
-              </a>
-            ),
-          }
-        )}
-      </p>
+      <div className="banner-container">
+        <button
+          type="button"
+          className="delete"
+          aria-label={intl.formatMessage({ id: "close" })}
+          onClick={onClose}
+        />
+        <p>
+          {intl.formatMessage(
+            { id: "intro-description" },
+            {
+              cityBureauLink: (
+                <a
+                  href="https://www.citybureau.org/"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  {intl.formatMessage({ id: "city-bureau" })}
+                </a>
+              ),
+            }
+          )}
+        </p>
+      </div>
     </div>
   )
 }
