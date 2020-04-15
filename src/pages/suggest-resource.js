@@ -14,9 +14,12 @@ const SuggestResourcePage = ({ location }) => {
         location={location}
         title={intl.formatMessage({ id: "suggest-resource" })}
       />
-      <main className="article container">
+      <main className="main container">
         <article className="content">
+          <h2>{intl.formatMessage({ id: "suggest-resource" })}</h2>
+          <p>{intl.formatMessage({ id: "suggest-resource-intro" })}</p>
           <AirtableEmbed
+            title={intl.formatMessage({ id: "suggest-resource" })}
             embedId={intl.formatMessage({ id: "suggest-resource-form-id" })}
           />
         </article>

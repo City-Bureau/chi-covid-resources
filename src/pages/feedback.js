@@ -11,9 +11,12 @@ const FeedbackPage = ({ location }) => {
   return (
     <Layout location={location}>
       <SEO location={location} title={intl.formatMessage({ id: "feedback" })} />
-      <main className="article container">
+      <main className="main container">
         <article className="content">
+          <h2>{intl.formatMessage({ id: "feedback" })}</h2>
+          <p>{intl.formatMessage({ id: "feedback-intro" })}</p>
           <AirtableEmbed
+            title={intl.formatMessage({ id: "feedback" })}
             embedId={intl.formatMessage({ id: "feedback-form-id" })}
           />
         </article>
