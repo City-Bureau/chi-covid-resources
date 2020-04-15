@@ -1,17 +1,25 @@
-# Chicago COVID Resource Directory
+# Chicago COVID Resource Finder
 
 [![Build status](https://github.com/City-Bureau/chi-covid-resources/workflows/Deploy/badge.svg)](https://github.com/City-Bureau/chi-covid-resources/actions)
 
-Directory of Chicagoland resources related to COVID-19 maintained by [City Bureau](https://www.citybureau.org/).
+Find updated, verified information on resources in the Chicago area during the coronavirus pandemic. Maintained by [City Bureau](https://www.citybureau.org/).
 
 ## Setup
 
-You'll need [Node](https://nodejs.org/en/) installed. You can run the following commands to install dependencies and run a server locally:
+You'll need [Node](https://nodejs.org/en/) installed and an [Airtable](https://airtable.com/) account set up with the fields in [`src/pages/index.js`](./src/pages/index.js). If you want to use the resource flagging functionality, you'll also need to deploy an AWS Lambda function using the [`serverless-airtable-button`](https://github.com/City-Bureau/serverless-airtable-button) repo.
+
+Copy the `.env.sample` to `.env` and fill in the values with your Airtable credentials, and optionally the API Gateway endpoint for flagging resources.
+
+Once you've set up the prerequisites, you can install dependencies and start a server at [localhost:8000](http://localhost:8000) with:
 
 ```bash
 npm install
 npm start
 ```
+
+## Deploy
+
+To deploy the AWS S3 and Cloudfront, create an S3 bucket that allows static site hosting and a Cloudfront distribution pointing to the bucket's web hosting endpoint. Set the `S3_BUCKET` and `CLOUDFRONT_ID` environment variables with your bucket and distribution ID, and then with GNU Make installed run `make deploy`.
 
 ## 🧐 What's inside?
 
