@@ -49,11 +49,11 @@ const LANGUAGE_OPTIONS = [
   "Gujarati",
 ]
 const LEVEL_ENUM = {
-  National: 1,
-  State: 2,
-  County: 3,
-  City: 4,
-  Neighborhood: 5,
+  State: 1,
+  County: 2,
+  City: 3,
+  Neighborhood: 4,
+  National: 5,
 }
 
 const getFiltersWithValues = filters =>
@@ -332,7 +332,7 @@ const IndexPage = ({
             />
             <div className="filter-group">
               <label className="label" htmlFor="zip-search">
-                {intl.formatMessage({ id: "zip-label" })}
+                {intl.formatMessage({ id: "where-label" })}
               </label>
               <DebouncedInput
                 name="zip"
