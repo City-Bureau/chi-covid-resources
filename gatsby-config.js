@@ -2,6 +2,8 @@ require(`dotenv`).config()
 
 const siteUrl = `https://covid-stage.citybureau.org`
 
+const languages = [`en`, `es`]
+
 module.exports = {
   siteMetadata: {
     title: `Chicago COVID Resources`,
@@ -20,7 +22,7 @@ module.exports = {
         // language JSON resource path
         path: `${__dirname}/src/intl`,
         // supported language
-        languages: [`en`, `es`],
+        languages,
         // language file path
         defaultLanguage: `en`,
         redirect: true,
@@ -106,6 +108,42 @@ module.exports = {
             policy: [{ userAgent: "*", allow: "/" }],
           },
         },
+      },
+    },
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        query: `
+        {
+          site {
+            siteMetadata {
+              siteUrl
+            }
+          }
+
+          allSitePage(filter: {context: {intl: {routed: {eq: false}}}}) {
+            edges {
+              node {
+                path
+              }
+            }
+          }
+        }
+        `,
+        serialize: ({
+          site: {
+            siteMetadata: { siteUrl },
+          },
+          allSitePage,
+        }) =>
+          allSitePage.edges.map(({ node: { path } }) => ({
+            url: siteUrl + path,
+            changefreq: `daily`,
+            priority: 0.7,
+            links: languages
+              .map(lang => ({ lang, url: `${siteUrl}/${lang}${path}` }))
+              .concat([{ lang: `x-default`, url: siteUrl + path }]),
+          })),
       },
     },
     `gatsby-plugin-offline`,

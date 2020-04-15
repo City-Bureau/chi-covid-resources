@@ -23,6 +23,7 @@
     "gatsby-plugin-sass": "^2.2.1",
     "gatsby-plugin-sentry": "^1.0.1",
     "gatsby-plugin-sharp": "^2.4.13",
+    "gatsby-plugin-sitemap": "^2.3.2",
     "gatsby-source-airtable": "^2.1.0",
     "gatsby-source-filesystem": "^2.1.56",
     "gatsby-transformer-sharp": "^2.3.19",
