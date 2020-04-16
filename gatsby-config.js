@@ -105,7 +105,7 @@ module.exports = {
             host: null,
           },
           production: {
-            policy: [{ userAgent: "*", allow: "/" }],
+            policy: [{ userAgent: "*", disallow: [""] }],
           },
         },
       },
