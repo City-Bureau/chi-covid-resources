@@ -18,7 +18,7 @@ import ToastMessage from "../components/toast-message"
 
 import { objectFromSearchParams } from "../utils"
 import { useDebounce } from "../hooks"
-import { ZIP_MAP } from "../zips"
+import { CHICAGO_ZIPS, ZIP_MAP } from "../zips"
 import { DEFAULT_DEBOUNCE } from "../constants"
 
 const PAGE_SIZE = 10
@@ -55,6 +55,13 @@ const LEVEL_ENUM = {
   Neighborhood: 4,
   National: 5,
 }
+const ZIP_LEVEL_ENUM = {
+  Neighborhood: 1,
+  City: 2,
+  County: 3,
+  State: 4,
+  National: 5,
+}
 
 const getFiltersWithValues = filters =>
   fromEntries(
@@ -73,11 +80,14 @@ const applyFilters = (filters, data) => {
       }
       if (key === `zip` && value.replace(/\D/g, ``) in ZIP_MAP) {
         const zipVal = value.replace(/\D/g, ``)
+        // Filter out Neighborhood resources if ZIP filtered
+        // Remove City resources if ZIP outside Chicago
         return (
-          !!d[key] &&
-          d.level &&
-          d.level === "Neighborhood" &&
-          ZIP_MAP[zipVal].some(z => d[key].includes(z))
+          !["City", "Neighborhood"].includes(d.level) ||
+          (d.level === "City" && CHICAGO_ZIPS.includes(zipVal)) ||
+          (!!d[key] &&
+            d.level === "Neighborhood" &&
+            ZIP_MAP[zipVal].some(z => d[key].includes(z)))
         )
       } else if (Array.isArray(value)) {
         // If data value is array, check for overlap
@@ -107,6 +117,15 @@ const applyFilters = (filters, data) => {
     })
       .search(filters.search.trim())
       .map(({ item }) => item)
+  } else if (!!filters.zip) {
+    // Sort results with Neighborhood first if ZIP filter present
+    return filtered.sort((a, b) => {
+      const zipLevelSort =
+        (ZIP_LEVEL_ENUM[a.level] || 10) - (ZIP_LEVEL_ENUM[b.level] || 10)
+      return zipLevelSort === 0
+        ? (a.who || []).length - (b.who || []).length
+        : zipLevelSort
+    })
   } else {
     return filtered
   }
@@ -321,15 +340,6 @@ const IndexPage = ({
               onChange={what => setFilters({ ...filters, what })}
               classNames="filter-group"
             />
-            <CheckboxGroup
-              name="who"
-              label={intl.formatMessage({ id: "who-label" })}
-              help={intl.formatMessage({ id: "who-help" })}
-              options={translateOptions(WHO_OPTIONS)}
-              value={filters.who}
-              onChange={who => setFilters({ ...filters, who })}
-              classNames="filter-group"
-            />
             <div className="filter-group">
               <label className="label" htmlFor="zip-search">
                 {intl.formatMessage({ id: "where-label" })}
@@ -344,6 +354,15 @@ const IndexPage = ({
                 onChange={zip => setFilters({ ...filters, zip })}
               />
             </div>
+            <CheckboxGroup
+              name="who"
+              label={intl.formatMessage({ id: "who-label" })}
+              help={intl.formatMessage({ id: "who-help" })}
+              options={translateOptions(WHO_OPTIONS)}
+              value={filters.who}
+              onChange={who => setFilters({ ...filters, who })}
+              classNames="filter-group"
+            />
             <CheckboxGroup
               name="languages"
               label={intl.formatMessage({ id: "languages-label" })}
