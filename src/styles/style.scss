@@ -106,6 +106,12 @@ input[type="checkbox"] {
   }
 }
 
+@media screen and (min-width: $tablet) {
+  h1 {
+    font-size: 18px;
+  }
+}
+
 @media screen and (max-width: $tablet) {
   .navbar-brand > a.navbar-item {
     padding-left: grid(1);
