@@ -21,7 +21,7 @@ import { useDebounce } from "../hooks"
 import { CHICAGO_ZIPS, ZIP_MAP } from "../zips"
 import { DEFAULT_DEBOUNCE } from "../constants"
 
-const PAGE_SIZE = 10
+export const PAGE_SIZE = 10
 
 const WHAT_OPTIONS = [
   "Money",
@@ -48,7 +48,7 @@ const LANGUAGE_OPTIONS = [
   "Polish",
   "Gujarati",
 ]
-const LEVEL_ENUM = {
+export const LEVEL_ENUM = {
   State: 1,
   County: 2,
   City: 3,
@@ -63,7 +63,15 @@ const ZIP_LEVEL_ENUM = {
   National: 5,
 }
 
-const getFiltersWithValues = filters =>
+export const sortByLevel = levelEnum => (a, b) => {
+  // Sort first by level, but if that's equal prioritize resources without restrictions
+  const levelSort = (levelEnum[a.level] || 10) - (levelEnum[b.level] || 10)
+  return levelSort === 0
+    ? (a.who || []).length - (b.who || []).length
+    : levelSort
+}
+
+export const getFiltersWithValues = filters =>
   fromEntries(
     Object.entries(filters).filter(
       ([key, value]) =>
@@ -71,7 +79,7 @@ const getFiltersWithValues = filters =>
     )
   )
 
-const applyFilters = (filters, data) => {
+export const applyFilters = (filters, data) => {
   const filtered = data.filter(d =>
     Object.entries(filters).every(([key, value]) => {
       // Ignore search, apply afterwards to save time
@@ -118,20 +126,13 @@ const applyFilters = (filters, data) => {
       .search(filters.search.trim())
       .map(({ item }) => item)
   } else if (!!filters.zip) {
-    // Sort results with Neighborhood first if ZIP filter present
-    return filtered.sort((a, b) => {
-      const zipLevelSort =
-        (ZIP_LEVEL_ENUM[a.level] || 10) - (ZIP_LEVEL_ENUM[b.level] || 10)
-      return zipLevelSort === 0
-        ? (a.who || []).length - (b.who || []).length
-        : zipLevelSort
-    })
+    return filtered.sort(sortByLevel(ZIP_LEVEL_ENUM))
   } else {
     return filtered
   }
 }
 
-const loadQueryParamFilters = (location, filters) =>
+export const loadQueryParamFilters = (location, filters) =>
   fromEntries(
     Object.entries(objectFromSearchParams(new URLSearchParams(location.search)))
       .filter(([key, value]) => value !== "" && key in filters)
@@ -217,13 +218,7 @@ const IndexPage = ({
           id: recordId,
           ...data,
         }))
-        .sort((a, b) => {
-          const levelSort =
-            (LEVEL_ENUM[a.level] || 10) - (LEVEL_ENUM[b.level] || 10)
-          return levelSort === 0
-            ? (a.who || []).length - (b.who || []).length
-            : levelSort
-        }),
+        .sort(sortByLevel(LEVEL_ENUM)),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     []
   )

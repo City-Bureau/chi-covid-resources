@@ -40,17 +40,22 @@ library.add(
   faDoorOpen
 )
 
-const Layout = ({ location, children }) => (
+const Layout = ({ location, hide, children }) => (
   <>
-    <Header location={location} />
+    {hide ? `` : <Header location={location} />}
     {children}
-    <Footer />
+    {hide ? `` : <Footer />}
   </>
 )
 
 Layout.propTypes = {
   location: PropTypes.object.isRequired,
+  hide: PropTypes.bool,
   children: PropTypes.node.isRequired,
+}
+
+Layout.defaultProps = {
+  hide: false,
 }
 
 export default Layout

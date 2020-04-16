@@ -1,0 +1,13 @@
+html.embedded,
+html.not-embedded {
+  background-color: transparent;
+
+  body {
+    background-color: transparent;
+  }
+
+  .filter-results-section,
+  .filter-results-footer {
+    padding: 0;
+  }
+}

@@ -113,6 +113,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
+        exclude: [`/embed*`],
         query: `
         {
           site {
@@ -139,7 +140,7 @@ module.exports = {
           allSitePage.edges.map(({ node: { path } }) => ({
             url: siteUrl + path,
             changefreq: `daily`,
-            priority: 0.7,
+            priority: path === `/` ? 1.0 : 0.7,
             links: languages
               .map(lang => ({ lang, url: `${siteUrl}/${lang}${path}` }))
               .concat([{ lang: `x-default`, url: siteUrl + path }]),
