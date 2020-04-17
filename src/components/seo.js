@@ -81,9 +81,7 @@ function SEO({ location, description, lang, meta, title, overrideTitle }) {
           content: metaDescription,
         },
       ].concat(meta)}
-    >
-      <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=default,Symbol,Array.prototype.flat" />
-    </Helmet>
+    />
   )
 }
 
