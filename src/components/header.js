@@ -80,9 +80,6 @@ const Header = ({ location }) => {
           <Link className="navbar-item" to="/suggest-resource/">
             {intl.formatMessage({ id: "suggest-resource" })}
           </Link>
-          <Link className="navbar-item" to="/feedback/">
-            {intl.formatMessage({ id: "feedback" })}
-          </Link>
           <LanguageSelector
             location={location}
             classNames="navbar-item is-hidden-mobile"
