@@ -9,7 +9,7 @@ import { faEnvelope } from "@fortawesome/free-solid-svg-icons/faEnvelope"
 import { faPrint } from "@fortawesome/free-solid-svg-icons/faPrint"
 import { faFilter } from "@fortawesome/free-solid-svg-icons/faFilter"
 import { faCalendarAlt } from "@fortawesome/free-solid-svg-icons/faCalendarAlt"
-import { faLanguage } from "@fortawesome/free-solid-svg-icons/faLanguage"
+import { faComments } from "@fortawesome/free-solid-svg-icons/faComments"
 import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons/faMapMarkerAlt"
 import { faExclamationCircle } from "@fortawesome/free-solid-svg-icons/faExclamationCircle"
 import { faSearch } from "@fortawesome/free-solid-svg-icons/faSearch"
@@ -36,7 +36,7 @@ library.add(
   faPrint,
   faFilter,
   faCalendarAlt,
-  faLanguage,
+  faComments,
   faMapMarkerAlt,
   faExclamationCircle,
   faSearch,

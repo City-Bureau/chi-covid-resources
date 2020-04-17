@@ -38,27 +38,27 @@ const ResourceRow = ({
   return (
     <div className="resource-row columns is-multiline">
       <div className="column is-8">
-        <h3>{name}</h3>
-        <div className="tag-row">
-          {what && what.length > 0
-            ? what.map(t => (
-                <span key={t} className="tag">
-                  {intl.formatMessage({ id: t })}
-                </span>
-              ))
-            : ``}
-        </div>
-        {who && who.length > 0 ? (
+        {(what || []).concat(who || []).length > 0 ? (
           <div className="tag-row">
-            {who.map(t => (
-              <span key={t} className="tag is-teal">
-                {intl.formatMessage({ id: t })}
-              </span>
-            ))}
+            {what && what.length > 0
+              ? what.map(t => (
+                  <span key={t} className="tag">
+                    {intl.formatMessage({ id: t })}
+                  </span>
+                ))
+              : ``}
+            {who && who.length > 0
+              ? who.map(t => (
+                  <span key={t} className="tag is-teal">
+                    {intl.formatMessage({ id: t })}
+                  </span>
+                ))
+              : ``}
           </div>
         ) : (
           ``
         )}
+        <h3>{name}</h3>
         {descriptionText ? (
           <div
             className="content"
@@ -120,7 +120,7 @@ const ResourceRow = ({
         <div>
           {languages && languages.length > 0 ? (
             <p>
-              <FontAwesomeIcon icon="language" />
+              <FontAwesomeIcon icon="comments" />
               &nbsp;
               {languages.map(l => intl.formatMessage({ id: l })).join(", ")}
             </p>
