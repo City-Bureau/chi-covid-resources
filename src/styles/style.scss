@@ -250,6 +250,22 @@ a.navbar-item {
   .column {
     padding: grid(1);
   }
+
+  .social-icons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  a.icon-link {
+    font-size: grid(3.5);
+    margin-right: grid(2);
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
 }
 
 @media screen and (max-width: $tablet) {

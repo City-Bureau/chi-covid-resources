@@ -14,6 +14,9 @@ import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons/faMapMarkerAlt
 import { faExclamationCircle } from "@fortawesome/free-solid-svg-icons/faExclamationCircle"
 import { faSearch } from "@fortawesome/free-solid-svg-icons/faSearch"
 import { faDoorOpen } from "@fortawesome/free-solid-svg-icons/faDoorOpen"
+import { faFacebook } from "@fortawesome/free-brands-svg-icons/faFacebook"
+import { faInstagram } from "@fortawesome/free-brands-svg-icons/faInstagram"
+import { faTwitter } from "@fortawesome/free-brands-svg-icons/faTwitter"
 
 import Header from "./header"
 import Footer from "./footer"
@@ -37,7 +40,10 @@ library.add(
   faMapMarkerAlt,
   faExclamationCircle,
   faSearch,
-  faDoorOpen
+  faDoorOpen,
+  faFacebook,
+  faInstagram,
+  faTwitter
 )
 
 const Layout = ({ location, hide, children }) => (
