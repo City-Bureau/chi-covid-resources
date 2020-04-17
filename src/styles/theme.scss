@@ -41,12 +41,8 @@ $dropdownBoxShadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
 
 // Fonts
 
-$serifFontStack: bookmania, Iowan Old Style, Apple Garamond, Palatino Linotype,
-  Times New Roman, "Droid Serif", Times, serif, Apple Color Emoji,
-  Segoe UI Emoji, Segoe UI Symbol;
 $sansSerifFontStack: benton-sans, BlinkMacSystemFont, -apple-system, "Segoe UI",
   "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
   "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 $defaultFontStack: $sansSerifFontStack;
-$headerFontStack: $serifFontStack;
 $defaultFontSize: 16px;
