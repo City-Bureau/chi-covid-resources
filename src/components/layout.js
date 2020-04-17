@@ -44,7 +44,7 @@ const Layout = ({ location, hide, children }) => (
   <>
     {hide ? `` : <Header location={location} />}
     {children}
-    {hide ? `` : <Footer />}
+    {hide ? `` : <Footer location={location} />}
   </>
 )
 

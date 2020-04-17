@@ -2,19 +2,8 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Link, IntlContextConsumer } from "gatsby-plugin-intl"
 
+import { getBasePath, languageName } from "../utils"
 import DropdownMenu from "./dropdown-menu"
-
-const languageName = {
-  en: "English",
-  es: "Español",
-}
-
-const getBasePath = ({ pathname, language }) => {
-  if (pathname.startsWith(`/${language}/`)) {
-    return pathname.slice(`/${language}`.length)
-  }
-  return pathname
-}
 
 const LanguageSelector = ({ location, classNames }) => (
   <IntlContextConsumer>

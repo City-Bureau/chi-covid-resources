@@ -1,3 +1,8 @@
+export const languageName = {
+  en: "English",
+  es: "Español",
+}
+
 export const getVersionForLanguage = ({ versions, lang }) =>
   versions.find(v => v.lang === lang)
 
@@ -9,6 +14,13 @@ export const getResolvedVersionForLanguage = ({
   const current = getVersionForLanguage({ versions, lang })
   const fallback = getVersionForLanguage({ versions, lang: fallbackLang })
   return { ...fallback, ...current }
+}
+
+export const getBasePath = ({ pathname, language }) => {
+  if (pathname.startsWith(`/${language}/`)) {
+    return pathname.slice(`/${language}`.length)
+  }
+  return pathname
 }
 
 export const objectFromSearchParams = params => {
