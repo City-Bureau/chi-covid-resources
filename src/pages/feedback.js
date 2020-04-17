@@ -15,6 +15,8 @@ const FeedbackPage = ({ location }) => {
         <article className="content">
           <h2>{intl.formatMessage({ id: "feedback" })}</h2>
           <p>{intl.formatMessage({ id: "feedback-intro" })}</p>
+          {/* TODO: Add link to "this form" in alt form */}
+          <p>{intl.formatMessage({ id: "feedback-intro-alt-form" })}</p>
           <AirtableEmbed
             title={intl.formatMessage({ id: "feedback" })}
             embedId={intl.formatMessage({ id: "feedback-form-id" })}

@@ -18,6 +18,8 @@ const SuggestResourcePage = ({ location }) => {
         <article className="content">
           <h2>{intl.formatMessage({ id: "suggest-resource" })}</h2>
           <p>{intl.formatMessage({ id: "suggest-resource-intro" })}</p>
+          {/* TODO: Add link to "this form" in alt form */}
+          <p>{intl.formatMessage({ id: "suggest-resource-intro-alt-form" })}</p>
           <AirtableEmbed
             title={intl.formatMessage({ id: "suggest-resource" })}
             embedId={intl.formatMessage({ id: "suggest-resource-form-id" })}
