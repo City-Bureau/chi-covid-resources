@@ -150,6 +150,10 @@ html[dir="rtl"] {
     margin-right: auto;
     margin-left: 0;
   }
+
+  [dir="ltr"] {
+    text-align: right;
+  }
 }
 
 .navbar-burger {

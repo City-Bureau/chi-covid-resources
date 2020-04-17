@@ -84,7 +84,7 @@ const ResourceRow = ({
         {phone ? (
           <p>
             <FontAwesomeIcon icon="phone" />
-            &nbsp; {phone}
+            &nbsp; <span dir="ltr">{phone}</span>
           </p>
         ) : (
           ``
