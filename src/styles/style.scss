@@ -100,9 +100,21 @@ input[type="checkbox"] {
   align-items: center;
   justify-content: flex-start;
   flex-shrink: 1;
+  color: $black;
+
+  &:active,
+  &:hover,
+  &:focus {
+    color: $indigo;
+  }
 
   .gatsby-image-wrapper {
     margin-right: grid(1);
+  }
+
+  h1 {
+    max-width: grid(20);
+    line-height: 1.25;
   }
 }
 
