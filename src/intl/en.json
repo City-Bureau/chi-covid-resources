@@ -21,7 +21,7 @@
   "in-en": "In English",
   "in-es": "En Español",
   "filter-title": "Filter resources",
-  "intro-description": "Updated, verified info—created by City Bureau, a nonprofit newsroom based in Chicago. Text \"covid\" to 312-436-2280 to access via phone.",
+  "intro-description": "Updated, verified info—created by {cityBureauLink}, a nonprofit newsroom based in Chicago. Text \"covid\" to 312-436-2280 to access via phone.",
   "close": "Close",
   "filter-description": "{count} resources available, use the filters to shorten the list",
   "filter-description-filters": "{count} resources available for {filters}",
