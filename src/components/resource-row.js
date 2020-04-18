@@ -12,6 +12,11 @@ const processor = remark()
   .use(html)
   .use(breaks)
 
+const formatPhone = phone => {
+  const phoneStr = phone.replace(/\D/gi, "")
+  return phoneStr[0] === "1" ? `+${phoneStr}` : `+1${phoneStr}`
+}
+
 const ResourceRow = ({
   name,
   phone,
@@ -83,8 +88,10 @@ const ResourceRow = ({
         )}
         {phone ? (
           <p>
-            <FontAwesomeIcon icon="phone" />
-            &nbsp; <span dir="ltr">{phone}</span>
+            <a href={`tel:${formatPhone(phone)}`}>
+              <FontAwesomeIcon icon="phone" />
+              &nbsp; <span dir="ltr">{phone}</span>
+            </a>
           </p>
         ) : (
           ``

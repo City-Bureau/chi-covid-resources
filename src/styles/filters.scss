@@ -197,8 +197,12 @@ input.search {
   }
 
   .detail-column {
+    a {
+      padding: grid(1) 0;
+    }
+
     p {
-      margin-bottom: grid(0.75);
+      margin-bottom: grid(1);
     }
   }
 
