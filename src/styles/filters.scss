@@ -120,6 +120,17 @@ input.search {
   }
 }
 
+input[type="number"] {
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
 .button.clear-filters {
   margin-top: grid(2);
   display: block;

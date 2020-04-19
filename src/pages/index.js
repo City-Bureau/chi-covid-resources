@@ -342,6 +342,7 @@ const IndexPage = ({
               <DebouncedInput
                 name="zip"
                 id="zip-search"
+                inputType="number"
                 value={filters.zip}
                 placeholder={intl.formatMessage({
                   id: "zip-placeholder",
