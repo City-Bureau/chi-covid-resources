@@ -5,7 +5,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import { useIntl } from "gatsby-plugin-intl"
 import { rtlLanguages } from "../constants"
 
-function SEO({ location, description, lang, meta, title, overrideTitle }) {
+function SEO({ description, lang, meta, title, overrideTitle }) {
   const {
     site: { siteMetadata },
     socialImage: {
@@ -57,10 +57,6 @@ function SEO({ location, description, lang, meta, title, overrideTitle }) {
         {
           property: `og:title`,
           content: title,
-        },
-        {
-          property: `og:url`,
-          content: `${siteMetadata.siteUrl}${location.pathname}`,
         },
         {
           property: `og:site_name`,

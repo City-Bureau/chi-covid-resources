@@ -10,11 +10,7 @@ const FeedbackPage = ({ location }) => {
 
   return (
     <Layout location={location}>
-      <SEO
-        location={location}
-        title={intl.formatMessage({ id: "feedback" })}
-        lang={intl.locale}
-      />
+      <SEO title={intl.formatMessage({ id: "feedback" })} lang={intl.locale} />
       <main className="main container">
         <article className="content">
           <h2>{intl.formatMessage({ id: "feedback" })}</h2>

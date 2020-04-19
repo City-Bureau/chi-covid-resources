@@ -26,6 +26,7 @@ module.exports = {
         // language file path
         defaultLanguage: `en`,
         redirect: true,
+        redirectComponent: require.resolve(`./src/components/redirect.js`),
       },
     },
     {

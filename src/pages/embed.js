@@ -70,7 +70,6 @@ const EmbedPage = ({
   return (
     <Layout location={location} hide>
       <SEO
-        location={location}
         title={`${intl.formatMessage({
           id: "meta-title",
         })} | ${intl.formatMessage({ id: "city-bureau" })}`}

@@ -10,7 +10,6 @@ const NotFoundPage = ({ location }) => {
   return (
     <Layout location={location} lang={intl.locale}>
       <SEO
-        location={location}
         lang={intl.locale}
         title={intl.formatMessage({ id: "not-found-title" })}
       />

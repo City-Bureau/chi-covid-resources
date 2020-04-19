@@ -11,7 +11,6 @@ const SuggestResourcePage = ({ location }) => {
   return (
     <Layout location={location}>
       <SEO
-        location={location}
         title={intl.formatMessage({ id: "suggest-resource" })}
         lang={intl.locale}
       />

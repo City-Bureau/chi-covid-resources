@@ -275,7 +275,6 @@ const IndexPage = ({
   return (
     <Layout location={location}>
       <SEO
-        location={location}
         title={`${intl.formatMessage({
           id: "meta-title",
         })} | ${intl.formatMessage({ id: "city-bureau" })}`}
