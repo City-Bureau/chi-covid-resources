@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { useIntl } from "gatsby-plugin-intl"
+import { Link, useIntl } from "gatsby-plugin-intl"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import AirtableEmbed from "../components/airtable-embed"
@@ -13,13 +13,24 @@ const SuggestResourcePage = ({ location }) => {
       <SEO
         location={location}
         title={intl.formatMessage({ id: "suggest-resource" })}
+        lang={intl.locale}
       />
       <main className="main container">
         <article className="content">
           <h2>{intl.formatMessage({ id: "suggest-resource" })}</h2>
           <p>{intl.formatMessage({ id: "suggest-resource-intro" })}</p>
-          {/* TODO: Add link to "this form" in alt form */}
-          <p>{intl.formatMessage({ id: "suggest-resource-intro-alt-form" })}</p>
+          <p>
+            {intl.formatMessage(
+              { id: "suggest-resource-intro-alt-form" },
+              {
+                thisFormLink: (
+                  <Link to="/feedback/">
+                    {intl.formatMessage({ id: "this-form" })}
+                  </Link>
+                ),
+              }
+            )}
+          </p>
           <AirtableEmbed
             title={intl.formatMessage({ id: "suggest-resource" })}
             embedId={intl.formatMessage({ id: "suggest-resource-form-id" })}

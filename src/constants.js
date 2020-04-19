@@ -1,4 +1,4 @@
-export const rtlLanguages = [`ar`]
+export const rtlLanguages = [`ar`, `ur`]
 
 export const MOBILE = 768
 

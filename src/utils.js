@@ -1,6 +1,8 @@
 export const languageName = {
   en: "English",
   es: "Español",
+  ur: "اردو",
+  pl: "Polski",
 }
 
 export const getVersionForLanguage = ({ versions, lang }) =>

@@ -14,3 +14,7 @@ This site will be regularly updated and translations to new languages are coming
 ### Want to access this tool via text message?
 
 Text "covid" to (312) 436-2280 and you can receive a list of resources on your phone.
+
+### Acknowledgments
+
+We thank the input of our community partners including Chicago United for Equity, Rohingya Cultural Center, West Side United, Organized Communities Against Deportations, The Middle Eastern Immigrant and Refugee Alliance (MIRA), Austin Coming Together, The Goodie Shop and The Firehouse Community Arts Center. Resources were compiled from original research by City Bureau’s editorial team and thanks to the existing lists created by the City of Chicago, Block Club Chicago, South Side Weekly, West Side United, Accion and ICIRR.
