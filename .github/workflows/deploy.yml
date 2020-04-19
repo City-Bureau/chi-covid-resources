@@ -51,7 +51,7 @@ jobs:
       - name: "Staging: Build and deploy"
         if: github.ref == 'refs/heads/development'
         env:
-          SITE_URL: https://covid-stage.citybureau.org
+          SITE_URL: https://covid-staging.citybureau.org
           S3_BUCKET: city-bureau-covid-staging
           CLOUDFRONT_ID: ${{ secrets.CLOUDFRONT_ID_STAGE }}
         run: |
