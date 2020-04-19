@@ -1,6 +1,6 @@
 require(`dotenv`).config()
 
-const siteUrl = `https://covid-stage.citybureau.org`
+const siteUrl = process.env.SITE_URL || `https://covid.citybureau.org`
 
 const languages = [`en`, `es`]
 
