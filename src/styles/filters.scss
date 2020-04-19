@@ -197,12 +197,24 @@ input.search {
   }
 
   .detail-column {
-    a {
-      padding: grid(1) 0;
-    }
-
     p {
-      margin-bottom: grid(1);
+      margin: grid(0.5) 0;
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &.has-link {
+        padding: 0;
+        a {
+          display: inline-block;
+          padding: grid(0.5) 0;
+        }
+      }
     }
   }
 

@@ -77,7 +77,7 @@ const ResourceRow = ({
       </div>
       <div className="column is-4 detail-column">
         {link ? (
-          <p>
+          <p className="has-link">
             <a href={link} target="_blank" rel="noopener noreferrer">
               <FontAwesomeIcon icon="external-link-alt" />
               &nbsp; {intl.formatMessage({ id: "website" })}
@@ -87,7 +87,7 @@ const ResourceRow = ({
           ``
         )}
         {phone ? (
-          <p>
+          <p className="has-link">
             <a href={`tel:${formatPhone(phone)}`}>
               <FontAwesomeIcon icon="phone" />
               &nbsp; <span dir="ltr">{phone}</span>
@@ -97,7 +97,7 @@ const ResourceRow = ({
           ``
         )}
         {email ? (
-          <p>
+          <p className="has-link">
             <a href={`mailto:${email}`}>
               <FontAwesomeIcon icon="envelope" />
               &nbsp; {email}
@@ -107,9 +107,17 @@ const ResourceRow = ({
           ``
         )}
         {address ? (
-          <p>
-            <FontAwesomeIcon icon="map-marker-alt" />
-            &nbsp; {address}
+          <p className="has-link">
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
+                address
+              )}`}
+            >
+              <FontAwesomeIcon icon="map-marker-alt" />
+              &nbsp; {address}
+            </a>
           </p>
         ) : (
           ``
