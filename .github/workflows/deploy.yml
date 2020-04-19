@@ -3,6 +3,7 @@ name: Deploy
 on:
   push:
     branches:
+      - development
       - master
   schedule:
     - cron: "6 0,3,12,15,18,21 * * *" # Run at 7pm,10pm,7am,10am,1pm,4pm and 6th minute Central
@@ -11,8 +12,6 @@ env:
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
   AWS_DEFAULT_REGION: us-east-2
-  S3_BUCKET: city-bureau-covid-staging
-  CLOUDFRONT_ID: ${{ secrets.CLOUDFRONT_ID }}
   AIRTABLE_BASE: ${{ secrets.AIRTABLE_BASE }}
   AIRTABLE_KEY: ${{ secrets.AIRTABLE_KEY }}
   AIRTABLE_TABLE: ${{ secrets.AIRTABLE_TABLE }}
@@ -49,6 +48,21 @@ jobs:
 
       - run: make install
 
-      - run: make build
+      - name: "Staging: Build and deploy"
+        if: github.ref == 'refs/heads/development'
+        env:
+          SITE_URL: https://covid-stage.citybureau.org
+          S3_BUCKET: city-bureau-covid-staging
+          CLOUDFRONT_ID: ${{ secrets.CLOUDFRONT_ID_STAGE }}
+        run: |
+          make build
+          make deploy
 
-      - run: make deploy
+      - name: "Production: Build and deploy"
+        if: github.ref == 'refs/heads/master'
+        env:
+          S3_BUCKET: city-bureau-covid-prod
+          CLOUDFRONT_ID: ${{ secrets.CLOUDFRONT_ID_PROD }}
+        run: |
+          make build
+          make deploy
