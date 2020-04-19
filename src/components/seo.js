@@ -8,6 +8,9 @@ import { rtlLanguages } from "../constants"
 function SEO({ location, description, lang, meta, title, overrideTitle }) {
   const {
     site: { siteMetadata },
+    socialImage: {
+      childImageSharp: { fixed: socialImg },
+    },
   } = useStaticQuery(
     graphql`
       query {
@@ -16,6 +19,13 @@ function SEO({ location, description, lang, meta, title, overrideTitle }) {
             author
             twitterAuthor
             siteUrl
+          }
+        }
+        socialImage: file(relativePath: { eq: "social.jpg" }) {
+          childImageSharp {
+            fixed(width: 1023) {
+              ...GatsbyImageSharpFixed
+            }
           }
         }
       }
@@ -65,8 +75,24 @@ function SEO({ location, description, lang, meta, title, overrideTitle }) {
           content: `website`,
         },
         {
+          property: `og:image`,
+          content: `${siteMetadata.siteUrl}${socialImg.src}`,
+        },
+        {
+          property: `og:image:width`,
+          content: socialImg.width,
+        },
+        {
+          property: `og:image:height`,
+          content: socialImg.height,
+        },
+        {
+          property: `og:image:alt`,
+          content: intl.formatMessage({ id: "site-logo" }),
+        },
+        {
           name: `twitter:card`,
-          content: `summary`,
+          content: `summary_large_image`,
         },
         {
           name: `twitter:creator`,
@@ -79,6 +105,14 @@ function SEO({ location, description, lang, meta, title, overrideTitle }) {
         {
           name: `twitter:description`,
           content: metaDescription,
+        },
+        {
+          name: `twitter:image:src`,
+          content: `${siteMetadata.siteUrl}${socialImg.src}`,
+        },
+        {
+          property: `twitter:image:alt`,
+          content: intl.formatMessage({ id: "site-logo" }),
         },
       ].concat(meta)}
     />
