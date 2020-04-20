@@ -84,7 +84,7 @@ function SEO({ description, lang, meta, title, overrideTitle }) {
         },
         {
           property: `og:image:alt`,
-          content: intl.formatMessage({ id: "site-logo" }),
+          content: intl.formatMessage({ id: "logo-alt" }),
         },
         {
           name: `twitter:card`,
@@ -108,7 +108,7 @@ function SEO({ description, lang, meta, title, overrideTitle }) {
         },
         {
           property: `twitter:image:alt`,
-          content: intl.formatMessage({ id: "site-logo" }),
+          content: intl.formatMessage({ id: "logo-alt" }),
         },
       ].concat(meta)}
     />
@@ -123,7 +123,6 @@ SEO.defaultProps = {
 }
 
 SEO.propTypes = {
-  location: PropTypes.object.isRequired,
   description: PropTypes.string,
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
