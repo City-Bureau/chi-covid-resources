@@ -44,8 +44,9 @@ const LANGUAGE_OPTIONS = [
   "Spanish",
   "Chinese",
   "Arabic",
-  "Tagalog",
   "Polish",
+  "Urdu",
+  "Tagalog",
   "Gujarati",
 ]
 export const LEVEL_ENUM = {
