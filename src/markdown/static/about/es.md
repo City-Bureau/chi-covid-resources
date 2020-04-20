@@ -15,6 +15,10 @@ Este sitio será actualizado regularmente y las traducciones a nuevos idiomas sa
 
 Enivar un mensaje “covid” a (312) 436-2280 y puede recibir una lista de recursos en el teléfono.
 
+### ¿Le preocupa el acceso a Internet?
+
+City Bureau se une con grupos locales para mantener informadas a las comunidades. Como parte del proyecto de la Red de Ayuda a la Información, estamos llamando a miembros de la comunidad que tienen acceso limitado a internet para ayudar a verificar los hechos rumores, responder preguntas y conectar a la gente con periodistas locales. Si desea unirse a la Red de Ayuda Informativa, envíe su nombre [aquí](https://airtable.com/shrkrEZLHrbGs8szI).
+
 ### Reconocimientos
 
 Agradecemos la contribución de nuestros socios comunitarios, incluyendo Chicago United for Equity, Rohingya Cultural Center, West Side United, Organized Communities Against Deportations, The Middle Eastern Immigrant and Refugee Alliance (MIRA), Austin Coming Together, The Goodie Shop and The Firehouse Community Arts Center. Los recursos fueron compilados de la investigación original por el equipo editorial de City Bureau y gracias a las listas existentes creadas por la Ciudad de Chicago, Block Club Chicago, South Side Weekly, West Side United, Accion and ICIRR.

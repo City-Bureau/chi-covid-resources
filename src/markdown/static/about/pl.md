@@ -16,8 +16,9 @@ Jeśli chcesz zasugerować nowe źródło, poprawkę lub aktualizację, naciśni
 
 Wyślij wiadomość “covid” na numer (312) 436-2280, aby otrzymać listę źródeł informacji w telefonie.
 
-Martwisz się o dostęp do Internetu?
-City Bureau współpracuje z lokalnymi grupami, aby informować społeczność. W ramach projektu Information Aid Network, dzwonimy do członków społeczności, którzy mają ograniczony dostęp do Internetu, aby pomóc w sprawdzaniu faktów, odpowiadaniu na pytania i łączeniu ludzi z lokalnymi dziennikarzami. Jeśli chcesz dołączyć do sieci Information Aid Network, podaj swoje imię i nazwisko tutaj.
+### Martwisz się o dostęp do Internetu?
+
+City Bureau współpracuje z lokalnymi grupami, aby informować społeczność. W ramach projektu Information Aid Network, dzwonimy do członków społeczności, którzy mają ograniczony dostęp do Internetu, aby pomóc w sprawdzaniu faktów, odpowiadaniu na pytania i łączeniu ludzi z lokalnymi dziennikarzami. Jeśli chcesz dołączyć do sieci Information Aid Network, podaj swoje imię i nazwisko [tutaj](https://airtable.com/shrkrEZLHrbGs8szI).
 
 ### Podziękowanie
 
