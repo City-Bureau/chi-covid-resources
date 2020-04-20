@@ -9,7 +9,7 @@ Chicago COVID localizador de recursos fue creado para ayudar a que la gente teng
 
 Este sitio de web es creado y mantenido por [City Bureau](https://www.citybureau.org/), un medio sin fines de lucro en la parte sur de Chicago. Nuestra misión es unir a las comunidades para producir periodismo más equitativo e impactante.
 
-Este sitio será actualizado regularmente y las traducciones a nuevos idiomas saldrán próximamente. Si desea sugerir un recurso nuevo, enviar una corrección o actualización, [vaya aquí](/en/suggest-resource/) o envíe un correo electrónico a [info@citybureau.org](mailto:info@citybureau.org).
+Este sitio será actualizado regularmente y las traducciones a nuevos idiomas saldrán próximamente. Si desea sugerir un recurso nuevo, enviar una corrección o actualización, [vaya aquí](/es/suggest-resource/) o envíe un correo electrónico a [info@citybureau.org](mailto:info@citybureau.org).
 
 ### Want to access this tool via text message?
 

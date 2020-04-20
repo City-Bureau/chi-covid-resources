@@ -2,7 +2,7 @@ require(`dotenv`).config()
 
 const siteUrl = process.env.SITE_URL || `https://covid.citybureau.org`
 
-const languages = [`en`, `es`]
+const languages = [`en`, `es`, `pl`, `ur`]
 
 module.exports = {
   siteMetadata: {
