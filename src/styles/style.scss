@@ -118,6 +118,13 @@ input[type="checkbox"] {
   }
 }
 
+html[lang="es"] {
+  .navbar-brand > a.navbar-item h1 {
+    font-size: 16px;
+    max-width: grid(25);
+  }
+}
+
 @media screen and (min-width: $tablet) {
   h1 {
     font-size: 18px;
