@@ -2,6 +2,8 @@ import React from "react"
 import PropTypes from "prop-types"
 import { useIntl } from "gatsby-plugin-intl"
 
+import { rtlLanguages } from "../constants"
+
 const FilterDescription = ({ filters, count }) => {
   const intl = useIntl()
   const filterText = Object.entries(filters)
@@ -17,7 +19,7 @@ const FilterDescription = ({ filters, count }) => {
     .reduce((acc, val) => acc.concat(val), [])
     .join(", ")
 
-  const countLocale = intl.locale === `ur` ? `ar` : intl.locale
+  const countLocale = rtlLanguages.includes(intl.locale) ? `ar-EG` : intl.locale
   const params = {
     filters: filterText,
     count: count.toLocaleString(countLocale),
