@@ -280,9 +280,22 @@ a.navbar-item {
   }
 }
 
+html[dir="rtl"] {
+  .footer {
+    a.icon-link {
+      margin-right: 0;
+      margin-left: grid(2);
+
+      &:last-child {
+        margin: 0;
+      }
+    }
+  }
+}
+
 @media screen and (max-width: $tablet) {
   .footer {
-    padding: grid(6) grid(1);
+    padding: grid(6) 0;
   }
 }
 
@@ -325,7 +338,7 @@ a.navbar-item {
   z-index: 3;
   position: fixed;
   bottom: grid(1);
-  right: grid(1);
+  left: grid(1);
   max-width: grid(30);
   padding: grid(1);
   background-color: $green;
