@@ -7,6 +7,8 @@ import recommended from "remark-preset-lint-recommended"
 import breaks from "remark-breaks"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
+import { rtlLanguages } from "../constants"
+
 const processor = remark()
   .use(recommended)
   .use(html)
@@ -39,6 +41,10 @@ const ResourceRow = ({
     intl.locale !== intl.defaultLocale && !!props[`description${intl.locale}`]
       ? props[`description${intl.locale}`]
       : description
+  const descDir =
+    !!props[`description${intl.locale}`] && rtlLanguages.includes(intl.locale)
+      ? `rtl`
+      : `ltr`
 
   return (
     <div className="resource-row columns is-multiline">
@@ -63,10 +69,11 @@ const ResourceRow = ({
         ) : (
           ``
         )}
-        <h3>{name}</h3>
+        <h3 dir="ltr">{name}</h3>
         {descriptionText ? (
           <div
             className="content"
+            dir={descDir}
             dangerouslySetInnerHTML={{
               __html: processor.processSync(descriptionText.trim()),
             }}
