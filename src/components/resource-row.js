@@ -85,7 +85,12 @@ const ResourceRow = ({
       <div className="column is-4 detail-column">
         {link ? (
           <p className="has-link">
-            <a href={link} target="_blank" rel="noopener noreferrer">
+            <a
+              href={link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="website"
+            >
               <FontAwesomeIcon icon="external-link-alt" />
               &nbsp; {intl.formatMessage({ id: "website" })}
             </a>

@@ -15,9 +15,14 @@
 
   body,
   .navbar,
+  .intro-banner,
   .resource-row:nth-child(odd),
   .tag {
     background-color: transparent !important;
+  }
+
+  .intro-banner {
+    padding-bottom: 0;
   }
 
   body,
@@ -43,10 +48,26 @@
     max-width: 100%;
   }
 
-  // Eliminated most padding but add to description column for legibility
-  .resource-row .column {
-    &:first-child {
+  a {
+    color: #000 !important;
+  }
+
+  .resource-row {
+    // Eliminated most padding but add to description column for legibility
+    .column:first-child {
       padding-right: grid(2);
+    }
+
+    .detail-column {
+      a.website {
+        color: transparent !important;
+
+        &::before {
+          content: attr(href);
+          overflow-wrap: anywhere;
+          color: #000;
+        }
+      }
     }
   }
 
