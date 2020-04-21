@@ -17,7 +17,7 @@ Soạn tin nhắn “covid” gửi tới (312) 436-2280 và quý vị sẽ nh�
 
 ### Lo lắng về việc truy cập Internet?
 
-City Bureau đang hợp tác với các nhóm địa phương để đảm bảo cộng được luôn được cập nhật thông. Là một phần của dự án Mạng lưới Hỗ trợ Thông tin, chúng tôi đang kêu gọi các thành viên cộng đồng có thể truy cập Internet giúp kiểm tra các tin đồn, trả lời câu hỏi và kết nối người dân với các nhà báo địa phương. Nếu quý vị muốn tham gia Mạng lưới Hỗ trợ Thông tin, đăng ký tên tại đây
+City Bureau đang hợp tác với các nhóm địa phương để đảm bảo cộng được luôn được cập nhật thông. Là một phần của dự án Mạng lưới Hỗ trợ Thông tin, chúng tôi đang kêu gọi các thành viên cộng đồng có thể truy cập Internet giúp kiểm tra các tin đồn, trả lời câu hỏi và kết nối người dân với các nhà báo địa phương. Nếu quý vị muốn tham gia Mạng lưới Hỗ trợ Thông tin, đăng ký tên tại [đây](https://airtable.com/shrkrEZLHrbGs8szI).
 
 ### Lời cảm ơn
 
