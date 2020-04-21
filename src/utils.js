@@ -6,6 +6,7 @@ export const languageName = {
   tl: "Tagalog",
   vi: "Tiếng Việt",
   hi: "हिन्दी",
+  ar: "اللغة العربية",
 }
 
 export const getVersionForLanguage = ({ versions, lang }) =>
