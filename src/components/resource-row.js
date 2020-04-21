@@ -86,7 +86,11 @@ const ResourceRow = ({
         {link ? (
           <p className="has-link">
             <a
-              href={link}
+              href={
+                link.trim().substr(0, 4) === "http"
+                  ? link.trim()
+                  : `http://${link.trim()}`
+              }
               target="_blank"
               rel="noopener noreferrer"
               className="website"
