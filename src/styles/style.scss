@@ -360,6 +360,12 @@ html[dir="rtl"] {
   }
 }
 
+html[lang="vi"] {
+  body {
+    font-family: $fallbackSansSerifFontStack;
+  }
+}
+
 @import "filters.scss";
 @import "print.scss";
 @import "embed.scss";

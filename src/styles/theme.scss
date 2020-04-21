@@ -41,8 +41,9 @@ $dropdownBoxShadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
 
 // Fonts
 
-$sansSerifFontStack: benton-sans, BlinkMacSystemFont, -apple-system, "Segoe UI",
+$fallbackSansSerifFontStack: BlinkMacSystemFont, -apple-system, "Segoe UI",
   "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
   "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+$sansSerifFontStack: benton-sans, $fallbackSansSerifFontStack;
 $defaultFontStack: $sansSerifFontStack;
 $defaultFontSize: 16px;
