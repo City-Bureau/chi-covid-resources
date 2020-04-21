@@ -7,10 +7,9 @@ date: 2020-03-24
 
 Wyszukiwarka COVID Chicago została stworzoana, aby pomóc ludziom uzyskać dostęp do zaktualizowanych, zweryfikowanych informacji dla Chicago i Cook County podczas pandemii koronawirusa.
 
-Ta strona jest utworzona i prowadzona przez City Bureau, labolatorium dziennikarskie- niedochodową i niepolityczną organizacją z siedzibą w południowej części Chicago. Naszą misją jest łączenie społeczności w celu tworzenia bardziej sprawiedliwych i wpływowych mediów.
+Ta strona jest utworzona i prowadzona przez [City Bureau](https://www.citybureau.org/), labolatorium dziennikarskie- niedochodową i niepolityczną organizacją z siedzibą w południowej części Chicago. Naszą misją jest łączenie społeczności w celu tworzenia bardziej sprawiedliwych i wpływowych mediów.
 
-Ta strona będzie regularnie aktualizowana, a wkrótce będą dostępne tłumaczenia na nowe języki.
-Jeśli chcesz zasugerować nowe źródło, poprawkę lub aktualizację, naciśni [tutaj](/pl/suggest-resource/) lub napisz do nas [info@citybureau.org](mailto:info@citybureau.org).
+Ta strona będzie regularnie aktualizowana, a wkrótce będą dostępne tłumaczenia na nowe języki. Jeśli chcesz zasugerować nowe źródło informacji, poprawkę lub aktualizację, naciśni [tutaj](/pl/suggest-resource/) lub napisz do nas [info@citybureau.org](mailto:info@citybureau.org).
 
 ### Chcesz uzyskać dostęp do tych informacji przez SMS?
 
