@@ -147,12 +147,12 @@ module.exports = {
           allSitePage,
         }) =>
           allSitePage.edges.map(({ node: { path } }) => ({
-            url: siteUrl + path,
+            url: `${siteUrl}/en${path}`,
             changefreq: `daily`,
             priority: path === `/` ? 1.0 : 0.7,
             links: languages
-              .map(lang => ({ lang, url: `${siteUrl}/${lang}${path}` }))
-              .concat([{ lang: `x-default`, url: siteUrl + path }]),
+              .filter(lang => lang !== `en`)
+              .map(lang => ({ lang, url: `${siteUrl}/${lang}${path}` })),
           })),
       },
     },
