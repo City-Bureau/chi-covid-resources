@@ -97,7 +97,7 @@ module.exports = {
         dsn: process.env.SENTRY_DSN,
         environment: process.env.NODE_ENV,
         enabled:
-          process.env.NODE_ENV === `production` && !siteUrl.includes(`stage`),
+          process.env.NODE_ENV === `production` && !siteUrl.includes(`staging`),
         ignoreErrors: [`ChunkLoadError`],
         blacklistUrls: [/extensions\//i, /^chrome:\/\//i],
       },
@@ -106,7 +106,7 @@ module.exports = {
       resolve: `gatsby-plugin-robots-txt`,
       options: {
         resolveEnv: () =>
-          siteUrl.includes(`stage`) ? `development` : `production`,
+          siteUrl.includes(`staging`) ? `development` : `production`,
         env: {
           development: {
             policy: [{ userAgent: "*", disallow: ["/"] }],

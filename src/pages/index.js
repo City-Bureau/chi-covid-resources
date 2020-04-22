@@ -160,7 +160,7 @@ const sendGaQueryParams = ({ search, what, who, languages, zip }) => {
   if (
     typeof window !== "undefined" &&
     window.gtag &&
-    !window.location.host.includes("stage") &&
+    !window.location.host.includes("staging") &&
     window.location.search
   ) {
     if (search && search.trim()) {
@@ -185,7 +185,7 @@ const sendGaNextPage = page => {
     page > 1 &&
     typeof window !== "undefined" &&
     window.gtag &&
-    !window.location.host.includes("stage")
+    !window.location.host.includes("staging")
   ) {
     window.gtag("event", "page", {
       event_category: window.location.pathname,

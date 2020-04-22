@@ -24,7 +24,7 @@ const Header = ({ location }) => {
 
   const onPrint = () => {
     if (typeof window === "undefined") return
-    if (window.gtag && !window.location.host.includes("stage")) {
+    if (window.gtag && !window.location.host.includes("staging")) {
       window.gtag("event", "print", {
         event_category: window.location.pathname,
         event_label: "Print",
