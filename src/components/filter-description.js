@@ -19,10 +19,11 @@ const FilterDescription = ({ filters, count }) => {
     .reduce((acc, val) => acc.concat(val), [])
     .join(", ")
 
-  const countLocale = rtlLanguages.includes(intl.locale) ? `ar-EG` : intl.locale
   const params = {
     filters: filterText,
-    count: count.toLocaleString(countLocale),
+    count: rtlLanguages.includes(intl.locale)
+      ? count.toLocaleString(`en`)
+      : intl.formatNumber(count),
   }
 
   let messageId = `filter-description-filters`
