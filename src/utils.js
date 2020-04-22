@@ -1,6 +1,7 @@
 export const languageName = {
   en: "English",
   es: "Español",
+  zh: "中文",
   ur: "اردو",
   pl: "Polski",
   tl: "Tagalog",
