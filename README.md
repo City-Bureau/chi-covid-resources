@@ -21,6 +21,12 @@ npm start
 
 To deploy the AWS S3 and Cloudfront, create an S3 bucket that allows static site hosting and a Cloudfront distribution pointing to the bucket's web hosting endpoint. Set the `S3_BUCKET` and `CLOUDFRONT_ID` environment variables with your bucket and distribution ID, and then with GNU Make installed run `make deploy`.
 
+## Acknowledgments
+
+We thank the input of our community partners including Chicago United for Equity, Rohingya Cultural Center, West Side United, Organized Communities Against Deportations, The Middle Eastern Immigrant and Refugee Alliance (MIRA), Austin Coming Together, The Goodie Shop and The Firehouse Community Arts Center. Resources were compiled from original research by City Bureau’s editorial team and thanks to the existing lists created by the City of Chicago, Block Club Chicago, South Side Weekly, West Side United, Accion and ICIRR.
+
+The setup for this project is directly inspired by the Education Justice Project's [Illinois Reentry Resources](https://reentryillinois.net/resources/), which is a fork of DataMade's [Cook County Probation Community Resources](https://probationcommunityresources.org/).
+
 ## 🧐 What's inside?
 
 A quick look at the top-level files and directories you'll see in a Gatsby project.
