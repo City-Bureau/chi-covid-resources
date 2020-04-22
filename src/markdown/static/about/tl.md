@@ -11,7 +11,7 @@ Ang website na ito ay ginawa at inuupdate ng [City Bureau](https://www.cityburea
 
 Iuupdate ang website na ito at isasalin sa iba’t ibang lenguwahe. Kung gustong magbigay mungkahi, o ng koreksyon o ng balita, magpunta [dito](/en/suggest-resource/) o mag-email sa [info@citybureau.org](mailto:info@citybureau.org).
 
-### Gusto mo bang mabasa ang rekurso na ito sa text?
+### Gusto mo bang mabasa ang resource na ito sa text?
 
 I-text ang “covid” sa (312) 436-2280 para makuha ang listahan ng rekurso
 
@@ -21,4 +21,4 @@ Ang City Bureau at ibang lokal na organisasyon ay nagtutulungan para ihatid ang 
 
 ### Pagpapasalamat
 
-Nagpapasalamat kami sa tulong ng aming mga partner sa komunidad kasama na ang: Chicago United for Equity, Rohingya Cultural Center, West Side United, Organized Communities Against Deportations, The Middle Eastern Immigrant and Refugee Alliance (MIRA), Austin Coming Together, The Goodie Shop and The Firehouse Community Arts Center. Kinolekta ng Editorial Team ng City Bureau ang mga orihinal na panunuri. Salamat rin sa mga listahang ginawa ng City of Chicago, Clock Club Chicasgo, South Side Weekly, West Side United, Accion at ICIRR."
+Nagpapasalamat kami sa tulong ng aming mga partner sa komunidad kasama na ang: Chicago United for Equity, Rohingya Cultural Center, West Side United, Organized Communities Against Deportations, The Middle Eastern Immigrant and Refugee Alliance (MIRA), Austin Coming Together, The Goodie Shop at The Firehouse Community Arts Center. Kinolekta ng Editorial Team ng City Bureau ang mga orihinal na panunuri. Salamat rin sa mga listahang ginawa ng City of Chicago, Clock Club Chicasgo, South Side Weekly, West Side United, Accion at ICIRR."
