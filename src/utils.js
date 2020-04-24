@@ -8,6 +8,7 @@ export const languageName = {
   vi: "Tiếng Việt",
   hi: "हिन्दी",
   ar: "اللغة العربية",
+  bs: "Bosanski",
 }
 
 export const getVersionForLanguage = ({ versions, lang }) =>
