@@ -6,6 +6,7 @@ import html from "remark-html"
 import recommended from "remark-preset-lint-recommended"
 import breaks from "remark-breaks"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { OutboundLink } from "gatsby-plugin-google-gtag"
 
 import { rtlLanguages } from "../constants"
 
@@ -85,7 +86,7 @@ const ResourceRow = ({
       <div className="column is-4 detail-column">
         {link ? (
           <p className="has-link">
-            <a
+            <OutboundLink
               href={
                 link.trim().substr(0, 4) === "http"
                   ? link.trim()
@@ -97,34 +98,34 @@ const ResourceRow = ({
             >
               <FontAwesomeIcon icon="external-link-alt" />
               &nbsp; {intl.formatMessage({ id: "website" })}
-            </a>
+            </OutboundLink>
           </p>
         ) : (
           ``
         )}
         {phone ? (
           <p className="has-link">
-            <a href={`tel:${formatPhone(phone)}`}>
+            <OutboundLink href={`tel:${formatPhone(phone)}`}>
               <FontAwesomeIcon icon="phone" />
               &nbsp; <span dir="ltr">{phone}</span>
-            </a>
+            </OutboundLink>
           </p>
         ) : (
           ``
         )}
         {email ? (
           <p className="has-link">
-            <a href={`mailto:${email}`}>
+            <OutboundLink href={`mailto:${email}`}>
               <FontAwesomeIcon icon="envelope" />
               &nbsp; {email}
-            </a>
+            </OutboundLink>
           </p>
         ) : (
           ``
         )}
         {address ? (
           <p className="has-link">
-            <a
+            <OutboundLink
               target="_blank"
               rel="noopener noreferrer"
               href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
@@ -133,7 +134,7 @@ const ResourceRow = ({
             >
               <FontAwesomeIcon icon="map-marker-alt" />
               &nbsp; {address}
-            </a>
+            </OutboundLink>
           </p>
         ) : (
           ``
