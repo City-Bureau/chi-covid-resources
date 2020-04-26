@@ -27,6 +27,7 @@
   "filter-description-no-results": "لم يتم العثور على نتائج لـ {filters}",
   "flag-resource-label": "خطأ في التقرير",
   "flag-resource-success": "شكراً لإعلامنا!",
+  "notes-label": "",
   "search-label": "البحث",
   "where-label": "أين",
   "zip-placeholder": "أدخل الرمز البريدي الخاص بك",

@@ -27,6 +27,7 @@
   "filter-description-no-results": "No results for {filters}",
   "flag-resource-label": "Report error",
   "flag-resource-success": "Thanks for letting us know!",
+  "notes-label": "Notes",
   "search-label": "Search",
   "where-label": "Where",
   "zip-placeholder": "Enter your ZIP code",

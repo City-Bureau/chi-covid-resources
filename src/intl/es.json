@@ -27,6 +27,7 @@
   "filter-description-no-results": "No se encontraron resultados para {filters}",
   "flag-resource-label": "Reportar error",
   "flag-resource-success": "¡Gracias por contactarnos!",
+  "notes-label": "Notas",
   "search-label": "Buscar",
   "where-label": "Dónde",
   "zip-placeholder": "Ingresa tu código postal",

@@ -15,6 +15,7 @@ import CheckboxGroup from "../components/checkbox-group"
 import DebouncedInput from "../components/debounced-input"
 import ScrollTopButton from "../components/scroll-top-button"
 import ToastMessage from "../components/toast-message"
+import ReportErrorModal from "../components/report-error-modal"
 
 import { objectFromSearchParams } from "../utils"
 import { useDebounce } from "../hooks"
@@ -244,18 +245,12 @@ const IndexPage = ({
   )
   const [expanded, setExpanded] = useState(false)
   const [page, setPage] = useState(1)
+  const [flagId, setFlagId] = useState(``)
   const [toast, setToast] = useState(``)
   const intl = useIntl()
 
   const translateOptions = options =>
     options.map(value => ({ value, label: intl.formatMessage({ id: value }) }))
-
-  // Function for creating a new flagged resource record in Airtable
-  const flagResource = ({ id }) =>
-    fetch(`${flagResourcePath}?Resource=[${id}]`)
-      .then(res => res.json())
-      .then(() => setToast(intl.formatMessage({ id: "flag-resource-success" })))
-      .catch(err => console.error(err))
 
   useEffect(() => {
     updateQueryParams(getFiltersWithValues(debounceFilters))
@@ -283,6 +278,16 @@ const IndexPage = ({
         overrideTitle
         lang={intl.locale}
       />
+      {flagId && (
+        <ReportErrorModal
+          flagResourcePath={flagResourcePath}
+          id={flagId}
+          onSuccess={() =>
+            setToast(intl.formatMessage({ id: "flag-resource-success" }))
+          }
+          onClose={() => setFlagId(``)}
+        />
+      )}
       <ToastMessage show={toast !== ``} onHide={() => setToast(``)}>
         {toast}
       </ToastMessage>
@@ -393,7 +398,7 @@ const IndexPage = ({
             {results.slice(0, page * PAGE_SIZE).map(result => (
               <ResourceRow
                 key={result.id}
-                onFlag={() => flagResource(result)}
+                onFlag={() => setFlagId(result.id)}
                 {...result}
               />
             ))}
