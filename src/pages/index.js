@@ -19,8 +19,8 @@ import ReportErrorModal from "../components/report-error-modal"
 
 import { objectFromSearchParams } from "../utils"
 import { useDebounce } from "../hooks"
-import { CHICAGO_ZIPS, ZIP_MAP } from "../zips"
-import { DEFAULT_DEBOUNCE } from "../constants"
+import ZIP_MAP from "../zip-map.json"
+import { DEFAULT_DEBOUNCE, CHICAGO_ZIPS } from "../constants"
 
 export const PAGE_SIZE = 10
 
