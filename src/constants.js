@@ -9,6 +9,7 @@ export const languageName = {
   hi: "हिन्दी",
   ar: "اللغة العربية",
   bs: "Bosanski",
+  fr: "Français",
 }
 
 export const rtlLanguages = [`ar`, `ur`]
