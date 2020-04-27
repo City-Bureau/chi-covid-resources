@@ -139,6 +139,8 @@ export const loadQueryParamFilters = (location, filters) =>
   fromEntries(
     Object.entries(objectFromSearchParams(new URLSearchParams(location.search)))
       .filter(([key, value]) => value !== "" && key in filters)
+      // Ignore non-numbers in initial ZIP query params
+      .filter(([key, value]) => key !== `zip` || !!value.replace(/\D/g, ""))
       .map(([key, value]) =>
         Array.isArray(filters[key]) ? [key, value.split(",")] : [key, value]
       )
