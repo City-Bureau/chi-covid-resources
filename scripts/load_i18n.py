@@ -31,6 +31,7 @@ KEYS = [
     "filter-description-no-results",
     "flag-resource-label",
     "flag-resource-success",
+    "notes-label",
     "search-label",
     "where-label",
     "zip-placeholder",
