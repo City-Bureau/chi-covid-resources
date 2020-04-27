@@ -1,29 +1,3 @@
-export const languageName = {
-  en: "English",
-  es: "Español",
-  zh: "中文",
-  ur: "اردو",
-  pl: "Polski",
-  tl: "Tagalog",
-  vi: "Tiếng Việt",
-  hi: "हिन्दी",
-  ar: "اللغة العربية",
-  bs: "Bosanski",
-}
-
-export const getVersionForLanguage = ({ versions, lang }) =>
-  versions.find(v => v.lang === lang)
-
-export const getResolvedVersionForLanguage = ({
-  versions,
-  lang,
-  fallbackLang,
-}) => {
-  const current = getVersionForLanguage({ versions, lang })
-  const fallback = getVersionForLanguage({ versions, lang: fallbackLang })
-  return { ...fallback, ...current }
-}
-
 export const getBasePath = ({ pathname, language }) => {
   if (pathname.startsWith(`/${language}/`)) {
     return pathname.slice(`/${language}`.length)

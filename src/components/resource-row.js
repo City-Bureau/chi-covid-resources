@@ -1,19 +1,10 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useIntl } from "gatsby-plugin-intl"
-import remark from "remark"
-import html from "remark-html"
-import recommended from "remark-preset-lint-recommended"
-import breaks from "remark-breaks"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { OutboundLink } from "gatsby-plugin-google-gtag"
 
 import { rtlLanguages } from "../constants"
-
-const processor = remark()
-  .use(recommended)
-  .use(html)
-  .use(breaks)
 
 const formatPhone = phone => {
   const phoneStr = phone.replace(/\D/gi, "")
@@ -72,13 +63,14 @@ const ResourceRow = ({
         )}
         <h3 dir="ltr">{name}</h3>
         {descriptionText ? (
-          <div
-            className="content"
-            dir={descDir}
-            dangerouslySetInnerHTML={{
-              __html: processor.processSync(descriptionText.trim()),
-            }}
-          />
+          <div dir={descDir}>
+            {descriptionText
+              .trim()
+              .split("\n")
+              .map((line, idx) => (
+                <p key={idx}>{line}</p>
+              ))}
+          </div>
         ) : (
           ``
         )}

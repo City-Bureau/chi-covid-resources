@@ -2,7 +2,8 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Link, IntlContextConsumer } from "gatsby-plugin-intl"
 
-import { getBasePath, languageName } from "../utils"
+import { languageName } from "../constants"
+import { getBasePath } from "../utils"
 import DropdownMenu from "./dropdown-menu"
 
 const LanguageSelector = ({ location, classNames }) => (

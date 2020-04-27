@@ -1,3 +1,16 @@
+export const languageName = {
+  en: "English",
+  es: "Español",
+  zh: "中文",
+  ur: "اردو",
+  pl: "Polski",
+  tl: "Tagalog",
+  vi: "Tiếng Việt",
+  hi: "हिन्दी",
+  ar: "اللغة العربية",
+  bs: "Bosanski",
+}
+
 export const rtlLanguages = [`ar`, `ur`]
 
 export const MOBILE = 768

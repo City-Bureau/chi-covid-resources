@@ -4,7 +4,8 @@ import PropTypes from "prop-types"
 import { Link, IntlContextConsumer, useIntl } from "gatsby-plugin-intl"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
-import { getBasePath, languageName } from "../utils"
+import { languageName } from "../constants"
+import { getBasePath } from "../utils"
 
 const Footer = ({ location }) => {
   const intl = useIntl()

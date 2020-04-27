@@ -3,22 +3,14 @@ import { IntlContextConsumer } from "gatsby-plugin-intl"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { graphql } from "gatsby"
-import remark from "remark"
-import html from "remark-html"
-import recommended from "remark-preset-lint-recommended"
-import { getResolvedVersionForLanguage } from "../utils"
 
-const processor = remark()
-  .use(recommended)
-  .use(html)
-
-export const Page = ({ markdown }) => (
+export const Page = ({ html }) => (
   <main className="main container">
     <article>
       <div
         className="content"
         dangerouslySetInnerHTML={{
-          __html: processor.processSync(markdown),
+          __html: html,
         }}
       />
     </article>
@@ -30,22 +22,20 @@ const PageTemplate = ({ location, data }) => (
     <IntlContextConsumer>
       {({ language: currentLanguage }) => {
         const {
-          current: {
-            fields: {
-              page: { lang: fallbackLang, versions },
-            },
+          current,
+          default: {
+            frontmatter: { title: defaultTitle },
+            html: defaultHTML,
           },
         } = data
-        const { title, markdown } = getResolvedVersionForLanguage({
-          versions,
-          lang: currentLanguage,
-          fallbackLang,
-        })
-
+        const title = current.frontmatter
+          ? current.frontmatter.title
+          : defaultTitle
+        const html = current.html || defaultHTML
         return (
           <>
             <SEO title={title} lang={currentLanguage} />
-            <Page markdown={markdown} />
+            <Page html={html} />
           </>
         )
       }}
@@ -56,24 +46,38 @@ const PageTemplate = ({ location, data }) => (
 export default PageTemplate
 
 export const pageQuery = graphql`
-  fragment FileFields on File {
-    fields {
-      page {
-        path
-        type
-        lang
-        versions {
+  query($pageId: String!, $language: String!) {
+    current: markdownRemark(
+      fields: { page: { pageId: { eq: $pageId }, lang: { eq: $language } } }
+    ) {
+      html
+      frontmatter {
+        title
+        date
+      }
+      fields {
+        page {
+          path
+          type
           lang
-          date
-          title
-          markdown
         }
       }
     }
-  }
-  query($relativePath: String!) {
-    current: file(relativePath: { eq: $relativePath }) {
-      ...FileFields
+    default: markdownRemark(
+      fields: { page: { pageId: { eq: $pageId }, lang: { eq: "en" } } }
+    ) {
+      html
+      frontmatter {
+        title
+        date
+      }
+      fields {
+        page {
+          path
+          type
+          lang
+        }
+      }
     }
   }
 `
