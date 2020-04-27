@@ -4,7 +4,7 @@ export const languageName = {
   zh: "中文",
   ur: "اردو",
   pl: "Polski",
-  tl: "Tagalog",
+  fil: "Tagalog",
   vi: "Tiếng Việt",
   hi: "हिन्दी",
   ar: "اللغة العربية",
