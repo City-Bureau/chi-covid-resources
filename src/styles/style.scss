@@ -361,6 +361,19 @@ html[dir="rtl"] {
   }
 }
 
+.label {
+  display: block;
+  font-weight: bold;
+
+  &:not(:last-child) {
+    margin-bottom: grid(1);
+  }
+}
+
+.delete {
+  @extend %delete;
+}
+
 html[lang="vi"] {
   body {
     font-family: $fallbackSansSerifFontStack;

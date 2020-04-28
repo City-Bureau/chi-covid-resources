@@ -65,17 +65,15 @@ const ReportErrorModal = ({ flagResourcePath, id, onSuccess, onClose }) => {
             />
           </header>
           <section className="modal-card-body">
-            <div className="field">
-              <label className="label" htmlFor="report-error-notes">
-                {intl.formatMessage({ id: "notes-label" })}
-              </label>
-              <textarea
-                ref={textInput}
-                className="textarea"
-                id="report-error-notes"
-                rows="2"
-              />
-            </div>
+            <label className="label" htmlFor="report-error-notes">
+              {intl.formatMessage({ id: "notes-label" })}
+            </label>
+            <textarea
+              ref={textInput}
+              className="textarea"
+              id="report-error-notes"
+              rows="2"
+            />
           </section>
           <footer className="modal-card-foot">
             <button
