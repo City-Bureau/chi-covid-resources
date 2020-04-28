@@ -215,7 +215,6 @@ const IndexPage = ({
     what: [],
     languages: [],
   }
-  const urlFilters = loadQueryParamFilters(location, defaultFilters)
   const allResults = useMemo(
     () =>
       edges
@@ -227,12 +226,7 @@ const IndexPage = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
     []
   )
-
-  // Set initial filters from URL params
-  const [filters, setFilters] = useState({
-    ...defaultFilters,
-    ...urlFilters,
-  })
+  const [filters, setFilters] = useState(defaultFilters)
   const debounceFilters = useDebounce(filters, DEFAULT_DEBOUNCE)
   const results = useMemo(
     () => applyFilters(getFiltersWithValues(debounceFilters), allResults),
@@ -253,6 +247,17 @@ const IndexPage = ({
 
   const translateOptions = options =>
     options.map(value => ({ value, label: intl.formatMessage({ id: value }) }))
+
+  useEffect(() => {
+    // Set initial filters from URL params if present
+    // Moved out of initial state to avoid hydration bugs
+    // https://stackoverflow.com/a/59653180
+    const urlFilters = loadQueryParamFilters(location, defaultFilters)
+    if (Object.keys(getFiltersWithValues(urlFilters)).length) {
+      setFilters(urlFilters)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   useEffect(() => {
     updateQueryParams(getFiltersWithValues(debounceFilters))
