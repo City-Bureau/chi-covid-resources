@@ -65,6 +65,7 @@ DebouncedInput.defaultProps = {
   value: ``,
   placeholder: ``,
   inputType: `text`,
+  classNames: ``,
   debounceTime: DEFAULT_DEBOUNCE,
 }
 

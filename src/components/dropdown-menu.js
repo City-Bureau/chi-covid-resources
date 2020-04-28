@@ -27,7 +27,7 @@ const DropdownMenu = ({ label, menuId, classNames, hasChevron, children }) => {
     <div
       className={`dropdown ${
         active === "true" ? `is-active` : ``
-      } ${classNames || ``}`}
+      } ${classNames}`}
       ref={dropdownEl}
     >
       <div className="dropdown-trigger">
