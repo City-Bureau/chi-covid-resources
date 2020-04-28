@@ -9,6 +9,7 @@ import SEO from "../components/seo"
 import FilterDescription from "../components/filter-description"
 import ResourceRow from "../components/resource-row"
 import ToastMessage from "../components/toast-message"
+import ReportErrorModal from "../components/report-error-modal"
 
 import {
   getFiltersWithValues,
@@ -28,13 +29,14 @@ const EmbedPage = ({
     allAirtable: { edges },
   },
 }) => {
-  const urlFilters = loadQueryParamFilters(location, {
+  const defaultFilters = {
     search: ``,
     zip: ``,
     who: [],
     what: [],
     languages: [],
-  })
+  }
+  const [filters, setFilters] = useState(defaultFilters)
   const allResults = useMemo(
     () =>
       edges
@@ -47,25 +49,25 @@ const EmbedPage = ({
     []
   )
   const results = useMemo(
-    () => applyFilters(getFiltersWithValues(urlFilters), allResults),
-    [allResults, urlFilters]
+    () => applyFilters(getFiltersWithValues(filters), allResults),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [filters.search, filters.zip, filters.what, filters.who, filters.languages]
   )
-
   const [page, setPage] = useState(1)
+  const [flagId, setFlagId] = useState(``)
   const [toast, setToast] = useState(``)
   const intl = useIntl()
 
   useEffect(() => {
     const pymChild = new pym.Child({ polling: 500 })
     pymChild.sendHeight()
+    // https://stackoverflow.com/a/59653180
+    const urlFilters = loadQueryParamFilters(location, defaultFilters)
+    if (Object.keys(getFiltersWithValues(urlFilters)).length) {
+      setFilters(urlFilters)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
-
-  // Function for creating a new flagged resource record in Airtable
-  const flagResource = ({ id }) =>
-    fetch(`${flagResourcePath}?Resource=[${id}]`)
-      .then(res => res.json())
-      .then(() => setToast(intl.formatMessage({ id: "flag-resource-success" })))
-      .catch(err => console.error(err))
 
   return (
     <Layout location={location} hide>
@@ -76,20 +78,30 @@ const EmbedPage = ({
         overrideTitle
         lang={intl.locale}
       />
+      {flagId && (
+        <ReportErrorModal
+          flagResourcePath={flagResourcePath}
+          id={flagId}
+          onSuccess={() =>
+            setToast(intl.formatMessage({ id: "flag-resource-success" }))
+          }
+          onClose={() => setFlagId(``)}
+        />
+      )}
       <ToastMessage show={toast !== ``} onHide={() => setToast(``)}>
         {toast}
       </ToastMessage>
       <main className="main filter-container">
         <div className="section filter-results-section">
           <FilterDescription
-            filters={getFiltersWithValues(urlFilters)}
+            filters={getFiltersWithValues(filters)}
             count={results.length}
           />
           <div className="filter-results">
             {results.slice(0, page * PAGE_SIZE).map(result => (
               <ResourceRow
                 key={result.id}
-                onFlag={() => flagResource(result)}
+                onFlag={() => setFlagId(result.id)}
                 {...result}
               />
             ))}
