@@ -1,4 +1,6 @@
 const path = require(`path`)
+const webpack = require(`webpack`)
+
 const PATH_TO_MD_PAGES = path.resolve(`src/markdown`)
 const PAGE_TEMPLATE = path.resolve(`src/templates/page-template.js`)
 
@@ -86,5 +88,21 @@ exports.createPages = async ({ graphql, actions, getNode }) => {
         fileAbsolutePath,
       },
     })
+  })
+}
+
+// Don't load unneeded formatjs formats
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    plugins: [
+      new webpack.NormalModuleReplacementPlugin(
+        /@formatjs[/\\]intl-relativetimeformat[/\\]dist[/\\]locale-data/,
+        path.resolve(`./src/stub.js`)
+      ),
+      new webpack.NormalModuleReplacementPlugin(
+        /@formatjs[/\\]intl-pluralrules[/\\]dist[/\\]locale-data/,
+        path.resolve(`./src/stub.js`)
+      ),
+    ],
   })
 }
