@@ -6,7 +6,7 @@ Find updated, verified information on resources in the Chicago area during the c
 
 ## Setup
 
-You'll need [Node](https://nodejs.org/en/) installed and an [Airtable](https://airtable.com/) account set up with the fields in [`src/pages/index.js`](./src/pages/index.js).  If you want to use the resource flagging functionality, you'll also need to deploy an AWS Lambda function using the [`serverless-airtable-button`](https://github.com/City-Bureau/serverless-airtable-button) repo. Alternatively you could replace the custom form with an Airtable embed using the `AirtableEmbed` component.
+You'll need [Node](https://nodejs.org/en/) installed and an [Airtable](https://airtable.com/) account set up with the fields in [`src/pages/index.js`](./src/pages/index.js).
 
 Copy the `.env.sample` to `.env` and fill in the values with your Airtable credentials. Then make sure to replace the `form-id` keys in `src/intl/` with the Airtable IDs of your forms. 
 
@@ -16,6 +16,10 @@ Once you've set up the prerequisites, you can install dependencies and start a s
 npm install
 npm start
 ```
+
+### Resource Flagging
+
+If you want to use the resource flagging functionality, you'll also need to deploy an AWS Lambda function using the [`serverless-airtable-button`](https://github.com/City-Bureau/serverless-airtable-button) repo. Alternatively you can replace the custom form modal with an Airtable embed using the `AirtableEmbedModal` component and setting the `prefill_Resource` param in the `queryParams` property to prefill the flagged resource.
 
 ## Deploy
 
