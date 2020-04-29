@@ -24,7 +24,7 @@
   "filter-description": "{count} les dessources disponibles. Utiliser les filtres pour clarification.",
   "filter-description-filters": "{count} les ressources disponibles pour {filters}",
   "filter-description-one-result": "1 ressource disponible pour {filters}",
-  "filter-description-no-results": "Aucun résultat disponible pour{filters}",
+  "filter-description-no-results": "Aucun résultat disponible pour {filters}",
   "flag-resource-label": "Signaleur une erreur",
   "flag-resource-success": "Merci pour votre message!",
   "notes-label": "Notes",
