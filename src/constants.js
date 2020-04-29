@@ -18,7 +18,7 @@ export const MOBILE = 768
 
 export const DEFAULT_DEBOUNCE = 250
 
-export const CHICAGO_ZIPS = [
+export const CITY_ZIPS = [
   "60601",
   "60602",
   "60603",

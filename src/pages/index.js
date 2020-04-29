@@ -20,7 +20,7 @@ import ReportErrorModal from "../components/report-error-modal"
 import { objectFromSearchParams } from "../utils"
 import { useDebounce } from "../hooks"
 import ZIP_MAP from "../zip-map.json"
-import { DEFAULT_DEBOUNCE, CHICAGO_ZIPS } from "../constants"
+import { DEFAULT_DEBOUNCE, CITY_ZIPS } from "../constants"
 
 export const PAGE_SIZE = 10
 
@@ -92,10 +92,10 @@ export const applyFilters = (filters, data) => {
       if (key === `zip` && value.replace(/\D/g, ``) in ZIP_MAP) {
         const zipVal = value.replace(/\D/g, ``)
         // Filter out Neighborhood resources if ZIP filtered
-        // Remove City resources if ZIP outside Chicago
+        // Remove City resources if ZIP outside city
         return (
           !["City", "Neighborhood"].includes(d.level) ||
-          (d.level === "City" && CHICAGO_ZIPS.includes(zipVal)) ||
+          (d.level === "City" && CITY_ZIPS.includes(zipVal)) ||
           (!!d[key] &&
             d.level === "Neighborhood" &&
             ZIP_MAP[zipVal].some(z => d[key].includes(z)))
