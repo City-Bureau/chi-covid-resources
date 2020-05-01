@@ -6,6 +6,7 @@ const languages = [
   `en`,
   `es`,
   `zh`,
+  `ar`,
   `pl`,
   `ur`,
   `fil`,
