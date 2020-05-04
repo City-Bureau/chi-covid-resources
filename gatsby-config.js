@@ -11,6 +11,7 @@ const languages = [
   `ur`,
   `fil`,
   `vi`,
+  `yo`,
   `fr`,
   `bs`,
   `hi`,

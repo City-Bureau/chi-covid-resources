@@ -374,7 +374,8 @@ html[dir="rtl"] {
   @extend %delete;
 }
 
-html[lang="vi"] {
+html[lang="vi"],
+html[lang="yo"] {
   body {
     font-family: $fallbackSansSerifFontStack;
   }

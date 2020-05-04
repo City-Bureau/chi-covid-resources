@@ -3,13 +3,14 @@ export const languageName = {
   es: "Español",
   zh: "中文",
   ar: "اللغة العربية",
-  ur: "اردو",
   pl: "Polski",
+  ur: "اردو",
   fil: "Tagalog",
   vi: "Tiếng Việt",
-  hi: "हिन्दी",
-  bs: "Bosanski",
+  yo: "Èdè Yoruba",
   fr: "Français",
+  bs: "Bosanski",
+  hi: "हिन्दी",
   ko: "한국어",
 }
 
