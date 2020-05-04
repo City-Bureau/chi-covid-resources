@@ -154,6 +154,9 @@ const updateQueryParams = filters => {
     window.document.title,
     `${window.location.protocol}//${window.location.host}${window.location.pathname}${suffix}`
   )
+  // Fire a custom event so that other components can update params
+  const event = new CustomEvent("location-search-change")
+  document.dispatchEvent(event)
 }
 
 const sendGaQueryParams = ({ search, what, who, languages, zip }) => {
