@@ -6,7 +6,7 @@ on:
       - development
       - master
   schedule:
-    - cron: "6 0,3,12,15,18,21 * * *" # Run at 7pm,10pm,7am,10am,1pm,4pm and 6th minute Central
+    - cron: "0 11,23 * * *" # Run at 6am and 6pm Central
 
 env:
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
