@@ -6,7 +6,7 @@ import { languageName } from "../constants"
 import { getBasePath } from "../utils"
 import DropdownMenu from "./dropdown-menu"
 
-const LanguageSelector = ({ location, classNames }) => {
+const LanguageSelector = ({ location, menuId, classNames }) => {
   const [queryParams, setQueryParams] = useState(location.search)
 
   // Watch for query param changes to update links
@@ -31,7 +31,7 @@ const LanguageSelector = ({ location, classNames }) => {
           key="lang-menu"
           label={languageName[language]}
           hasChevron
-          menuId="lang-menu"
+          menuId={menuId}
           classNames={`language-selector ${classNames}`}
         >
           {languages
@@ -58,10 +58,12 @@ const LanguageSelector = ({ location, classNames }) => {
 
 LanguageSelector.propTypes = {
   location: PropTypes.object.isRequired,
+  menuId: PropTypes.string,
   classNames: PropTypes.string,
 }
 
 LanguageSelector.defaultProps = {
+  menuId: `lang-menu`,
   classNames: ``,
 }
 

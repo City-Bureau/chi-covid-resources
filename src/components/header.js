@@ -45,7 +45,11 @@ const Header = ({ location }) => {
           <h1>{intl.formatMessage({ id: "site-title" })}</h1>
         </Link>
         <div className="navbar-mobile-group  is-hidden-tablet">
-          <LanguageSelector location={location} classNames="navbar-item" />
+          <LanguageSelector
+            location={location}
+            menuId="lang-menu-mobile"
+            classNames="navbar-item"
+          />
           <button
             type="button"
             className={`navbar-burger burger ${
