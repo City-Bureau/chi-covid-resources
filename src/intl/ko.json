@@ -22,7 +22,7 @@
   "intro-description": "시티 뷰로가 검증하고 수정하는 목록입니다. 시티 뷰로는 시카고에 있는 비영리 언론연구소 및 신문입니다. 전화로 연결 하고 싶은 분들은 312-436-2280으로 문자 해주십시오.",
   "close": "닫기",
   "filter-description": "이용 가능한 자원 도구가 {count}개 있습니다. 필터로 추려내세요.",
-  "filter-description-filters": "{filter}에 해당되는 자원은 {count}개입니다.",
+  "filter-description-filters": "{filters}에 해당되는 자원은 {count}개입니다.",
   "filter-description-one-result": "{filters}에 해당되는 자원은 한개입니다.",
   "filter-description-no-results": "{filters}에 해당하는 결과물이 없습니다.",
   "flag-resource-label": "오류 보고하기",
