@@ -2,11 +2,11 @@ import React, { useEffect, useRef } from "react"
 import PropTypes from "prop-types"
 import { useIntl } from "gatsby-plugin-intl"
 
-const ReportErrorModal = ({ flagResourcePath, id, onSuccess, onClose }) => {
+const ReportErrorModal = ({ reportErrorPath, id, onSuccess, onClose }) => {
   const intl = useIntl()
   const textInput = useRef()
-  const flagResource = () => {
-    fetch(`${flagResourcePath}`, {
+  const reportResourceError = () => {
+    fetch(`${reportErrorPath}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -78,7 +78,7 @@ const ReportErrorModal = ({ flagResourcePath, id, onSuccess, onClose }) => {
           <footer className="modal-card-foot">
             <button
               type="submit"
-              onClick={flagResource}
+              onClick={reportResourceError}
               className="button is-primary"
             >
               {intl.formatMessage({ id: "flag-resource-label" })}
@@ -91,7 +91,7 @@ const ReportErrorModal = ({ flagResourcePath, id, onSuccess, onClose }) => {
 }
 
 ReportErrorModal.propTypes = {
-  flagResourcePath: PropTypes.string.isRequired,
+  reportErrorPath: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   onSuccess: PropTypes.func.isRequired,
   onClose: PropTypes.func.isRequired,

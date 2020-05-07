@@ -25,7 +25,7 @@ module.exports = {
     author: `City Bureau`,
     twitterAuthor: `@city_bureau`,
     defaultLanguage: `en`,
-    flagResourcePath: process.env.FLAG_RESOURCE_PATH,
+    reportErrorPath: process.env.REPORT_ERROR_PATH,
   },
   plugins: [
     `gatsby-plugin-sass`,

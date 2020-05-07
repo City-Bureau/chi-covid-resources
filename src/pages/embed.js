@@ -24,7 +24,7 @@ const EmbedPage = ({
   location,
   data: {
     site: {
-      siteMetadata: { flagResourcePath },
+      siteMetadata: { reportErrorPath },
     },
     allAirtable: { edges },
   },
@@ -80,7 +80,7 @@ const EmbedPage = ({
       />
       {flagId && (
         <ReportErrorModal
-          flagResourcePath={flagResourcePath}
+          reportErrorPath={reportErrorPath}
           id={flagId}
           onSuccess={() =>
             setToast(intl.formatMessage({ id: "flag-resource-success" }))
@@ -134,7 +134,7 @@ export const query = graphql`
   query {
     site {
       siteMetadata {
-        flagResourcePath
+        reportErrorPath
       }
     }
     allAirtable {

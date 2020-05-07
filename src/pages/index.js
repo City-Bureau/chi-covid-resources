@@ -206,7 +206,7 @@ const IndexPage = ({
   location,
   data: {
     site: {
-      siteMetadata: { flagResourcePath },
+      siteMetadata: { reportErrorPath },
     },
     allAirtable: { edges },
   },
@@ -290,7 +290,7 @@ const IndexPage = ({
       />
       {flagId && (
         <ReportErrorModal
-          flagResourcePath={flagResourcePath}
+          reportErrorPath={reportErrorPath}
           id={flagId}
           onSuccess={() =>
             setToast(intl.formatMessage({ id: "flag-resource-success" }))
@@ -441,7 +441,7 @@ export const query = graphql`
   query {
     site {
       siteMetadata {
-        flagResourcePath
+        reportErrorPath
       }
     }
     allAirtable {
