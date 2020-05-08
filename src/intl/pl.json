@@ -1,5 +1,5 @@
 {
-  "city-bureau": "City Bureau",
+  "site-owner": "City Bureau",
   "meta-title": "Wyszukiwarka Informacji COVID",
   "site-title": "Wyszukiwarka Informacji COVID Chicago",
   "site-description": "Znajdź zweryfikowane, zaktualizowane informacje na temat żywności, pomocy prawnej, zakwaterowania, itp. podczas pandemii koronawirusa. Utworzone przez City Bureau, organizację niedochodową.",
@@ -19,7 +19,7 @@
   "feedback-intro": "City Bureau uwielbia opinie. Poinformuj nas, co myślisz, i pomóż nam ulepszyć tą stronę.",
   "feedback-intro-alt-form": "Jeśli chcesz zasugerować źródło informacji do dodania do tej strony, użyj zamiast tego formatu {thisFormLink}.",
   "filter-title": "Filtruj źródła informacji",
-  "intro-description": "Ten katalog zaktualizowany, zweryfikowany informacji został stworzony przez {cityBureauLink}, niedochodową organizację z siedzibą w Chicago. Wyślij wiadomość \"covid” na numer 312-436-2280, aby uzyskać dostęp przez telefon.",
+  "intro-description": "Ten katalog zaktualizowany, zweryfikowany informacji został stworzony przez {siteOwnerLink}, niedochodową organizację z siedzibą w Chicago. Wyślij wiadomość \"covid” na numer 312-436-2280, aby uzyskać dostęp przez telefon.",
   "close": "Zamknij",
   "filter-description": "{count} użyj filtrów, aby skrócić listę dostępnych źródeł informacji.",
   "filter-description-filters": "{count} źródła informacji dostępne dla {filters}",

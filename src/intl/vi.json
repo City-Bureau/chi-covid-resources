@@ -1,5 +1,5 @@
 {
-  "city-bureau": "City Bureau",
+  "site-owner": "City Bureau",
   "meta-title": "Hệ thống tìm kiếm thông tin về COVID",
   "site-title": "Hệ thống tìm kiếm thông tin về COVID tại Chicago",
   "site-description": "Tìm kiếm thông tin xác thực và cập nhật mới nhất về thực phẩm, hỗ trợ pháp lý, nhà ở, v.v. trong đại dịch vi-rút Corona. Được tạo bởi tòa soạn báo phi lợi nhuận City Bureau.",
@@ -16,7 +16,7 @@
   "suggest-resource-intro-alt-form": "Nếu quý vị muốn gửi ý kiến phản hồi, vui lòng điền vào {thisFormLink}.",
   "feedback": "Phản hồi",
   "feedback-form-id": "shr1rTWukivznfT8i",
-  "feedback-intro": "{cityBureauLink} rất mong có phản hồi từ quý vị. Hãy cho chúng tôi biết quý vị nghĩ gì và giúp chúng tôi xây dựng trang web này tốt hơn.",
+  "feedback-intro": "{siteOwnerLink} rất mong có phản hồi từ quý vị. Hãy cho chúng tôi biết quý vị nghĩ gì và giúp chúng tôi xây dựng trang web này tốt hơn.",
   "feedback-intro-alt-form": "Nếu quý vị muốn gợi ý một trang thông tin mới cho trang web này, vui lòng điền vào {thisFormLink}.",
   "filter-title": "Bộ lọc tìm kiếm",
   "intro-description": "Danh mục các nguồn thông tin đã được xác minh cập nhật này được tạo bởi tòa soạn báo phi lợi nhuận City Bureau. Gửi tin nhắn \"covid\" đến 312-436-2280 để truy cập trên điện thoại.",

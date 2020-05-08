@@ -7,11 +7,17 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 import LanguageSelector from "./language-selector"
 
+
 const Header = ({ location }) => {
   const [expanded, setExpanded] = useState("false")
-  const imageData = useStaticQuery(graphql`
+  const headerData = useStaticQuery(graphql`
     query {
-      file: file(relativePath: { eq: "icon.png" }) {
+      site {
+        siteMetadata {
+          siteTerritory
+        }
+      }
+      imageData: file(relativePath: { eq: "icon.png" }) {
         childImageSharp {
           fixed(width: 48) {
             ...GatsbyImageSharpFixed
@@ -38,11 +44,11 @@ const Header = ({ location }) => {
       <div className="navbar-brand">
         <Link className="navbar-item" to="/">
           <Img
-            fixed={imageData.file.childImageSharp.fixed}
-            style={{ minWidth: imageData.file.childImageSharp.fixed.width }}
+            fixed={headerData.imageData.childImageSharp.fixed}
+            style={{ minWidth: headerData.imageData.childImageSharp.fixed.width }}
             alt={intl.formatMessage({ id: "logo-alt" })}
           />
-          <h1>{intl.formatMessage({ id: "site-title" })}</h1>
+          <h1>{intl.formatMessage({ id: "site-title" }, {city: headerData.site.siteMetadata.siteTerritory })}</h1>
         </Link>
         <div className="navbar-mobile-group  is-hidden-tablet">
           <LanguageSelector

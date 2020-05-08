@@ -3,7 +3,7 @@ import json
 import sys
 
 KEYS = [
-    "city-bureau",
+    "site-owner",
     "meta-title",
     "site-title",
     "site-description",

@@ -6,7 +6,7 @@ const Redirect = ({ intl }) => (
   <SEO
     title={`${intl.formatMessage({
       id: "meta-title",
-    })} | ${intl.formatMessage({ id: "city-bureau" })}`}
+    })} | ${intl.formatMessage({ id: "site-owner" })}`}
     overrideTitle
     lang={intl.locale}
   />

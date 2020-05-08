@@ -40,6 +40,7 @@ const WHO_OPTIONS = [
   "Business Owners",
   "Students",
 ]
+// ideally these could get tied to what is identified as supported in config
 const LANGUAGE_OPTIONS = [
   "English",
   "Spanish",
@@ -284,7 +285,7 @@ const IndexPage = ({
       <SEO
         title={`${intl.formatMessage({
           id: "meta-title",
-        })} | ${intl.formatMessage({ id: "city-bureau" })}`}
+        })} | ${intl.formatMessage({ id: "site-owner" })}`}
         overrideTitle
         lang={intl.locale}
       />

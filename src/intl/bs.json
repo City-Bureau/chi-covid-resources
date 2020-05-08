@@ -1,5 +1,5 @@
 {
-  "city-bureau": "City Bureau",
+  "site-owner": "City Bureau",
   "meta-title": "COVID informativni pretraživač",
   "site-title": "COVID informativni pretraživač za Chicago",
   "site-description": "Ovdje možete naći provjerene i ažurirane informacije o namirnicama, pravnoj pomoći, smještaju i ostalim životnim potrepštinama tokom pandemije koronavirusa. Ovaj pretraživač je kreacija City Bureau-a, koji je neprofitna novinska organizacija.",
@@ -19,7 +19,7 @@
   "feedback-intro": "City Bureau poštuje vaše mišljenje i uz vašu pomoć želi poboljšati ovu stranicu.",
   "feedback-intro-alt-form": "Ako želite predložiti stranicu koju biste željeli uključiti u ovu listu, molimo vas da ispunite {thisFormLink}.",
   "filter-title": "Filtriraj stranice",
-  "intro-description": "Ova lista ažuriranih i provjerenih resursa je kreacija {cityBureauLink}-a koji je neprofitna novinska organizacija sa sjedištem u Chicagu. Ako nas želite kontaktirati putem telefona, pošaljite poruku „covid“ na broj 312-436-2280.",
+  "intro-description": "Ova lista ažuriranih i provjerenih resursa je kreacija {siteOwnerLink}-a koji je neprofitna novinska organizacija sa sjedištem u Chicagu. Ako nas želite kontaktirati putem telefona, pošaljite poruku „covid“ na broj 312-436-2280.",
   "close": "Zatvori",
   "filter-description": "{count} dostupnih stranica, koristite fitere da skratite listu",
   "filter-description-filters": "{count} dostupnih stranica za {filters}",

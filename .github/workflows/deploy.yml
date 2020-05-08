@@ -53,7 +53,7 @@ jobs:
         if: github.ref == 'refs/heads/development'
         env:
           SITE_URL: https://covid-staging.citybureau.org
-          S3_BUCKET: city-bureau-covid-staging
+          S3_BUCKET: site-owner-covid-staging
           CLOUDFRONT_ID: ${{ secrets.CLOUDFRONT_ID_STAGE }}
         run: |
           make build
@@ -62,7 +62,7 @@ jobs:
       - name: "Production: Build and deploy"
         if: github.ref == 'refs/heads/master'
         env:
-          S3_BUCKET: city-bureau-covid-prod
+          S3_BUCKET: site-owner-covid-prod
           CLOUDFRONT_ID: ${{ secrets.CLOUDFRONT_ID_PROD }}
         run: |
           make build

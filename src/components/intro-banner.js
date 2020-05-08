@@ -29,13 +29,13 @@ const IntroBanner = () => {
           {intl.formatMessage(
             { id: "intro-description" },
             {
-              cityBureauLink: (
+              siteOwnerLink: (
                 <a
                   href="https://www.citybureau.org/"
                   target="_blank"
                   rel="noopener"
                 >
-                  {intl.formatMessage({ id: "city-bureau" })}
+                  {intl.formatMessage({ id: "site-owner" })}
                 </a>
               ),
             }
