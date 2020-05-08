@@ -48,6 +48,11 @@ a {
   }
 }
 
+.input::placeholder,
+.textarea::placeholder {
+  color: inherit;
+}
+
 input[type="checkbox"] {
   appearance: none;
   width: grid(3);
