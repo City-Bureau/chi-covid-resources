@@ -26,12 +26,12 @@ The quickest and easiest way to make sure you have the fields required is to:
 
 1. To make sure that form submissions will work correctly,replace the `form-id` keys in `src/intl/` with the Airtable IDs of your forms.
 
-Once you've set up the prerequisites, you can install dependencies and start a server at [localhost:8000](http://localhost:8000) with:
+1. Once you've set up the prerequisites, you can install dependencies and start a server at [localhost:8000](http://localhost:8000) with:
 
-```bash
-npm install
-npm start
-```
+    ```bash
+    npm install
+    npm start
+    ```
 
 ### Reporting Resource Errors
 
