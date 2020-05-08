@@ -7,10 +7,10 @@ clean:
 	rm -rf public .cache
 
 install:
-	yarn
+	npm install
 
 build:
-	yarn build
+	npm run build
 
 deploy:
 	aws s3 sync public/ s3://${S3_BUCKET} --acl=public-read --cache-control "public, max-age=31536000" --exclude "*.html" --exclude "page-data/*.json" --exclude "manifest.webmanifest" --exclude "sitemap.xml"

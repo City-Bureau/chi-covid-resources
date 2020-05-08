@@ -43,7 +43,7 @@ jobs:
         uses: actions/cache@v1
         with:
           path: node_modules
-          key: npm-${{ hashFiles('**/yarn.lock') }}
+          key: npm-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             npm-
 
