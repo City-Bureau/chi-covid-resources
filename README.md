@@ -8,7 +8,23 @@ Find updated, verified information on resources in the Chicago area during the c
 
 You'll need [Node](https://nodejs.org/en/) installed and an [Airtable](https://airtable.com/) account set up with the fields in [`src/pages/index.js`](./src/pages/index.js).
 
-Make a copy of the Airtable [COVID Resource Finder base template](https://airtable.com/universe/expTcZwYlcgfz7c3U/covid-resource-finder-template). Copy the `.env.sample` to `.env` and fill in the values with your Airtable [API key](https://support.airtable.com/hc/en-us/articles/219046777-How-do-I-get-my-API-key-) and information about your base. Then make sure to replace the `form-id` keys in `src/intl/` with the Airtable IDs of your forms. 
+The quickest and easiest way to make sure you have the fields required is to:
+
+1. Clone this repository to a location of your choosing: `git clone https://github.com/City-Bureau/chi-covid-resources.git`
+
+1. Make a copy of this Airtable [COVID Resource Finder base template](https://airtable.com/universe/expTcZwYlcgfz7c3U/covid-resource-finder-template). 
+
+1. Copy the `.env.sample` to `.env` and fill in the values with your Airtable [API key](https://support.airtable.com/hc/en-us/articles/219046777-How-do-I-get-my-API-key-) and information about your base. The minimum requirements to build the site correctly are values for AIRTABLE_BASE, AIRTABLE_KEY, and AIRTABLE_TABLE. You can also provide a value for the view, like so:
+```
+AIRTABLE_BASE="appkz5EStpFHaq9jv"
+AIRTABLE_KEY="yourairtableapikey"
+AIRTABLE_TABLE="Directory"
+AIRTABLE_VIEW="Approved"
+REPORT_ERROR_PATH=
+```
+Fetching and populating this data relies on the [gatsby-source-airtable](https://www.gatsbyjs.org/packages/gatsby-source-airtable/). 
+
+1. To make sure that form submissions will work correctly,replace the `form-id` keys in `src/intl/` with the Airtable IDs of your forms.
 
 Once you've set up the prerequisites, you can install dependencies and start a server at [localhost:8000](http://localhost:8000) with:
 
