@@ -1,7 +1,7 @@
 {
   "site-owner": "City Bureau",
   "meta-title": "COVID Resource Finder",
-  "site-title": "{city} COVID Resource Finder",
+  "site-title": "{siteTerritory} COVID Resource Finder",
   "site-description": "Find verified, updated info on food, legal help, housing, etc. during the coronavirus pandemic. Created by City Bureau, a nonprofit newsroom.",
   "logo-alt": "Site logo",
   "not-found-title": "NOT FOUND",

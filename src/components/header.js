@@ -48,7 +48,7 @@ const Header = ({ location }) => {
             style={{ minWidth: headerData.imageData.childImageSharp.fixed.width }}
             alt={intl.formatMessage({ id: "logo-alt" })}
           />
-          <h1>{intl.formatMessage({ id: "site-title" }, {city: headerData.site.siteMetadata.siteTerritory })}</h1>
+          <h1>{intl.formatMessage({ id: "site-title" }, {siteTerritory: headerData.site.siteMetadata.siteTerritory })}</h1>
         </Link>
         <div className="navbar-mobile-group  is-hidden-tablet">
           <LanguageSelector
