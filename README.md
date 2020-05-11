@@ -24,7 +24,7 @@ The quickest and easiest way to make sure you have the fields required is to:
     ```
     Fetching and populating this data relies on the [gatsby-source-airtable](https://www.gatsbyjs.org/packages/gatsby-source-airtable/). 
 
-1. To make sure that form submissions will work correctly,replace the `form-id` keys in `src/intl/` with the Airtable IDs of your forms.
+1. To make sure that form submissions will work correctly,replace the `form-id` keys in `src/intl/` with the Airtable IDs of your forms. You can find the form ID at the end of the URL displayed in the "Share form" control of your form view `https://airtable.com/{FORM_ID}`.
 
 1. Once you've set up the prerequisites, you can install dependencies and start a server at [localhost:8000](http://localhost:8000) with:
 
@@ -37,9 +37,31 @@ The quickest and easiest way to make sure you have the fields required is to:
 
 If you want to use the functionality for reporting errors with resources, you'll need to deploy an AWS Lambda function using the [`serverless-airtable-button`](https://github.com/City-Bureau/serverless-airtable-button) repo. Alternatively you can replace the custom form modal with an Airtable embed using the `AirtableEmbedModal` component and setting the `prefill_Resource` param in the `queryParams` property to prefill the flagged resource.
 
+### Internationalization
+
+Multilingual support is provided through [`gatsby-plugin-intl`](https://github.com/wiziple/gatsby-plugin-intl). Translated phrases are located in JSON files in the [`src/intl/`](./src/intl/) directory, and translated Markdown pages are in [`src/markdown/static`](./src/markdown/tatic/).
+
+Some of the content is specific to City Bureau, but the majority of the translated phrases are not. You can configure which languages are displayed by modifying the `languages` array in [`gatsby-config.js`](./gatsby-config.js).
+
+The Python script [`scripts/load_i18n.py`](./scripts/load_i18n.py) is used to load translated content directly from a publicly viewable Google Sheet with this structure:
+
+| ID    | English | Spanish   |
+|-------|---------|-----------|
+| home  | Home    | Inicio    |
+| about | About   | Acerca de |
+
+To load the Spanish column's translations for all of the keys in the `KEYS` list, you'll need to set the `SPREADSHEET_ID` environment variable to the Google Sheet ID (found in the URL) and run:
+
+```bash
+make src/intl/i18n.csv
+cat src/intl/i18n.csv | python scripts/load_i18n.py Spanish > src/intl/es.json
+```
+
+You can replace "Spanish" in the command with the column name that has completed translations.
+
 ## Deploy
 
-To deploy the AWS S3 and Cloudfront, create an S3 bucket that allows static site hosting and a Cloudfront distribution pointing to the bucket's web hosting endpoint. Set the `S3_BUCKET` and `CLOUDFRONT_ID` environment variables with your bucket and distribution ID, and then with GNU Make installed run `make deploy`.
+To deploy the AWS S3 and Cloudfront, create an S3 bucket that allows static site hosting and a Cloudfront distribution pointing to the bucket's web hosting endpoint. Set the `S3_BUCKET` and `CLOUDFRONT_ID` environment variables with your bucket and distribution ID, and then with GNU Make and the [AWS CLI](https://aws.amazon.com/cli/) installed run `make deploy`.
 
 ## Acknowledgments
 
