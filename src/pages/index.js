@@ -19,8 +19,11 @@ import ReportErrorModal from "../components/report-error-modal"
 
 import { objectFromSearchParams } from "../utils"
 import { useDebounce } from "../hooks"
+import { DEFAULT_DEBOUNCE } from "../constants"
+// Array of ZIP codes for resources that should be checked for city-level resources
+import CITY_ZIPS from "../city-zips.json"
+// Mapping of ZIP codes to arrays of ZIP codes they overlap for proximity search
 import ZIP_MAP from "../zip-map.json"
-import { DEFAULT_DEBOUNCE, CITY_ZIPS } from "../constants"
 
 export const PAGE_SIZE = 10
 
