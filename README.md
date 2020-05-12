@@ -59,6 +59,12 @@ cat src/intl/i18n.csv | python scripts/load_i18n.py Spanish > src/intl/es.json
 
 You can replace "Spanish" in the command with the column name that has completed translations.
 
+### ZIP Code Search
+
+To avoid the overhead and additional network requests of a geocoder, we're using a pre-generated mapping of ZIP codes to other ZIP codes they overlap to do a fuzzy ZIP search. You can update the mapping for your area by using our repo [City-Bureau/nearby-zip-map](https://github.com/City-Bureau/nearby-zip-map) to create a new file and replace the one in [`src/data/zip-map.json`](./src/data/zip-map.json).
+
+Some of our resources are specific to the city of Chicago while others are available to the surrounding region. To make sure users searching ZIP codes outside of Chicago don't see Chicago resources, we're using a static list of city ZIP codes to determine whether resources are displayed when a ZIP code is searched. To replicate this for your area you can update the file [`src/data/city-zips.json`](./src/data/city-zips.json).
+
 ## Deploy
 
 To deploy the AWS S3 and Cloudfront, create an S3 bucket that allows static site hosting and a Cloudfront distribution pointing to the bucket's web hosting endpoint. Set the `S3_BUCKET` and `CLOUDFRONT_ID` environment variables with your bucket and distribution ID, and then with GNU Make and the [AWS CLI](https://aws.amazon.com/cli/) installed run `make deploy`.

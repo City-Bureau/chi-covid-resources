@@ -21,9 +21,9 @@ import { objectFromSearchParams } from "../utils"
 import { useDebounce } from "../hooks"
 import { DEFAULT_DEBOUNCE } from "../constants"
 // Array of ZIP codes for resources that should be checked for city-level resources
-import CITY_ZIPS from "../city-zips.json"
+import CITY_ZIPS from "../data/city-zips.json"
 // Mapping of ZIP codes to arrays of ZIP codes they overlap for proximity search
-import ZIP_MAP from "../zip-map.json"
+import ZIP_MAP from "../data/zip-map.json"
 
 export const PAGE_SIZE = 10
 
