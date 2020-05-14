@@ -96,11 +96,11 @@ exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
     plugins: [
       new webpack.NormalModuleReplacementPlugin(
-        /@formatjs[/\\]intl-relativetimeformat[/\\]dist[/\\]locale-data/,
+        /@formatjs[/\\]intl-relativetimeformat/,
         path.resolve(`./src/stub.js`)
       ),
       new webpack.NormalModuleReplacementPlugin(
-        /@formatjs[/\\]intl-pluralrules[/\\]dist[/\\]locale-data/,
+        /@formatjs[/\\]intl-pluralrules/,
         path.resolve(`./src/stub.js`)
       ),
     ],
