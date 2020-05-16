@@ -53,6 +53,16 @@ a {
   color: inherit;
 }
 
+.label.required {
+  position: relative;
+
+  &::before {
+    content: "\2731\fe0e";
+    position: absolute;
+    left: grid(-2);
+  }
+}
+
 input[type="checkbox"] {
   appearance: none;
   width: grid(3);

@@ -4,8 +4,10 @@ import { useIntl } from "gatsby-plugin-intl"
 
 const ReportErrorModal = ({ reportErrorPath, id, onSuccess, onClose }) => {
   const intl = useIntl()
+  const modalRef = useRef()
   const textInput = useRef()
-  const reportResourceError = () => {
+  const reportResourceError = e => {
+    e.preventDefault()
     fetch(`${reportErrorPath}`, {
       method: "POST",
       headers: {
@@ -34,7 +36,7 @@ const ReportErrorModal = ({ reportErrorPath, id, onSuccess, onClose }) => {
       }
     }
     const docClickListener = e => {
-      if (textInput && !textInput.current.contains(e.target)) {
+      if (modalRef && !modalRef.current.contains(e.target)) {
         onClose()
       }
     }
@@ -51,8 +53,13 @@ const ReportErrorModal = ({ reportErrorPath, id, onSuccess, onClose }) => {
   return (
     <div className="modal is-active">
       <div className="modal-background" />
-      <div className="modal-card">
-        <form id="report-error-form" name="report-error" action="">
+      <div className="modal-card" ref={modalRef}>
+        <form
+          id="report-error-form"
+          name="report-error"
+          action=""
+          onSubmit={reportResourceError}
+        >
           <header className="modal-card-head">
             <h2 className="modal-card-title">
               {intl.formatMessage({ id: "flag-resource-label" })}
@@ -65,7 +72,7 @@ const ReportErrorModal = ({ reportErrorPath, id, onSuccess, onClose }) => {
             />
           </header>
           <section className="modal-card-body">
-            <label className="label" htmlFor="report-error-notes">
+            <label className="label required" htmlFor="report-error-notes">
               {intl.formatMessage({ id: "notes-label" })}
             </label>
             <textarea
@@ -73,14 +80,11 @@ const ReportErrorModal = ({ reportErrorPath, id, onSuccess, onClose }) => {
               className="textarea"
               id="report-error-notes"
               rows="2"
+              required
             />
           </section>
           <footer className="modal-card-foot">
-            <button
-              type="submit"
-              onClick={reportResourceError}
-              className="button is-primary"
-            >
+            <button type="submit" className="button is-primary">
               {intl.formatMessage({ id: "flag-resource-label" })}
             </button>
           </footer>
