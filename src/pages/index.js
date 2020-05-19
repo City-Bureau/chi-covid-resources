@@ -149,8 +149,18 @@ export const loadQueryParamFilters = (location, filters) =>
       )
   )
 
-const updateQueryParams = filters => {
-  const params = new URLSearchParams(filters)
+const updateQueryParams = (filters, removeKeys) => {
+  // Retain query params not included in the params we're updating
+  const initParams = fromEntries(
+    Object.entries(
+      objectFromSearchParams(new URLSearchParams(window.location.search))
+    ).filter(([key, _]) => !removeKeys.includes(key))
+  )
+  // Merge the existing, unwatched params with the filter params
+  const params = new URLSearchParams({
+    ...initParams,
+    ...filters,
+  })
   const suffix = params.toString() === `` ? `` : `?${params}`
   window.history.replaceState(
     {},
@@ -266,7 +276,13 @@ const IndexPage = ({
   }, [])
 
   useEffect(() => {
-    updateQueryParams(getFiltersWithValues(debounceFilters))
+    updateQueryParams(getFiltersWithValues(debounceFilters), [
+      `search`,
+      `zip`,
+      `what`,
+      `who`,
+      `languages`,
+    ])
     sendGaQueryParams(debounceFilters)
     if (page !== 1) setPage(1)
     // eslint-disable-next-line react-hooks/exhaustive-deps
