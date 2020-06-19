@@ -1,5 +1,5 @@
 {
-  "city-bureau": "City Bureau",
+  "site-owner": "City Bureau",
   "meta-title": "Tagahanap ng Resources Tungkol sa COVID",
   "site-title": "Tagahanap ng Resources Tungkol sa COVID sa Chicago",
   "site-description": "Maghanap ng impormasyon ukol sa pagkain, batas, bahay at iba pa habang merong coronavirus pandemic. Likha ng City Bureau, isang pahayagang  NGO.",
@@ -19,7 +19,7 @@
   "feedback-intro": "Gusto ng City Bureau makatanggap ng puna. Sabihin sa amin ang palagay ninyo at tulungan kaming pagbutihin ang website na ito.",
   "feedback-intro-alt-form": "Kung gusto mong magbigay ng puna sa site na ito, gamitin ang {thisFormLink} na ito.",
   "filter-title": "Maghanap ng resource",
-  "intro-description": "Ginawa ng {cityBureauLink} ang direktoryo ng bagong and beripikadong resource na ito. Ang City Bureau ay isang pahayagang NGO sa Chicago. I-text ang \"covid\" sa 312-436-2280 para makakuha ng impormasyon sa cellphone.",
+  "intro-description": "Ginawa ng {siteOwnerLink} ang direktoryo ng bagong and beripikadong resource na ito. Ang City Bureau ay isang pahayagang NGO sa Chicago. I-text ang \"covid\" sa 312-436-2280 para makakuha ng impormasyon sa cellphone.",
   "close": "Isara",
   "filter-description": "{count} resources ang nakuha. Gamitin and filter upang umiksi ang listahan.",
   "filter-description-filters": "{count} resources ang nakuha para sa {filters}",

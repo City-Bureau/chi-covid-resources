@@ -55,7 +55,7 @@ const Footer = ({ location, intl }) => (
                   target="_blank"
                   rel="noopener"
                 >
-                  {intl.formatMessage({ id: "city-bureau" })}
+                  {intl.formatMessage({ id: "site-owner" })}
                 </a>
               </p>
               <div className="social-icons">

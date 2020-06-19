@@ -1,5 +1,5 @@
 {
-  "city-bureau": "City Bureau",
+  "site-owner": "City Bureau",
   "meta-title": "Buscador de Recursos del COVID",
   "site-title": "Buscador de Recursos del COVID en Chicago",
   "site-description": "Encuentra información verificada y actualizada sobre alimentación, asistencia legal, vivienda, etc. durante la pandemia del coronavirus. Creado por City Bureau, una prensa sin fines de lucro.",
@@ -19,7 +19,7 @@
   "feedback-intro": "A City Bureau le encantan los comentarios generales. Dínos qué piensas y ayúdanos a mejorar este sitio.",
   "feedback-intro-alt-form": "Si deseas sugerir que se agregue un recurso al sitio, por favor utiliza {thisFormLink} en su lugar.",
   "filter-title": "Filtrar recursos",
-  "intro-description": "Este directorio de recursos actualizados y verificados fue creado por {cityBureauLink}, una prensa sin fines de lucro ubicada en Chicago. Envía el mensaje \"covid\" a 312-436-2280 para acceder por teléfono.",
+  "intro-description": "Este directorio de recursos actualizados y verificados fue creado por {siteOwnerLink}, una prensa sin fines de lucro ubicada en Chicago. Envía el mensaje \"covid\" a 312-436-2280 para acceder por teléfono.",
   "close": "Cerrar",
   "filter-description": "{count} recursos disponibles, utiliza los filtros para acortar la lista",
   "filter-description-filters": "{count} recursos disponibles para {filters}",
