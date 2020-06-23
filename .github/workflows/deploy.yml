@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - development
-      - master
+      - main
   schedule:
     - cron: "6 0,3,12,15,18,21 * * *" # Run at 7pm,10pm,7am,10am,1pm,4pm and 6th minute Central
 
@@ -60,7 +60,7 @@ jobs:
           make deploy
 
       - name: "Production: Build and deploy"
-        if: github.ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/main'
         env:
           S3_BUCKET: city-bureau-covid-prod
           CLOUDFRONT_ID: ${{ secrets.CLOUDFRONT_ID_PROD }}
