@@ -29,7 +29,7 @@ const IntroBanner = () => {
           {intl.formatMessage(
             { id: "intro-description" },
             {
-              211Link: (
+              TwoOneOneLink: (
                 <a
                   href="https://211metrochicago.org/"
                   target="_blank"

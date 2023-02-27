@@ -19,7 +19,7 @@
   "feedback-intro": "City Bureau loves feedback. Let us know what you think and help us make this site better.",
   "feedback-intro-alt-form": "If you'd like to suggest a resource to be added to this site, please use {thisFormLink} instead.",
   "filter-title": "Filter resources",
-  "intro-description": "COVID Resource Finder is no longer updated regularly. Dial 211 (or visit {211Link}) to access information about local resources.",
+  "intro-description": "COVID Resource Finder is no longer updated regularly. Dial 211 (or visit {TwoOneOneLink}) to access information about local resources.",
   "close": "Close",
   "filter-description": "{count} resources available, use the filters to shorten the list",
   "filter-description-filters": "{count} resources available for {filters}",
